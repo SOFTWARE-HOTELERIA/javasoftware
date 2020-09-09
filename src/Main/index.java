@@ -3,20 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package test;
+package Main;
+
+import DatabaseConfig.Conexion;
 
 /**
  *
  * @author josel
  */
-public class Test {
-
-    /**
-     * @param args the command line arguments
-     */
+public class index {
     public static void main(String[] args) {
-        System.out.println("working with github");
-     
+        //define host,port,user,password,database
+        Conexion conexion = new Conexion("localhost",3306,"root","root","prueba");
+        conexion.getConexionMysql();
+        
     }
     
 }
