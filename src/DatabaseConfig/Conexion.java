@@ -7,11 +7,11 @@ import java.sql.SQLException;
  * @author josel
  */
 public class Conexion {
-    String host;
-    String password;
-    String user;
-    String database;
-    int port;
+    private final String host;
+    private final String password;
+    private final String user;
+    private final String database;
+    private final int port;
     Connection conexion=null;
     public Conexion(String h, int por,String u,String pass,String db){
         this.host=h;
@@ -22,7 +22,7 @@ public class Conexion {
     }
     public void getConexionMysql(){
         try{
-            String url="jdbc:mysql://"+this.host+":"+this.port;
+            String url="jdbc:mysql://"+this.host+":"+this.port+"?useSSL=false";
             conexion = DriverManager.getConnection(url,this.user,this.password);
             if(conexion != null){
                 System.out.println("conexion establecida");
