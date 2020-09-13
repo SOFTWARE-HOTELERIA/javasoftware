@@ -31,9 +31,7 @@ public class Conexion {
            System.out.println("error conexion verificar user and password: "+e);
         }
     }
-    public void getConexionPostgrest(){
-        
-    }
+    
     
     
 }
