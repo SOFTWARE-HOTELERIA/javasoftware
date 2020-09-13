@@ -2,9 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
+        <group/>
+=======
         <group>
             <file>file:/C:/Users/josel/Desktop/PROYECTO_JAVA/javasoftware/src/DatabaseConfig/Conexion.java</file>
             <file>file:/C:/Users/josel/Desktop/PROYECTO_JAVA/javasoftware/src/Main/index.java</file>
         </group>
+>>>>>>> 4c4ad4792626ab3c2dc36c23a3a22fbdb0579d71
     </open-files>
 </project-private>
