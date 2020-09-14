@@ -17,7 +17,7 @@ public class index {
         Conexion conexion = new Conexion("localhost",3306,"root","root","prueba");
         conexion.getConexionMysql();
         //  cambio de git 
-        
+        // cambios de git con jota
     }
     
 }
