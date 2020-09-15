@@ -36,15 +36,15 @@ public class Conexion implements IConnection{
                 case "mariadb":
                     url="jdbc:"+this.type+"://"+this.host+":"+this.port+"/"+this.database;
                     break;
-                case "postgres":
+                case "postgresql":
                     url="jdbc:"+this.type+"://"+this.host+":"+this.port+"/"+this.database;
                     break;
                 case "sqlserver":
                      url="jdbc:"+this.type+"://"+this.host+":"+this.port+";databaseName="+this.database;
                      break;
                 default:
-                    System.out.println("Only Define mysql,mariadb,postgres,sqlserver");
-                    break;
+                    System.out.println(Color.RED + "Only Define mysql,mariadb,postgresql,sqlserver");
+                    return null;
             }
             conexion = DriverManager.getConnection(url,this.user,this.password);
             if(conexion != null){

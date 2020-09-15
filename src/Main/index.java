@@ -13,7 +13,7 @@ import DatabaseConfig.Conexion;
  */
 public class index {
     public static void main(String[] args) {
-        Conexion conexion = new Conexion("localhost","postgres",5432,"postgres","postgres","postgres");
+        Conexion conexion = new Conexion("localhost","QWE",1433,"root","root","farmacia");
         conexion.getConexion();
         
         
