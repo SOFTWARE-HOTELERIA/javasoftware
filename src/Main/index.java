@@ -13,11 +13,11 @@ import DatabaseConfig.Conexion;
  */
 public class index {
     public static void main(String[] args) {
-        //define host,port,user,password,database = host,port,usuario,contraseña,database
-        Conexion conexion = new Conexion("localhost",3306,"root","root","prueba");
-        conexion.getConexionMysql();
-        //  cambio de git 
-        
+
+        //define host,port,user,password,database
+        Conexion conexion = new Conexion("localhost",5432,"postgres","gordita","postgres");
+        conexion.getConexionpostgres();
+
         
     }
     
