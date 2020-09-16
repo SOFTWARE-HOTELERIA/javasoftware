@@ -14,8 +14,12 @@ import DatabaseConfig.Conexion;
 public class index {
     public static void main(String[] args) {
 
-        Conexion conexion = new Conexion("localhost",5432,"postgres","postgres","php2");
-        conexion.getConexionpostgres();
+        Conexion conexion = new Conexion("localhost", 3306, "root", "marco","mariadb");
+       conexion.getMariadB();
+ 
+        
+        
+
     }
     
 }
