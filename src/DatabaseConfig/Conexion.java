@@ -2,6 +2,8 @@ package DatabaseConfig;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author josel
@@ -32,18 +34,35 @@ public class Conexion {
         }
     }
 
+
      public void getConexionpostgres(){
-        try{
+     
             String url="jdbc:postgresql://"+this.host+":"+this.port+"/"+this.database;
-            conexion = DriverManager.getConnection(url,this.user,this.password);
+            try {
+                conexion = DriverManager.getConnection(url,this.user,this.password);
+            } catch (SQLException ex) {
+                Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+            }
             if(conexion != null){
                 System.out.println("conexion establecida");
+            }
+        }
+    public void getMariadB() {
+           try{
+            String url="jdbc:mariadb://"+this.host+":"+this.port+"/"+this.database;
+            conexion = DriverManager.getConnection(url,this.user,this.password);
+            if(conexion != null){
+                System.out.println("Conexion Exitosa");
             }
         }catch(SQLException e){
            System.out.println("error conexion verificar user and password: "+e);
         }
+
      }
    
+
+    }
+
     
     
-}
+
