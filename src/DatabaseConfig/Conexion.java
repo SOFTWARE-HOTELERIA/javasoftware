@@ -33,7 +33,7 @@ public class Conexion {
     }
      public void getConexionpostgres(){
         try{
-            String url="jdbc:postgresql://"+this.host+":"+this.port;
+            String url="jdbc:postgresql://"+this.host+":"+this.port+"/"+this.database;
             conexion = DriverManager.getConnection(url,this.user,this.password);
             if(conexion != null){
                 System.out.println("conexion establecida");
