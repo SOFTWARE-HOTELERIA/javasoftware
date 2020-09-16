@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DatabaseConfig;
-import java.sql.Connection;
+package Interfaces;
 
 /**
  *
  * @author josel
  */
-public interface IConnection {
-    public Connection getConexion();
+public interface INumero {
+    public boolean suma(int a,int b);
 }

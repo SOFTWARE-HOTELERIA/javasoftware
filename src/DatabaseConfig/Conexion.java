@@ -1,4 +1,6 @@
 package DatabaseConfig;
+import Interfaces.IConnection;
+import Config.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -25,17 +27,13 @@ public class Conexion implements IConnection{
         this.database=db;
     }
     public Connection getConexion(){
+         System.out.println(Color.GREEN + "Connection Database ==> "+ this.type);
         try{
-            System.out.println(Color.GREEN + "Connection Database ==> "+ this.type);
-            System.out.println(Color.PURPLE + "Port Connection ==> "+ this.port);
-            //System.out.println("Conexion On ==> " + this.type+"\n Execute on Port ==>"+this.port);
             switch(this.type){
                 case "mysql":
                     url="jdbc:"+this.type+"://"+this.host+":"+this.port+"/"+this.database+"?useSSL=false";
                     break;
                 case "mariadb":
-                    url="jdbc:"+this.type+"://"+this.host+":"+this.port+"/"+this.database;
-                    break;
                 case "postgresql":
                     url="jdbc:"+this.type+"://"+this.host+":"+this.port+"/"+this.database;
                     break;
@@ -48,7 +46,6 @@ public class Conexion implements IConnection{
             }
             conexion = DriverManager.getConnection(url,this.user,this.password);
             if(conexion != null){
-                System.out.println("conexion establecida");
                 return conexion;
             }
         }catch(SQLException e){
@@ -56,5 +53,14 @@ public class Conexion implements IConnection{
         }
         return null;
     }
-    
+//    public void getDataConexion(){
+//       if(conexion != null){
+//            System.out.println(Color.GREEN + "Connection Database ==> "+ this.type);
+//            System.out.println(Color.PURPLE + "Port Connection ==> "+ this.port);
+//            System.out.println("conexion establecida");
+//            return;
+//       }else{
+//           System.out.println(Color.RED + "Problema de conexion");
+//       }
+//    }
 }
