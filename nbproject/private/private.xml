@@ -2,13 +2,25 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+        <group>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/view/VistaSuma.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/services/ServiceNumero.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/controller/ControllerSuma.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/model/Numero.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/Interfaces/INumero.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/DatabaseConfig/Conexion.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/TEST/TestHere.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/Interfaces/IConnection.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/Main/index.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/Config/Color.java</file>
+        </group>
+
         <group>
             <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/DatabaseConfig/Conexion.java</file>
             <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/Main/index.java</file>
         </group>
-=======
+
 
         <group/>
 
@@ -22,12 +34,10 @@
 
         </group>
 
->>>>>>> e29c00637e4d264c533d37b79050f9f75c36b94e
-=======
+
         <group>
             <file>file:/C:/Users/Usuario/Desktop/PROYECTO_JAVA/javasoftware/src/Main/index.java</file>
             <file>file:/C:/Users/Usuario/Desktop/PROYECTO_JAVA/javasoftware/src/DatabaseConfig/Conexion.java</file>
         </group>
->>>>>>> 844a769... Finalize test Mariadb
     </open-files>
 </project-private>
