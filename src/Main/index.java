@@ -21,6 +21,13 @@ public class index {
     conexion.getDataConexion();
     controller = new ControllerSuma(tb);
     tb.setVisible(true);
+
+        Conexion conexion = new Conexion("localhost", 3306, "root", "marco","mariadb");
+       conexion.getMariadB();
+ 
+        
+        
+
     }
  
 }
