@@ -26,8 +26,7 @@ public class Conexion implements IConnection{
         this.password=pass;
         this.database=db;
     }
-    public Connection getConexion(){
-         System.out.println(Color.GREEN + "Connection Database ==> "+ this.type);
+    public void getDataConexion(){
         try{
             switch(this.type){
                 case "mysql":
@@ -42,25 +41,20 @@ public class Conexion implements IConnection{
                      break;
                 default:
                     System.out.println(Color.RED + "Only Define mysql,mariadb,postgresql,sqlserver");
-                    return null;
+                    break;
             }
             conexion = DriverManager.getConnection(url,this.user,this.password);
             if(conexion != null){
-                return conexion;
+                System.out.println(Color.GREEN + "Connection Database ==> "+ this.type);
+                System.out.println(Color.PURPLE + "Connection port ==> "+ this.port);
+                System.out.println("Conexion establecida");
             }
         }catch(SQLException e){
            System.out.println("Error de Conexion : "+e);
         }
-        return null;
     }
-//    public void getDataConexion(){
-//       if(conexion != null){
-//            System.out.println(Color.GREEN + "Connection Database ==> "+ this.type);
-//            System.out.println(Color.PURPLE + "Port Connection ==> "+ this.port);
-//            System.out.println("conexion establecida");
-//            return;
-//       }else{
-//           System.out.println(Color.RED + "Problema de conexion");
-//       }
-//    }
+    //export connection object
+    public Connection getConexion(){
+       return conexion;
+    }
 }

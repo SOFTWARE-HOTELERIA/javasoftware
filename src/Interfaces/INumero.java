@@ -5,10 +5,12 @@
  */
 package Interfaces;
 
+import model.Numero;
+
 /**
  *
  * @author josel
  */
 public interface INumero {
-    public boolean suma(int a,int b);
+    public boolean suma(Numero num);
 }

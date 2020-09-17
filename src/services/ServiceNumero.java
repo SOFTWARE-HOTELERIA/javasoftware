@@ -19,23 +19,16 @@ import java.sql.SQLException;
 
 public class ServiceNumero implements INumero{
 
-   @Override
-    public boolean suma(int a,int b) {
-        //conn.conexion.getConexion(); problema here we need static attribute
-            Numero num = new Numero(a,b);
-      try {
+    public boolean suma(Numero num) {
+      
+        try {
            String sql = "INSERT INTO numero(a,b,suma) values(?,?,?)";
              PreparedStatement query = index.conexion.getConexion().prepareStatement(sql);
-             query.setInt(1,a);
-             query.setInt(2,b);
+             query.setInt(1,num.getA());
+             query.setInt(2,num.getB());
              query.setInt(3,num.Suma());
-            int res = query.executeUpdate(); //get 1 or 0
-            if(res > 0){
-              System.out.println("correct ");
-               return true;
-           }else{
-               return false;
-           }
+             int res = query.executeUpdate(); //get 1 or 0
+            return res > 0;
        } catch (SQLException ex) {
            System.out.println(Color.RED + "Problema " + ex);
        }

@@ -18,32 +18,41 @@ import view.VistaSuma;
  */
 public class ControllerSuma implements ActionListener{
     
-   private VistaSuma view;
+   private final VistaSuma view;
    private Numero num;
-   private ServiceNumero servicenum=new ServiceNumero();
+   private final ServiceNumero servicenum=new ServiceNumero();
    public static String mensaje;
     public ControllerSuma(VistaSuma view) {
         this.view = view;
-        this.view.Sumar.addActionListener(this);
+        VistaSuma.Sumar.addActionListener(this);
     }
-       public void showMessage(String mensaje){
-         this.view.txtMensaje.setText(mensaje);
+    public void showMessage(String mensaje){
+         VistaSuma.txtMensaje.setText(mensaje);
     }
+   @Override
      public void actionPerformed(ActionEvent e) {
-         if(VistaSuma.Sumar == e.getSource()){
-              if(view.txt1.getText().equals("") || view.txt2.getText().equals("")){
-                 this.view.txtMensaje.setText("falta completar");
+        if(VistaSuma.Sumar == e.getSource()){
+     
+              if(VistaSuma.txt1.getText().equals("") || view.txt2.getText().equals("")){
+                 VistaSuma.txtMensaje.setText("falta completar");
              }else{
-                    int num1 = Integer.parseInt(view.txt1.getText());
-                    int num2 = Integer.parseInt(view.txt2.getText());
-                    boolean output = servicenum.suma(num1,num2);
+                  try {
+                    int num1 = Integer.parseInt(this.view.txt1.getText());
+                    int num2 = Integer.parseInt(this.view.txt2.getText());
+                    num = new Numero(num1,num2);
+                    boolean output = servicenum.suma(num);
                     if(output){
                         showMessage("Registrado Correctamente");
                     }else{
-                           showMessage("Problema al registrar");
-                    }
+                         showMessage("Problema al registrar");
+                    } 
+                  }catch (NumberFormatException ef) {
+                     showMessage("Ingresar enteros");
+                }
+
               }
-         }
+         }  
+         
      }
   
 }
