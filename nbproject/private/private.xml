@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
         <group>
             <file>file:/C:/Users/JHONATAN/Desktop/postgres/PROYECTO_JAVA/javasoftware/src/DatabaseConfig/Conexion.java</file>
@@ -13,6 +14,25 @@
             <file>file:/C:/Users/Usuario/Desktop/PROYECTO_JAVA/javasoftware/src/Main/index.java</file>
             <file>file:/C:/Users/Usuario/Desktop/PROYECTO_JAVA/javasoftware/src/DatabaseConfig/Conexion.java</file>
         </group>
+=======
+        <group/>
+        <group>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/view/VistaReporteQuery.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/view/VistaLogin.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/view/VistaConsulta.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/view/VistaMenu.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/view/VistaHabitacion.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/Main/index.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/Config/Color.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/view/VistaSuma.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/controller/ControllerSuma.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/model/Numero.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/DatabaseConfig/Conexion.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/Interfaces/INumeroDao.java</file>
+            <file>file:/C:/Users/josel/Desktop/GRUPO_JAVA_ING.SOFTWARE/javasoftware/java_application/src/Interfaces/IConnection.java</file>
+        </group>
+        <group/>
+>>>>>>> a67005c8ca802db072163b67e97f36e1a8e414f8
         <group/>
         <group/>
     </open-files>

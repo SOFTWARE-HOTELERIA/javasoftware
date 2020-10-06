@@ -6,7 +6,7 @@
 package Main;
 
 import DatabaseConfig.Conexion; //get package datbaseconfig
-import view.VistaSuma;
+import presentancion.VistaSuma;
 import controller.ControllerSuma;
 
 /**

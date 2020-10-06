@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package TEST;
+package model;
 
 /**
  *
  * @author josel
  */
-public class TestHere {
-    
-    
-    
+public class Number {
+    public int addNumber(int a,int b){
+            return a+b;
+    }
 }
