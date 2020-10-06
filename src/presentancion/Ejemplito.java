@@ -16,6 +16,8 @@ public class Ejemplito extends javax.swing.JFrame {
      */
     public Ejemplito() {
         initComponents();
+        setVisible(true);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -27,31 +29,280 @@ public class Ejemplito extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        pp1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        pp2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        pp3 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        panel_centre = new javax.swing.JPanel();
+        p1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        p2 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        p3 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(900, 650));
 
-        jLabel1.setText("HOLA DESAROLLADORES");
+        jPanel1.setMinimumSize(new java.awt.Dimension(300, 650));
+        jPanel1.setPreferredSize(new java.awt.Dimension(300, 650));
+        jPanel1.setLayout(null);
+
+        pp1.setBackground(new java.awt.Color(153, 95, 32));
+        pp1.setMinimumSize(new java.awt.Dimension(300, 50));
+        pp1.setPreferredSize(new java.awt.Dimension(300, 50));
+        pp1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mouseclicked(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Mongolian Baiti", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("REGISTRO DE HABITACIONES");
+
+        javax.swing.GroupLayout pp1Layout = new javax.swing.GroupLayout(pp1);
+        pp1.setLayout(pp1Layout);
+        pp1Layout.setHorizontalGroup(
+            pp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pp1Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jLabel2)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+        pp1Layout.setVerticalGroup(
+            pp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pp1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(pp1);
+        pp1.setBounds(0, 171, 300, 50);
+
+        pp2.setBackground(new java.awt.Color(153, 95, 32));
+        pp2.setMinimumSize(new java.awt.Dimension(300, 50));
+        pp2.setPreferredSize(new java.awt.Dimension(300, 50));
+        pp2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mouseclicked(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Mongolian Baiti", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("REPORTES DE HOSPEDAJES");
+
+        javax.swing.GroupLayout pp2Layout = new javax.swing.GroupLayout(pp2);
+        pp2.setLayout(pp2Layout);
+        pp2Layout.setHorizontalGroup(
+            pp2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pp2Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jLabel4)
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+        pp2Layout.setVerticalGroup(
+            pp2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pp2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(pp2);
+        pp2.setBounds(0, 220, 300, 50);
+
+        pp3.setBackground(new java.awt.Color(153, 95, 32));
+        pp3.setMinimumSize(new java.awt.Dimension(300, 50));
+        pp3.setPreferredSize(new java.awt.Dimension(300, 50));
+        pp3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mouseclicked(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Mongolian Baiti", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("COSTO DE HABITACIONES");
+
+        javax.swing.GroupLayout pp3Layout = new javax.swing.GroupLayout(pp3);
+        pp3.setLayout(pp3Layout);
+        pp3Layout.setHorizontalGroup(
+            pp3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pp3Layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(jLabel5)
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+        pp3Layout.setVerticalGroup(
+            pp3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pp3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(pp3);
+        pp3.setBounds(0, 270, 300, 50);
+
+        jPanel5.setBackground(new java.awt.Color(85, 58, 38));
+        jPanel5.setMinimumSize(new java.awt.Dimension(169, 133));
+        jPanel5.setPreferredSize(new java.awt.Dimension(169, 133));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/usuario.png"))); // NOI18N
+        jLabel1.setPreferredSize(new java.awt.Dimension(124, 117));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(5, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel5);
+        jPanel5.setBounds(52, 11, 169, 133);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/hotel.jpg"))); // NOI18N
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(0, 0, 300, 650);
+
+        panel_centre.setLayout(new java.awt.CardLayout());
+
+        p1.setMinimumSize(new java.awt.Dimension(600, 650));
+        p1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Mouseclick(evt);
+            }
+        });
+
+        jLabel6.setText("panel 1");
+
+        javax.swing.GroupLayout p1Layout = new javax.swing.GroupLayout(p1);
+        p1.setLayout(p1Layout);
+        p1Layout.setHorizontalGroup(
+            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p1Layout.createSequentialGroup()
+                .addGap(206, 206, 206)
+                .addComponent(jLabel6)
+                .addContainerGap(359, Short.MAX_VALUE))
+        );
+        p1Layout.setVerticalGroup(
+            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p1Layout.createSequentialGroup()
+                .addGap(242, 242, 242)
+                .addComponent(jLabel6)
+                .addContainerGap(394, Short.MAX_VALUE))
+        );
+
+        panel_centre.add(p1, "card2");
+
+        p2.setMinimumSize(new java.awt.Dimension(600, 650));
+
+        jLabel7.setText("panel 2");
+
+        javax.swing.GroupLayout p2Layout = new javax.swing.GroupLayout(p2);
+        p2.setLayout(p2Layout);
+        p2Layout.setHorizontalGroup(
+            p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p2Layout.createSequentialGroup()
+                .addContainerGap(300, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(265, 265, 265))
+        );
+        p2Layout.setVerticalGroup(
+            p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p2Layout.createSequentialGroup()
+                .addGap(246, 246, 246)
+                .addComponent(jLabel7)
+                .addContainerGap(390, Short.MAX_VALUE))
+        );
+
+        panel_centre.add(p2, "card3");
+
+        p3.setMinimumSize(new java.awt.Dimension(600, 650));
+        p3.setPreferredSize(new java.awt.Dimension(600, 650));
+
+        jLabel8.setText("panel 3");
+
+        javax.swing.GroupLayout p3Layout = new javax.swing.GroupLayout(p3);
+        p3.setLayout(p3Layout);
+        p3Layout.setHorizontalGroup(
+            p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p3Layout.createSequentialGroup()
+                .addGap(270, 270, 270)
+                .addComponent(jLabel8)
+                .addContainerGap(295, Short.MAX_VALUE))
+        );
+        p3Layout.setVerticalGroup(
+            p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p3Layout.createSequentialGroup()
+                .addGap(260, 260, 260)
+                .addComponent(jLabel8)
+                .addContainerGap(376, Short.MAX_VALUE))
+        );
+
+        panel_centre.add(p3, "card4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(147, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(138, 138, 138))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panel_centre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(145, 145, 145)
-                .addComponent(jLabel1)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel_centre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void mouseclicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseclicked
+        if(evt.getSource()==pp1){
+            p1.setVisible(true);
+            p2.setVisible(false);
+            p3.setVisible(false);
+        }
+        if(evt.getSource()==pp2){
+            p1.setVisible(false);
+            p2.setVisible(true);
+            p3.setVisible(false);
+        }
+        if(evt.getSource()==pp3){
+            p1.setVisible(false);
+            p2.setVisible(false);
+            p3.setVisible(true);
+        }
+    }//GEN-LAST:event_mouseclicked
+
+    private void Mouseclick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mouseclick
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mouseclick
 
     /**
      * @param args the command line arguments
@@ -90,5 +341,21 @@ public class Ejemplito extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel p1;
+    private javax.swing.JPanel p2;
+    private javax.swing.JPanel p3;
+    private javax.swing.JPanel panel_centre;
+    private javax.swing.JPanel pp1;
+    private javax.swing.JPanel pp2;
+    private javax.swing.JPanel pp3;
     // End of variables declaration//GEN-END:variables
 }
