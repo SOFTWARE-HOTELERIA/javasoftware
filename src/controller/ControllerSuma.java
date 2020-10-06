@@ -9,8 +9,8 @@ import DatabaseConfig.Conexion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.Numero;
-import services.ServiceNumero;
-import view.VistaSuma;
+import DAO.NumeroDao;
+import presentancion.VistaSuma;
 
 /**
  *
@@ -20,7 +20,7 @@ public class ControllerSuma implements ActionListener{
     
    private final VistaSuma view;
    private Numero num;
-   private final ServiceNumero servicenum=new ServiceNumero();
+   private final NumeroDao servicenum=new NumeroDao();
    public static String mensaje;
     public ControllerSuma(VistaSuma view) {
         this.view = view;
@@ -40,12 +40,12 @@ public class ControllerSuma implements ActionListener{
                     int num1 = Integer.parseInt(this.view.txt1.getText());
                     int num2 = Integer.parseInt(this.view.txt2.getText());
                     num = new Numero(num1,num2);
-                    boolean output = servicenum.suma(num);
-                    if(output){
-                        showMessage("Registrado Correctamente");
+                    boolean res = num.create(); //DEFINE INT
+                    if(res){
+                        showMessage("Nice");
                     }else{
-                         showMessage("Problema al registrar");
-                    } 
+                        showMessage("Ingresar enteros");
+                    }
                   }catch (NumberFormatException ef) {
                      showMessage("Ingresar enteros");
                 }
