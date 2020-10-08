@@ -5,19 +5,24 @@
  */
 package presentancion;
 
+import java.awt.Font;
+import font.font;
 /**
  *
  * @author josel
  */
 public class Ejemplito extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Ejemplito
-     */
+    font tipoFuente;
     public Ejemplito() {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
+        tipoFuente=new font();
+        jLabel2.setFont(tipoFuente.fuente(tipoFuente.MONTSERRAT,1,18));
+        jLabel4.setFont(tipoFuente.fuente(tipoFuente.MONTSERRAT,1,18));
+        jLabel5.setFont(tipoFuente.fuente(tipoFuente.MONTSERRAT,1,18));
+       
     }
 
     /**
@@ -40,12 +45,12 @@ public class Ejemplito extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         panel_centre = new javax.swing.JPanel();
-        p1 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
         p2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         p3 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        p1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(900, 650));
@@ -63,7 +68,7 @@ public class Ejemplito extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Mongolian Baiti", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Mongolian Baiti", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("REGISTRO DE HABITACIONES");
 
@@ -72,16 +77,16 @@ public class Ejemplito extends javax.swing.JFrame {
         pp1Layout.setHorizontalGroup(
             pp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pp1Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addContainerGap()
                 .addComponent(jLabel2)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         pp1Layout.setVerticalGroup(
             pp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pp1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jPanel1.add(pp1);
@@ -96,7 +101,7 @@ public class Ejemplito extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Mongolian Baiti", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("REPORTES DE HOSPEDAJES");
 
@@ -105,16 +110,16 @@ public class Ejemplito extends javax.swing.JFrame {
         pp2Layout.setHorizontalGroup(
             pp2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pp2Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         pp2Layout.setVerticalGroup(
             pp2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pp2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jPanel1.add(pp2);
@@ -129,7 +134,7 @@ public class Ejemplito extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Mongolian Baiti", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Mongolian Baiti", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("COSTO DE HABITACIONES");
 
@@ -137,17 +142,17 @@ public class Ejemplito extends javax.swing.JFrame {
         pp3.setLayout(pp3Layout);
         pp3Layout.setHorizontalGroup(
             pp3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pp3Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pp3Layout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
         );
         pp3Layout.setVerticalGroup(
             pp3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pp3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jPanel1.add(pp3);
@@ -157,62 +162,28 @@ public class Ejemplito extends javax.swing.JFrame {
         jPanel5.setMinimumSize(new java.awt.Dimension(169, 133));
         jPanel5.setPreferredSize(new java.awt.Dimension(169, 133));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/usuario.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/user.jpg"))); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(124, 117));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(5, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel5);
-        jPanel5.setBounds(52, 11, 169, 133);
+        jPanel5.setBounds(10, 3, 250, 150);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/hotel.jpg"))); // NOI18N
         jPanel1.add(jLabel3);
         jLabel3.setBounds(0, 0, 300, 650);
 
         panel_centre.setLayout(new java.awt.CardLayout());
-
-        p1.setMinimumSize(new java.awt.Dimension(600, 650));
-        p1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Mouseclick(evt);
-            }
-        });
-
-        jLabel6.setText("panel 1");
-
-        javax.swing.GroupLayout p1Layout = new javax.swing.GroupLayout(p1);
-        p1.setLayout(p1Layout);
-        p1Layout.setHorizontalGroup(
-            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p1Layout.createSequentialGroup()
-                .addGap(206, 206, 206)
-                .addComponent(jLabel6)
-                .addContainerGap(359, Short.MAX_VALUE))
-        );
-        p1Layout.setVerticalGroup(
-            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p1Layout.createSequentialGroup()
-                .addGap(242, 242, 242)
-                .addComponent(jLabel6)
-                .addContainerGap(394, Short.MAX_VALUE))
-        );
-
-        panel_centre.add(p1, "card2");
 
         p2.setMinimumSize(new java.awt.Dimension(600, 650));
 
@@ -261,13 +232,42 @@ public class Ejemplito extends javax.swing.JFrame {
 
         panel_centre.add(p3, "card4");
 
+        p1.setMinimumSize(new java.awt.Dimension(600, 650));
+        p1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Mouseclick(evt);
+            }
+        });
+
+        jLabel6.setText("panel 1");
+
+        javax.swing.GroupLayout p1Layout = new javax.swing.GroupLayout(p1);
+        p1.setLayout(p1Layout);
+        p1Layout.setHorizontalGroup(
+            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p1Layout.createSequentialGroup()
+                .addGap(206, 206, 206)
+                .addComponent(jLabel6)
+                .addContainerGap(359, Short.MAX_VALUE))
+        );
+        p1Layout.setVerticalGroup(
+            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p1Layout.createSequentialGroup()
+                .addGap(242, 242, 242)
+                .addComponent(jLabel6)
+                .addContainerGap(394, Short.MAX_VALUE))
+        );
+
+        panel_centre.add(p1, "card2");
+        p1.getAccessibleContext().setAccessibleName("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panel_centre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
