@@ -16,7 +16,7 @@ import controller.ControllerSuma;
 public class index {
     public static ControllerSuma controller;
     public static VistaSuma tb = new VistaSuma(); //null main index require instance
-    public static Conexion conexion= new Conexion("localhost","mysql",3306,"root","root","java");
+    public static Conexion conexion= new Conexion("localhost","sqlserver",1433,"bruno","bruno","CARNICERIA");
     public static void main(String[] args) {
     conexion.getDataConexion();
     controller = new ControllerSuma(tb);
