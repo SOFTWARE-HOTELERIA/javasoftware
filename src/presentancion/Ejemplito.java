@@ -22,6 +22,7 @@ public class Ejemplito extends javax.swing.JFrame {
         jLabel2.setFont(tipoFuente.fuente(tipoFuente.MONTSERRAT,1,18));
         jLabel4.setFont(tipoFuente.fuente(tipoFuente.MONTSERRAT,1,18));
         jLabel5.setFont(tipoFuente.fuente(tipoFuente.MONTSERRAT,1,18));
+        jLabel9.setFont(tipoFuente.fuente(tipoFuente.MONTSERRAT, 1, 20));
        
     }
 
@@ -41,8 +42,8 @@ public class Ejemplito extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         pp3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         panel_centre = new javax.swing.JPanel();
         p2 = new javax.swing.JPanel();
@@ -53,11 +54,10 @@ public class Ejemplito extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(900, 650));
 
         jPanel1.setMinimumSize(new java.awt.Dimension(300, 650));
         jPanel1.setPreferredSize(new java.awt.Dimension(300, 650));
-        jPanel1.setLayout(null);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pp1.setBackground(new java.awt.Color(153, 95, 32));
         pp1.setMinimumSize(new java.awt.Dimension(300, 50));
@@ -89,8 +89,7 @@ public class Ejemplito extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jPanel1.add(pp1);
-        pp1.setBounds(0, 171, 300, 50);
+        jPanel1.add(pp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, -1, -1));
 
         pp2.setBackground(new java.awt.Color(153, 95, 32));
         pp2.setMinimumSize(new java.awt.Dimension(300, 50));
@@ -122,8 +121,7 @@ public class Ejemplito extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        jPanel1.add(pp2);
-        pp2.setBounds(0, 220, 300, 50);
+        jPanel1.add(pp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, -1, -1));
 
         pp3.setBackground(new java.awt.Color(153, 95, 32));
         pp3.setMinimumSize(new java.awt.Dimension(300, 50));
@@ -155,33 +153,18 @@ public class Ejemplito extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jPanel1.add(pp3);
-        pp3.setBounds(0, 270, 300, 50);
+        jPanel1.add(pp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, -1, -1));
 
-        jPanel5.setBackground(new java.awt.Color(85, 58, 38));
-        jPanel5.setMinimumSize(new java.awt.Dimension(169, 133));
-        jPanel5.setPreferredSize(new java.awt.Dimension(169, 133));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/user.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/pruebita.gif"))); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(124, 117));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 160, 120));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel5);
-        jPanel5.setBounds(10, 3, 250, 150);
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("LOREM IMPSUN");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 134, 190, 50));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/hotel.jpg"))); // NOI18N
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(0, 0, 300, 650);
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, -1));
 
         panel_centre.setLayout(new java.awt.CardLayout());
 
@@ -348,8 +331,8 @@ public class Ejemplito extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel p1;
     private javax.swing.JPanel p2;
     private javax.swing.JPanel p3;
