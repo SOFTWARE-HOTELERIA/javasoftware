@@ -157,7 +157,7 @@ public class Ejemplito extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/pruebita.gif"))); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(124, 117));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 160, 120));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 160, 140));
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("LOREM IMPSUN");
