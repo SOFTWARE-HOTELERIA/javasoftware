@@ -48,6 +48,7 @@ public class Ejemplito extends javax.swing.JFrame {
         panel_centre = new javax.swing.JPanel();
         p2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         p3 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         p1 = new javax.swing.JPanel();
@@ -172,6 +173,8 @@ public class Ejemplito extends javax.swing.JFrame {
 
         jLabel7.setText("panel 2");
 
+        jLabel10.setText("hola");
+
         javax.swing.GroupLayout p2Layout = new javax.swing.GroupLayout(p2);
         p2.setLayout(p2Layout);
         p2Layout.setHorizontalGroup(
@@ -180,11 +183,17 @@ public class Ejemplito extends javax.swing.JFrame {
                 .addContainerGap(300, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addGap(265, 265, 265))
+            .addGroup(p2Layout.createSequentialGroup()
+                .addGap(263, 263, 263)
+                .addComponent(jLabel10)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         p2Layout.setVerticalGroup(
             p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(p2Layout.createSequentialGroup()
-                .addGap(246, 246, 246)
+                .addGap(160, 160, 160)
+                .addComponent(jLabel10)
+                .addGap(72, 72, 72)
                 .addComponent(jLabel7)
                 .addContainerGap(390, Short.MAX_VALUE))
         );
@@ -324,6 +333,7 @@ public class Ejemplito extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
