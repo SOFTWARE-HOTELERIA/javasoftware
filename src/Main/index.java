@@ -5,7 +5,7 @@
  */
 package Main;
 
-import DatabaseConfig.Conexion; //get package datbaseconfig
+import Config.Conexion; //get package datbaseconfig
 
 import controller.ControllerSuma;
 

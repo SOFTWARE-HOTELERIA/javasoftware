@@ -1,4 +1,4 @@
-package DatabaseConfig;
+package Config;
 import Interfaces.IConnection;
 import Config.Color;
 import java.sql.Connection;
