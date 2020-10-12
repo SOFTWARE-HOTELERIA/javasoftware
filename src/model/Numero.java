@@ -9,7 +9,6 @@ package model;
  *
  * @author josel
  */
-import DAO.NumeroDao;
 
 public class Numero {
     private int a;
@@ -37,28 +36,6 @@ public class Numero {
     }
    
    
-    //obtiene a la par dos funciones
-    //una vez obtenido las dos funciones trabaja en etapas 
-    
-    //CREATE
-    public boolean create(){
-      try{
-           return CRUD().insert(this);
-      }catch(Exception ex){
-          System.out.println(ex);
-      }
-      return false;
-    }
-    //READ
-    //public void findId(){
-     //   return CRUD()
-    //}
-    //UPDATE
-    
-    //DELETE
-    
-    public NumeroDao CRUD(){
-        return new NumeroDao();
-    }
+
  
 }
