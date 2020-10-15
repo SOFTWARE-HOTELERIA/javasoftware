@@ -1,5 +1,4 @@
 package Config;
-import Interfaces.IConnection;
 import Config.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,7 +11,7 @@ import java.util.logging.Logger;
  *
  * @author josel
  */
-public class Conexion implements IConnection{
+public class Conexion {
     private final String host;
     private final String password;
     private final String user;
