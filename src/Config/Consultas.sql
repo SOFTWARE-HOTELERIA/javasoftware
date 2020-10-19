@@ -9,9 +9,9 @@
  */
 
 --consulta #1 BUSQUEDA CLIENTE fijate en el figma lo que te pide
-SELECT c.nombre,c.apellido,c.telefono,c.documentoId,c.correo ,c.nacionalidad 
+SELECT c.nombre,c.apellido,c.telefono,td.descripcion,c.correo ,c.nacionalidad 
 FROM clientes c left JOIN tipo_documento td on c.numeroIdentidad =td.documentoId
-where c.numeroIdentidad = '67425365' 
+where c.numeroIdentidad = '67425365'
 --consulta #2 
 --a)Mostrar datos: habitacion,estado,piso referente a cualquier tipo de habitacion
 --b)mostrar costo total referente al tipo de habitacion anterior
