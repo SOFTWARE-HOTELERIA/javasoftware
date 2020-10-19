@@ -16,29 +16,29 @@ import java.sql.Statement;
  */
 public abstract class GestorJDBC {
     protected Connection con;
-    public abstract void CargarConexion() throws Exception;
-    public void TerminarConexion() throws Exception{
+    public abstract void abrirConexion() throws Exception;
+    public void cerrarConexion() throws Exception{
         con.close();
     }    
-    public void IniciarTransaccion() throws Exception{
+    public void iniciarTransaccion() throws Exception{
         con.setAutoCommit(false);
     }
-    public void TerminarTransaccion() throws Exception{
+    public void terminarTransaccion() throws Exception{
         con.commit();
         con.setAutoCommit(true);
         con.close();
     }
-    public void CancelarTransaccion() throws Exception{
+    public void cancelarTransaccion() throws Exception{
         con.rollback();
         con.setAutoCommit(true);
         con.close();
     } 
     
-    public PreparedStatement PrepararSentencia(String sql) throws SQLException{
+    public PreparedStatement prepararSentencia(String sql) throws SQLException{
         return con.prepareStatement(sql);
     }
     
-    public ResultSet Resultado(String sql) throws SQLException{
+    public ResultSet ejecutarConsulta(String sql) throws SQLException{
         Statement sentencia;
         ResultSet resultado;
         sentencia = con.createStatement();
