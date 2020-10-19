@@ -12,15 +12,6 @@
             <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/DataSQL.sql</file>
         </group>
         <group>
-            <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/com/proyectohotel/capa1presentacion/frmLogin.java</file>
-            <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/com/proyectohotel/capa1presentacion/frmMenu.java</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/Conexion.java</file>
-            <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/Color.java</file>
-            <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/DataSQL.sql</file>
-        </group>
-        <group>
             <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/Conexion.java</file>
             <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/Color.java</file>
             <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/DataSQL.sql</file>
@@ -47,5 +38,10 @@
             <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/Color.java</file>
             <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/DataSQL.sql</file>
         </group>
+        <group>
+            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa4_persistencia/JDBC/GestorJDBC.java</file>
+            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/Config/Consultas.sql</file>
+        </group>
+        <group/>
     </open-files>
 </project-private>
