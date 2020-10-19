@@ -8,9 +8,10 @@
  * Created: 16/10/2020
  */
 
---consulta #1 BUSQUEDA CLIENTE 
-
-
+--consulta #1 BUSQUEDA CLIENTE fijate en el figma lo que te pide
+SELECT c.nombre,c.apellido,c.telefono,c.documentoId,c.correo ,c.nacionalidad 
+FROM clientes c INNER JOIN tipo_documento td on c.documentoId =td.documentoId
+where c.numeroIdentidad = '67425365'
 --consulta #2 
 --a)Mostrar datos: habitacion,estado,piso referente a cualquier tipo de habitacion
 --b)mostrar costo total referente al tipo de habitacion anterior
