@@ -32,9 +32,14 @@ where c.numeroIdentidad = '65821548'
 
 --consulta #5 MOSTRAR REFERENTE A LAS DOS FECHAS MENCIONADAS 
 --a)Listar los siguientes datos nombre,apellido,telelono,tipo_documento,fecha entrada,fecha salida,costo final
+select cli.nombre,cli.apellido,cli.telefono,td.descripcion,rh.fecha_entrada,rh.fecha_salida,rh.costo_final
+from cliente cli inner join reservahabitacion rh
+on cli.ClienteCodigo=rh.ClienteCodigo inner join tipo_Documento td
+on cli.documentold=td.documentold
+
 --b) Mostrar el Total acumulado del costo final
 --c ) Mostrar el total de registros que existen.
-
+select sum(rh.costo_final)as 'Costo Total',count(rh.ClienteCodigo)as 'Cantidad de Clientes' from reservahabitacion rh
 
 
 --consulta #6:
