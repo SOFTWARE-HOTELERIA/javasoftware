@@ -8,11 +8,6 @@
             <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/DataSQL.sql</file>
         </group>
         <group>
-            <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/Conexion.java</file>
-            <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/Color.java</file>
-            <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/DataSQL.sql</file>
-        </group>
-        <group>
             <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/com/proyectohotel/capa1presentacion/frmLogin.java</file>
             <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/com/proyectohotel/capa1presentacion/frmMenu.java</file>
         </group>
@@ -40,6 +35,11 @@
         </group>
         <group>
             <file>file:/C:/Users/Administrador/Desktop/HOTEL/javasoftware/src/Config/Consultas.sql</file>
+            <file>file:/C:/Users/Administrador/Desktop/HOTEL/javasoftware/src/com/proyectohotel/capa3dominio/Cliente.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/Administrador/Desktop/HOTEL/javasoftware/src/Config/Consultas.sql</file>
+            <file>file:/C:/Users/Administrador/Desktop/HOTEL/javasoftware/src/Config/DataSQL.sql</file>
             <file>file:/C:/Users/Administrador/Desktop/HOTEL/javasoftware/src/com/proyectohotel/capa3dominio/Cliente.java</file>
         </group>
         <group>
