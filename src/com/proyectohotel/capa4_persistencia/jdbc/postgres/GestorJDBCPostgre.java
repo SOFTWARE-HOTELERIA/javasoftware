@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.proyectohotel.capa4_persistencia.jdbc.postgres;
+package com.proyectohotel.capa4_persistencia.jdbc.GestorJDBCPostgre;
 
 import com.proyectohotel.capa4_persistencia.JDBC.GestorJDBC;
 import java.awt.Color;
@@ -14,8 +14,7 @@ import java.sql.SQLException;
  *
  * @author josel
  */
-public class GestorJDBCPostgre extends GestorJDBC {
-    @Override
+public class GestorJDBCPostgre extends GestorJDBC{
     public void abrirConexion() throws Exception {
         try {
             Class.forName("org.postgresql.Driver");
