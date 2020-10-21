@@ -7,70 +7,53 @@
  * Author:  josel
  * Created: 26/09/2020
  */
-
-create database hoteleria;
-create table categoria(
-id_categoria int primary key not null,
-nombre varchar(20) not null
+create database javahotel
+-- ready
+create table tipo_documento( 
+ documentoId int not null auto_increment,
+ descripcion varchar(50) not null,
+ PRIMARY KEY(documentoId)
+);
+--
+create table clientes(
+ clienteCodigo varchar(15) not null PRIMARY KEY,
+ nombre varchar(30) not null,
+ apellido varchar(30) not nulL,
+ correo varchar(50) not null,
+ telefono varchar(10) not null,
+ documentoId int not null,
+ numeroIdentidad varchar(20) not null UNIQUE KEY,
+ nacionalidad varchar(20) not null,
+ FOREIGN KEY (documentoId) references tipo_documento(documentoId)
+);
+create table nivel(
+ pisoId int not null primary key,
+ cantidad int not null
+);
+create table tipo_habitacion(
+ nhabitacion int not null auto_increment PRIMARY KEY,
+ descripcion text not null,
+ costo double not null
+);
+-----------------------
+create table habitacion(
+ nhabitacion varchar(20) not null PRIMARY KEY,
+ estado boolean not null,
+ tipoHabitacionId int not null,
+ nivelId int not null,
+ FOREIGN KEY (nivelId) references nivel(pisoId),
+ FOREIGN KEY (tipoHabitacionId) references tipo_habitacion(nhabitacion)
 );
 
-create table producto(
-cod_producto varchar(10) primary key not null,
-nombre varchar(20)not null,
-cantidad int not null,
-precioventa decimal(10,2) not null,
-id_categoria int not null,
-foreign key (id_categoria) references categoria(id_categoria)
-);
-create table imagen_producto(
- imagenid varchar(35) not null PRIMARY KEY,
- imageUrl varchar(120) not null,
- codproducto varchar(10) not null,
- foreign key (codproducto) references producto(cod_producto) on delete cascade
+create table reservahabitacion(
+ clienteCodigo varchar(15) not null,
+ habitacionNum varchar(20) not null,
+ PRIMARY KEY(clienteCodigo,habitacionNum),
+ fecha_entrada date not null,
+ fecha_salida date null,
+ dias int null,
+ costo_final double null,
+ FOREIGN KEY (habitacionNum) references habitacion(nhabitacion),
+ FOREIGN KEY (clienteCodigo) references clientes(clienteCodigo)
 );
 
-create table usuario(
-cod_usuario int not null auto_increment primary key,
-nombre varchar(20) not null,
-apellido varchar(20) not null,
-email varchar(40) not null,
-contraseña varchar(30) not null,
-telefono varchar(10) not null,
-cargo varchar(20)
-);
-
-create table cliente(
-cod_cliente int primary key not null,
-nombre varchar(20)not null,
-apellido varchar(20)not null
-);
-
-create table venta(
-seria_venta varchar(20) primary key not null,
-importe decimal(5,2) not null,
-total_neto decimal(8,2)not null,
-fecha_venta date not null,
-cod_cliente int not null,
-cod_usuario int not null,
-foreign key (cod_cliente) references cliente(cod_cliente),
-foreign key (cod_usuario) references usuario(cod_usuario)
-);
-
-create table detalle_ventas(
-productold varchar(10) not null,
-ventald varchar(20) not null,
-primary key(productold,ventald),
-fecha DATETIME NOT NULL DEFAULT NOW(),
-cantidad int not null,
-importe decimal(7,2) not null,
-foreign key (productold) references producto(cod_producto),
-foreign key (ventald) references venta(seria_venta)
-);
-create table promociones(
- idpromociones int not null,
- fecha_apertura date not null,
- fecha_limite date not null,
- descuento decimal(5,2) not null,
- codproducto varchar(10) not null,
- foreign key (codproducto)references producto(cod_producto)
-);
