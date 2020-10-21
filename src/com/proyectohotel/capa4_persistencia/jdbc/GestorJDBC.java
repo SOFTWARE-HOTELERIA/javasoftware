@@ -12,7 +12,7 @@ import java.sql.Statement;
 
 /**
  *
- * @author USER
+ * @author Bruno
  */
 public abstract class GestorJDBC {
     protected Connection con;

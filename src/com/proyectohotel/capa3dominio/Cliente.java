@@ -1,3 +1,7 @@
+/**
+ *
+ * @author Marcos
+ */
 package com.proyectohotel.capa3dominio;
 public class Cliente {
     private String apellido ;
