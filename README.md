@@ -14,3 +14,4 @@ https://readthedocs.org/projects/hoteleria/
 # Nombrar funciones o variables 
  - variable => firstName , nombre,codigo ,edad
  - funciones => isStudent , addPerson
+ - clases => Habitacion , TipoHabitacion
