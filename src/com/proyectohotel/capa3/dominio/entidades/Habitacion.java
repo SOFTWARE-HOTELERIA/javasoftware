@@ -1,16 +1,14 @@
+
 package com.proyectohotel.capa3.dominio.entidades;
 
-public class habitacion {
+
+public class Habitacion {
     private int numerohabitacion;
-    private boolean estado;  
+    private String estado;  
     private String tipohabitacion;
     private int pisoId;
 
-    public static final String ESTADO_DISPONIBLE="DISPONIBLE";
-    public static final String ESTADO_NODISPONIBLE="NO DISPONIBLE";
-    
-    
-    public habitacion(int numerohabitacion, boolean estado, String tipohabitacion, int pisoId) {
+    public Habitacion(int numerohabitacion, String estado, String tipohabitacion, int pisoId) {
         this.numerohabitacion = numerohabitacion;
         this.estado = estado;
         this.tipohabitacion = tipohabitacion;
@@ -25,11 +23,11 @@ public class habitacion {
         this.numerohabitacion = numerohabitacion;
     }
 
-    public boolean isEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 
@@ -49,13 +47,6 @@ public class habitacion {
         this.pisoId = pisoId;
     }
     
-        //REGLAS DE NEGOCIO
-    public boolean estadoDisponibleParaLaHabitacion(){
-        return !estado && tipohabitacion.equals(ESTADO_DISPONIBLE);
     
-    
-    
-    
-    }
     
 }
