@@ -21,10 +21,10 @@ where T.descripcion_tipo='media'
 --b)mostrar costo total referente al tipo de habitacion anterior
 --c)Mostrar el total de habitaciones referente al tipo de habitacion anterior
 ---------Muestra Cod.Cliente, # Habitacion, Fecha de entrada y salida, Dias de estadia y costo total; Buscado Mediante el Cod.Cliente
-select R.clienteCodigo as 'Cod. Cliente',T.nhabitacion as '# Habitacion',R.fecha_entrada as 'Ingreso',R.fecha_salida as 'Salida',R.dias,R.costo_final as 'Costo total'
-from tipo_Habitacion T
-left join reservahabitacion R
-on T.nhabitacion=R.nhabitacion
+select R.clienteCodigo as 'Cod. Cliente',T.nhabitacion as '# Habitacion',H.pisoId as '# Piso',R.fecha_entrada as 'Ingreso',R.fecha_salida as 'Salida',R.dias,R.costo_final as 'Costo total'
+from tipo_Habitacion T 
+inner join reservahabitacion R on T.nhabitacion=R.nhabitacion 
+inner join habitacion H on T.nhabitacion=H.nhabitacion
 where R.clienteCodigo='0001'
 
 --consulta #3 
