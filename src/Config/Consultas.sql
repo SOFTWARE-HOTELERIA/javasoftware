@@ -15,9 +15,19 @@ where c.numeroIdentidad = '65821548'
 --SI FUNCIONA OJO TE ENVIE CAPTURA DE LO QUE SALIO
 --consulta #2 
 --a)Mostrar datos: habitacion,estado,piso referente a cualquier tipo de habitacion
+select H.nhabitacion as 'Habitacion',H.estado as 'Estado de la habitacion',H.pisoId as'# Piso'
+from habitacion H
+left join tipo_Habitacion T
+on H.nhabitacion=T.nhabitacion
+where T.descripcion_tipo='media'
 --b)mostrar costo total referente al tipo de habitacion anterior
 --c)Mostrar el total de habitaciones referente al tipo de habitacion anterior
-
+---------Muestra Cod.Cliente, # Habitacion, Fecha de entrada y salida, Dias de estadia y costo total; Buscado Mediante el Cod.Cliente
+select R.clienteCodigo as 'Cod. Cliente',T.nhabitacion as '# Habitacion',H.pisoId as '# Piso',R.fecha_entrada as 'Ingreso',R.fecha_salida as 'Salida',R.dias,R.costo_final as 'Costo total'
+from tipo_Habitacion T 
+inner join reservahabitacion R on T.nhabitacion=R.nhabitacion 
+inner join habitacion H on T.nhabitacion=H.nhabitacion
+where R.clienteCodigo='0001'
 
 --consulta #3 
 --a)Registrar hospedaje referente basandose al cliente
