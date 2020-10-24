@@ -9,31 +9,31 @@
  */
 create database javahotel
 -- ready
-create table tipo_documento( 
- documentoId int not null auto_increment,
- descripcion varchar(50) not null,
+ create table tipo_documento( 
+  documentoId serial,
+  descripcion varchar(50) not null,
  PRIMARY KEY(documentoId)
-);
---
-create table clientes(
- clienteCodigo varchar(15) not null PRIMARY KEY,
- nombre varchar(30) not null,
- apellido varchar(30) not nulL,
- correo varchar(50) not null,
- telefono varchar(10) not null,
- documentoId int not null,
- numeroIdentidad varchar(20) not null UNIQUE KEY,
- nacionalidad varchar(20) not null,
- FOREIGN KEY (documentoId) references tipo_documento(documentoId)
-);
+ );
+-- 
+ create table clientes(
+  clienteCodigo varchar(15) not null PRIMARY KEY,
+  nombre varchar(30) not null,
+  apellido varchar(30) not nulL,
+  correo varchar(50) not null,
+  telefono varchar(10) not null,
+  documentoId int not null,
+  numeroIdentidad varchar(20) not null UNIQUE,
+  nacionalidad varchar(20) not null,
+  FOREIGN KEY (documentoId) references tipo_documento(documentoId)
+ );
 create table nivel(
  pisoId int not null primary key,
  cantidad int not null
 );
 create table tipo_habitacion(
- nhabitacion int not null auto_increment PRIMARY KEY,
+ nhabitacion serial PRIMARY KEY,
  descripcion text not null,
- costo double not null
+ costo numeric(4,2) not null
 );
 -----------------------
 create table habitacion(
@@ -52,8 +52,7 @@ create table reservahabitacion(
  fecha_entrada date not null,
  fecha_salida date null,
  dias int null,
- costo_final double null,
+ costo_final numeric(7,2) not null,
  FOREIGN KEY (habitacionNum) references habitacion(nhabitacion),
  FOREIGN KEY (clienteCodigo) references clientes(clienteCodigo)
 );
-
