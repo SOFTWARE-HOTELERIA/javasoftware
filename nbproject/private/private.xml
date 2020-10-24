@@ -3,24 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-
-            <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/Consultas.sql</file>
-            <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/Conexion.java</file>
-            <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/Color.java</file>
-            <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/DataSQL.sql</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa4_persistencia/JDBC/GestorJDBC.java</file>
-            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/Config/Consultas.sql</file>
-
-            <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/Conexion.java</file>
-            <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/Color.java</file>
-            <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/DataSQL.sql</file>
-
-        </group>
-        <group/>
-        <group>
-
             <file>file:/C:/Users/Wilmer%20Apeño/Desktop/proyecto/javasoftware/src/com/proyectohotel/capa3/dominio/entidades/habitacion.java</file>
         </group>
         <group>
@@ -29,36 +11,28 @@
         <group>
             <file>file:/C:/Users/Wilmer%20Apeño/Desktop/proyecto/javasoftware/src/Config/Consultas.sql</file>
             <file>file:/C:/Users/Wilmer%20Apeño/Desktop/proyecto/javasoftware/src/com/proyectohotel/capa3/dominio/entidades/Habitacion.java</file>
-
-
             <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/com/proyectohotel/capa1presentacion/frmLogin.java</file>
             <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/com/proyectohotel/capa1presentacion/frmMenu.java</file>
         </group>
         <group>
             <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/Consultas.sql</file>
-
             <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/Conexion.java</file>
             <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/Color.java</file>
             <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/DataSQL.sql</file>
         </group>
         <group>
             <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/Consultas.sql</file>
-
-
             <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/com/proyectohotel/capa1presentacion/frmLogin.java</file>
             <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/com/proyectohotel/capa1presentacion/frmMenu.java</file>
             <file>file:/C:/Users/josel/Desktop/Proyecto_ing.software/proyect/javasoftware/src/Config/DataSQL.sql</file>
-
         </group>
         <group/>
         <group>
             <file>file:/C:/Users/Wilmer%20Apeño/Desktop/proyecto/javasoftware/src/com/proyectohotel/capa3/dominio/entidades/Habitacion.java</file>
         </group>
         <group>
-
             <file>file:/C:/Users/Wilmer%20Apeño/Desktop/proyecto/javasoftware/src/Config/Consultas.sql</file>
             <file>file:/C:/Users/Wilmer%20Apeño/Desktop/proyecto/javasoftware/src/com/proyectohotel/capa3/dominio/entidades/Habitacion.java</file>
-
             <file>file:/C:/Users/Administrador/Desktop/HOTEL/javasoftware/src/com/proyectohotel/capa1presentacion/frmMenu.java</file>
             <file>file:/C:/Users/Administrador/Desktop/HOTEL/javasoftware/src/com/proyectohotel/capa1presentacion/frmLogin.java</file>
         </group>
@@ -79,7 +53,60 @@
         <group>
             <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa4_persistencia/JDBC/GestorJDBC.java</file>
             <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/Config/Consultas.sql</file>
-
+        </group>
+        <group>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa2_aplicacion/RegistroHospedajeService.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/Config/Consultas.sql</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa3dominio/TipoHabitacion.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/ReservaDAOPostgre.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa3dominio/Habitacion.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/ReporteDAOPostgre.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/Config/DataSQL.sql</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa3dominio/ReservaHabitacion.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa1presentacion/frmLogin.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc/GestorJDBC.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/GestorJDBCPostgre.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa1_presentacion/util/Mensaje.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/Config/Conexion.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa1presentacion/frmMenu.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa2_aplicacion/ReporteHospedajeService.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa3dominio/Cliente.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa2_aplicacion/RegistroHospedajeService.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/Config/Consultas.sql</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa3dominio/TipoHabitacion.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/ReservaDAOPostgre.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa3dominio/Habitacion.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/ReporteDAOPostgre.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/Config/DataSQL.sql</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa3dominio/ReservaHabitacion.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa1presentacion/frmLogin.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc/GestorJDBC.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/GestorJDBCPostgre.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa1_presentacion/util/Mensaje.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/Config/Conexion.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa1presentacion/frmMenu.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa2_aplicacion/ReporteHospedajeService.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa3dominio/Cliente.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa2_aplicacion/RegistroHospedajeService.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/Config/Consultas.sql</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa3dominio/TipoHabitacion.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/ReservaDAOPostgre.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa3dominio/Habitacion.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/ReporteDAOPostgre.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/Config/DataSQL.sql</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa3dominio/ReservaHabitacion.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa1presentacion/frmLogin.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc/GestorJDBC.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/GestorJDBCPostgre.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa1_presentacion/util/Mensaje.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/Config/Conexion.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa1presentacion/frmMenu.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa2_aplicacion/ReporteHospedajeService.java</file>
+            <file>file:/C:/Users/josel/Desktop/PROYECTOHOTEELL/javasoftware/src/com/proyectohotel/capa3dominio/Cliente.java</file>
         </group>
     </open-files>
 </project-private>

@@ -9,6 +9,7 @@ import com.proyectohotel.capa3dominio.ReservaHabitacion;
 import com.proyectohotel.capa4_persistencia.JDBC.GestorJDBC;
 import com.proyectohotel.capa4_persistencia.jdbc_postgre.GestorJDBCPostgre;
 import com.proyectohotel.capa4_persistencia.jdbc_postgre.ReservaDAOPostgre;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,19 +27,27 @@ public class RegistroHospedajeService {
         reservaDAO = new ReservaDAOPostgre(gestorJDBC);
         
     }
+    //CREAR CONVENIENTE MOSTRARHABITACIONES Y MOSTRARHABITACIONEPORTIPO_DE_HABITACIONES
     
     /* 
     Author :  Marco
     */
     public Cliente buscarCliente(String documentoIdentidad){
+//        if(reservaDAO.buscarCliente(documentoIdentidad)){
+//            
+//        }
         return null;
         //cliente.validarDocumentoIdentidad()
     }
      /* 
      Author : Wilmer
     */
-    public List<ReservaHabitacion> buscarTipoHabitacion(){
-        return null;
+    public List<ReservaHabitacion> mostrarHabitaciones() throws Exception{
+        gestorJDBC.abrirConexion();
+//        ArrayList<ReservaHabitacion> reserva = new ArrayList();
+        List reserva = reservaDAO.listarHabitaciones();
+        gestorJDBC.cerrarConexion();
+        return reserva;
     }
     //requiere la tabla en el capa presentacion obligatoriamente
     /* 

@@ -33,6 +33,9 @@ public class ReservaHabitacion {
         this.codigoCliente = codigoCliente;
         this.numeroHabitacion = numeroHabitacion;
     }
+    public ReservaHabitacion(){
+        
+    }
     public String getCodigoReserva() {
         return codigoReserva;
     }
@@ -112,11 +115,11 @@ public class ReservaHabitacion {
          //=> fecha_inicial | fecha_final  => diferencia entre dias 
          return 0;
      }
-      public void validadDocumentoIdentidad(String documentoIdentidad){
-          if(documentoIdentidad == null){
-              
-          }
-     }
+//      public void validadDocumentoIdentidad(String documentoIdentidad){
+//          if(documentoIdentidad == null){
+//              
+//          }
+//     }
 //     public List listarAño(int añonInicial,)
       
     public boolean validarEstadoHabitacion(String estado){
@@ -126,8 +129,8 @@ public class ReservaHabitacion {
             return false;
         }
     }
-    public boolean validadNumeroHabitacion(){
+//    public boolean validadNumeroHabitacion(){
 //        return null;
-        return false;
-    }
+//        return false;
+//    }
 }

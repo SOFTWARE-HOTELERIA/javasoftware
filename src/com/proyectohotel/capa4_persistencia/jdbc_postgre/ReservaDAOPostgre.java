@@ -5,8 +5,13 @@
  */
 package com.proyectohotel.capa4_persistencia.jdbc_postgre;
 import com.proyectohotel.capa3dominio.Cliente;
+import com.proyectohotel.capa3dominio.Habitacion;
 import com.proyectohotel.capa3dominio.ReservaHabitacion;
 import com.proyectohotel.capa4_persistencia.JDBC.GestorJDBC;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 /**
  *
@@ -27,13 +32,29 @@ public class ReservaDAOPostgre {
        Author : Marco
     */
     public Cliente buscarCliente(String documentoIdentidad){
+        String sql="SELECT c.nombre,c.apellido,c.telefono,td.descripcion,c.correo ,c.nacionalidad \n" +
+        "FROM clientes c left JOIN tipo_documento td on c.documentoId =td.documentoId\n" +
+        "where c.numeroIdentidad = '65821548'";
+        
         return null;
     }
      /* 
        Author : Wilmer
     */
-    public List<ReservaHabitacion> buscarTipoHabitacion(){
-        return null;
+    //solo listar
+    public List<ReservaHabitacion> listarHabitaciones() throws SQLException{
+         ArrayList<ReservaHabitacion> reserva = new ArrayList();
+        String sql ="select nhabitacion,estado,nivelId from habitacion";
+        PreparedStatement pre = gestorJDBC.prepararSentencia(sql);
+        ResultSet re = pre.executeQuery();
+        while(re.next()){
+            ReservaHabitacion reservaHabitacion = new ReservaHabitacion();
+            Habitacion habitacion = new Habitacion(re.getString("estado"),re.getInt("nivelId"));
+            reservaHabitacion.setNumeroHabitacion(re.getString("nhabitacion"));
+            reservaHabitacion.setHabitacion(habitacion);
+            reserva.add(reservaHabitacion);
+        }
+        return reserva;
     }
      /* 
        Author : Guillermo 

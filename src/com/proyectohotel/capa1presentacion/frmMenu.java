@@ -909,9 +909,13 @@ public class frmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReporteHospedajeActionPerformed
 
     private void btnBuscarClienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarClienteMousePressed
-        // TODO add your handling code here:
+        /* 
+         Author :  Marco
+        */
         String documentoIdentidad = txtDocumentoIdentidad.getText();
-    System.out.println(documentoIdentidad);
+        System.out.println(documentoIdentidad);
+        
+        
     }//GEN-LAST:event_btnBuscarClienteMousePressed
 
     private void btnReporteClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteClienteActionPerformed
