@@ -10,7 +10,9 @@ import com.proyectohotel.capa4_persistencia.JDBC.GestorJDBC;
 import com.proyectohotel.capa4_persistencia.jdbc_postgre.GestorJDBCPostgre;
 import com.proyectohotel.capa4_persistencia.jdbc_postgre.ReservaDAOPostgre;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -49,6 +51,15 @@ public class RegistroHospedajeService {
         gestorJDBC.cerrarConexion();
         return reserva;
     }
+    public Map mostrarTotalDeHabitacionesDeEstado() throws Exception{
+        gestorJDBC.abrirConexion();
+        Map datos = new HashMap();
+        datos  = reservaDAO.mostrarTotalDeHabitacionesDeEstado();
+        gestorJDBC.cerrarConexion();
+        return datos;
+    }
+    
+    
     //requiere la tabla en el capa presentacion obligatoriamente
     /* 
      Author : Guillermo

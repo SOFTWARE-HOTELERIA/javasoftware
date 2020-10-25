@@ -8,10 +8,9 @@
  * Created: 26/09/2020
  */ 
 create database javahotel
--- ready
- create table tipo_documento( 
+create table tipo_documento( 
   documentoId serial,
-  descripcion varchar(50) not null,
+  descripcion text not null,
  PRIMARY KEY(documentoId)
  );
 -- 
@@ -33,12 +32,12 @@ create table nivel(
 create table tipo_habitacion(
  nhabitacion serial PRIMARY KEY,
  descripcion text not null,
- costo numeric(4,3) not null
+ costo numeric(4,1) not null
 );
------------------------
+-----------------------DISPONIBLE
 create table habitacion(
  nhabitacion varchar(20) not null PRIMARY KEY,
- estado boolean not null,
+ estado varchar(20) not null,
  tipoHabitacionId int not null,
  nivelId int not null,
  FOREIGN KEY (nivelId) references nivel(pisoId),
@@ -57,16 +56,15 @@ create table reservahabitacion(
  FOREIGN KEY (clienteCodigo) references clientes(clienteCodigo)
 );
 
-
-
+alter table tipo_habitacion alter column costo type numeric(4,1);
 
 --insert into habitacion
- insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A001',true,1,1);
- insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A002',false,2,2);
-insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A003',true,1,1);
- insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A004',false,2,2);
+ insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A001','DISPONIBLE',1,1);
+ insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A002','OCUPADO',2,2);
+insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A003','DISPONIBLE',1,1);
+ insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A004','OCUPADO',2,2);
 --insert into  tiphoabitacion
-insert into tipo_habitacion(nhabitacion,descripcion,costo) values(1,'presidencial',50);
+insert into tipo_habitacion(nhabitacion,descripcion,costo) values(1,'presidencial',55);
 insert into tipo_habitacion(nhabitacion,descripcion,costo) values(2,'Individual',30);
 --insert into nivel
 insert into nivel(pisoId,cantidad) values(1,3);

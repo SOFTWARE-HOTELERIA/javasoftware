@@ -7,46 +7,40 @@ package com.proyectohotel.capa1presentacion;
 
 import java.awt.Font;
 import com.proyectohotel.capa1_presentacion.fonts.font;
+import com.proyectohotel.capa1_presentacion.util.CellRenderTable;
 import com.proyectohotel.capa1_presentacion.util.Mensaje;
 import com.proyectohotel.capa2_aplicacion.RegistroHospedajeService;
 import com.proyectohotel.capa3dominio.Habitacion;
+import javax.swing.JButton;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumnModel;
 /**
  *
  * @author josel
  */
-public class frmMenu extends javax.swing.JFrame {
+public final class frmMenu extends javax.swing.JFrame {
     RegistroHospedajeService registroHospedajeService = new RegistroHospedajeService();
-    DefaultTableModel model;
     font tipoFuente;
     public frmMenu() {
 //        labelNombreUser.setText(name);
 //        accesoPanel(cargo);
-        prueba();
+      
         initComponents();
-        setVisible(true);
+         mostrarAcumuladoresDeEstado();
+        getReservaHabitaciones(tableReservaHabitacion);
+        tamañoColumnas(tableReservaHabitacion);
+//        setVisible(true);
         setLocationRelativeTo(null);
         tipoFuente=new font();
         jLabel2.setFont(tipoFuente.fuente(tipoFuente.MONTSERRAT,1,18));
         labelReporte.setFont(tipoFuente.fuente(tipoFuente.MONTSERRAT,1,18));
         jLabel5.setFont(tipoFuente.fuente(tipoFuente.MONTSERRAT,1,18));
         labelNombreUser.setFont(tipoFuente.fuente(tipoFuente.MONTSERRAT, 1, 20));
-       
-    }
-//    public frmMenu(){}
-    public void accesoPanel(String cargo){
-        if(cargo.equals("Recepcionista")){
-            pp2.setEnabled(false);
-        }else{
-            pp2.setEnabled(true);
-        }
-    }
-    
-     public void initialComponents(){
-        showTable();
-        showAnyos();
     }
     
     //RECORDAR QUE AL INICIAR EL JFRAME DEBE MOSTRAR TABLA Y ITEMBOX DE AÑO POR DEFECTO
@@ -69,17 +63,59 @@ public class frmMenu extends javax.swing.JFrame {
         */
         // itembox variable año => itemBoxAño
     }
-    public void prueba(){
-       Habitacion habitacion=new Habitacion();
+    //1)falta cambiar el dato del estado de la base de datos como disponible o ocupado
+    //2)uso de darle colores a los  header
+    //3)uso de cellrender
+    //4)definir logica para retuilziar las mismas funciones , similar a typescript
+    public void getReservaHabitaciones(JTable table){
+        JButton btn1 = new JButton("Registrar Habitacion");
+          String[] encabezado={"Nro","Habitacion","Estado",
+                      "Piso","Accion"};
+        JTableHeader tableHeader = tableReservaHabitacion.getTableHeader();
+          tableHeader.setBackground(java.awt.Color.DARK_GRAY);
+       tableHeader.setForeground(java.awt.Color.white);
+        DefaultTableModel model = new DefaultTableModel(null,encabezado){
+          @Override
+          public boolean isCellEditable(int row,int column){
+             return false; 
+          }
+        };
+        table.setModel(model);
+       tableReservaHabitacion.setDefaultRenderer(Object.class, new CellRenderTable());
         try {
-            //        model = new DefaultTableModel(encabezado,null);
-             for(int i=0;i<registroHospedajeService.mostrarHabitaciones().size();i++){
-                 System.out.println(habitacion.getNumeroHabitacion());
-            }
+            Object[] datos = new Object[5];
+          for(int i=0;i<registroHospedajeService.mostrarHabitaciones().size();i++){
+              datos[0] = i+1;
+              datos[1] = registroHospedajeService.mostrarHabitaciones().get(i).getNumeroHabitacion();
+              datos[2] = registroHospedajeService.mostrarHabitaciones().get(i).getHabitacion().getEstado();
+              datos[3]=  registroHospedajeService.mostrarHabitaciones().get(i).getHabitacion().getNumeroPiso();
+              datos[4] =btn1;
+              model.addRow(datos);
+          }
         } catch (Exception ex) {
             Logger.getLogger(frmMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+    }
+    public void mostrarAcumuladoresDeEstado(){
+      try{
+           Map dataHabitaciones = registroHospedajeService.mostrarTotalDeHabitacionesDeEstado();
+          labelHabitacionesDisponibles.setText(dataHabitaciones.get("disponibles").toString());
+          labelHabitacionesOcupadas.setText(dataHabitaciones.get("ocupadas").toString());
+      }catch(Exception ex){
+           Logger.getLogger(frmMenu.class.getName()).log(Level.SEVERE, null, ex);
+      }
+    }
+    
+    
+    
+    public void tamañoColumnas(JTable table){
+        TableColumnModel columnModel = table.getColumnModel();
+        columnModel.getColumn(0).setPreferredWidth(50);  
+        columnModel.getColumn(1).setPreferredWidth(100);
+        columnModel.getColumn(3).setPreferredWidth(50);  
+        columnModel.getColumn(4).setPreferredWidth(200);  
+
     }
 
 
@@ -154,14 +190,15 @@ public class frmMenu extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        labelTotalHabitacion = new javax.swing.JLabel();
+        labelHabitacionesDisponibles = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableReservaHabitacion = new javax.swing.JTable();
         txtDocumentoIdentidad = new javax.swing.JTextField();
         itemTipoHabitacion = new javax.swing.JComboBox<>();
         jLabel43 = new javax.swing.JLabel();
-        labelCostoHabitacion = new javax.swing.JLabel();
-        btnBuscarHabitaciones = new javax.swing.JButton();
+        labelHabitacionesOcupadas = new javax.swing.JLabel();
+        btnActualizar = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -732,7 +769,7 @@ public class frmMenu extends javax.swing.JFrame {
                     .addComponent(jLabel16)
                     .addComponent(jLabel18)
                     .addComponent(jLabel19))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         btnBuscarCliente.setBackground(new java.awt.Color(255, 102, 102));
@@ -766,37 +803,31 @@ public class frmMenu extends javax.swing.JFrame {
         jLabel22.setText("Tipo Habitacion:");
 
         jLabel23.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        jLabel23.setText("Total de Habitaciones:");
+        jLabel23.setText("<html>\n<p>Total de Habitaciones<br> Disponibles :</p>\n</html>");
 
-        labelTotalHabitacion.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        labelTotalHabitacion.setText("4");
+        labelHabitacionesDisponibles.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        labelHabitacionesDisponibles.setText("4");
 
         tableReservaHabitacion.setBackground(new java.awt.Color(204, 204, 204));
         tableReservaHabitacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "N°", "Habitacion", "Estado", "  "
+                "N°", "Habitacion", "Estado", "N_Piso", "Accion"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, true, true
+                false, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tableReservaHabitacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableReservaHabitacionMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tableReservaHabitacion);
@@ -816,14 +847,23 @@ public class frmMenu extends javax.swing.JFrame {
             }
         });
 
-        jLabel43.setText("Costo de tipo de Habitacion");
+        jLabel43.setText("<html>\n<p>Total de Habitaciones<br> Ocupadas :</p>\n</html>");
 
-        labelCostoHabitacion.setText("5");
+        labelHabitacionesOcupadas.setText("5");
 
-        btnBuscarHabitaciones.setText("Search");
-        btnBuscarHabitaciones.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarHabitacionesActionPerformed(evt);
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/proyectohotel/capa1_presentacion/icons/actualizar.png"))); // NOI18N
+        btnActualizar.setText("Actualizar");
+        btnActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnActualizarMouseClicked(evt);
+            }
+        });
+
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/proyectohotel/capa1_presentacion/icons/lupa (1).png"))); // NOI18N
+        btnBuscar.setText("Buscar");
+        btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarMouseClicked(evt);
             }
         });
 
@@ -834,23 +874,6 @@ public class frmMenu extends javax.swing.JFrame {
             .addGroup(p1Layout.createSequentialGroup()
                 .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(p1Layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(p1Layout.createSequentialGroup()
-                                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(55, 55, 55)
-                                .addComponent(itemTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addComponent(btnBuscarHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(p1Layout.createSequentialGroup()
-                                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(labelTotalHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(jLabel43)
-                                .addGap(29, 29, 29)
-                                .addComponent(labelCostoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(p1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(p1Layout.createSequentialGroup()
@@ -860,7 +883,30 @@ public class frmMenu extends javax.swing.JFrame {
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(p1Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(p1Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(p1Layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelHabitacionesDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
+                                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(itemTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(p1Layout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addComponent(labelHabitacionesOcupadas, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(p1Layout.createSequentialGroup()
+                                .addGap(47, 47, 47)
+                                .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         p1Layout.setVerticalGroup(
@@ -872,18 +918,20 @@ public class frmMenu extends javax.swing.JFrame {
                     .addComponent(txtDocumentoIdentidad))
                 .addGap(28, 28, 28)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addGap(50, 50, 50)
                 .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(itemTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarHabitaciones))
-                .addGap(38, 38, 38)
+                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel23)
-                    .addComponent(labelTotalHabitacion)
-                    .addComponent(jLabel43)
-                    .addComponent(labelCostoHabitacion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelHabitacionesDisponibles)
+                    .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelHabitacionesOcupadas))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
         );
@@ -975,18 +1023,28 @@ public class frmMenu extends javax.swing.JFrame {
         //txtTipoHabitacion
         //txtCostoHabitacion
         //txtCostoFinal
+//         String tipo = itemTipoHabitacion.getSelectedItem().toString();
+//        System.out.println("clicked" + tipo);
     }//GEN-LAST:event_btnCierreEstadiaMousePressed
 
     private void itemTipoHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemTipoHabitacionMouseClicked
     }//GEN-LAST:event_itemTipoHabitacionMouseClicked
 
-    private void btnBuscarHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarHabitacionesActionPerformed
-        //evente click obtener el tipo de habitacion
-          String tipo = itemTipoHabitacion.getSelectedItem().toString();
+    private void tableReservaHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableReservaHabitacionMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_tableReservaHabitacionMouseClicked
+
+    private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
+       String tipo = itemTipoHabitacion.getSelectedItem().toString();
         System.out.println("clicked" + tipo);
-        //labelTotalHabitacion
-        //labelCostoHabitacion
-    }//GEN-LAST:event_btnBuscarHabitacionesActionPerformed
+        System.out.println("busscar");
+    }//GEN-LAST:event_btnBuscarMouseClicked
+
+    private void btnActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseClicked
+        // TODO add your handling code here:
+         System.out.println("Actualizar");
+    }//GEN-LAST:event_btnActualizarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1025,8 +1083,9 @@ public class frmMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnActualizar;
+    private javax.swing.JLabel btnBuscar;
     private javax.swing.JPanel btnBuscarCliente;
-    private javax.swing.JButton btnBuscarHabitaciones;
     private javax.swing.JPanel btnCierreEstadia;
     private javax.swing.JButton btnClean;
     private javax.swing.JButton btnReporteCliente;
@@ -1074,10 +1133,10 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel labelCostoHabitacion;
+    private javax.swing.JLabel labelHabitacionesDisponibles;
+    private javax.swing.JLabel labelHabitacionesOcupadas;
     public static javax.swing.JLabel labelNombreUser;
     private javax.swing.JLabel labelReporte;
-    private javax.swing.JLabel labelTotalHabitacion;
     private javax.swing.JPanel p1;
     private javax.swing.JPanel p2;
     private javax.swing.JPanel p3;
