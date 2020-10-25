@@ -5,6 +5,9 @@
  */
 package com.proyectohotel.capa1presentacion;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Administrador
@@ -14,11 +17,27 @@ public class frmLogin extends javax.swing.JFrame {
     /**
      * Creates new form LOGIN
      */
+//     Usuario[] usuario;
+ 
     public frmLogin() {
         initComponents();
-        
+        txtMensaje.setVisible(false);
     }
-
+       public static final String[] usuario={"oal123","pepe123"};
+         public static final String[] pass={"123","456"};
+         public static final String[] cargo={"Empleado","Administrador"};
+//        arr[0] = new Usuario("oal123","123","Empleado");
+//    usuario[1] = new Usuario("oal123","123","Empleado");
+//    public List<Usuario> getData(){
+//       
+//       List<Usuario> usuarios = new ArrayList<>();
+////        String user, String password, String cargo
+//       Usuario usuario1= new Usuario("carlitos","789","Empleado");
+//       Usuario usuario2= new Usuario("pepe123","456","Empleado");
+//       usuarios.add(usuario1);
+//       usuarios.add(usuario2);
+//       return usuarios;
+//    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,14 +49,15 @@ public class frmLogin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         txtUser = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtPassword = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        btnLogIn = new javax.swing.JLabel();
+        txtMensaje = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,17 +76,17 @@ public class frmLogin extends javax.swing.JFrame {
         });
         jPanel1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 340, 40));
 
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(185, 63, 63));
-        jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordField1.setBorder(null);
-        jPasswordField1.setOpaque(false);
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        txtPassword.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(185, 63, 63));
+        txtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtPassword.setBorder(null);
+        txtPassword.setOpaque(false);
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                txtPasswordActionPerformed(evt);
             }
         });
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, 350, 40));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, 350, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/proyectohotel/capa1_presentacion/icons/New Project.gif"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, -1, -1));
@@ -86,23 +106,31 @@ public class frmLogin extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(218, 165, 32));
 
-        jLabel6.setFont(new java.awt.Font("Dubai Light", 1, 30)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("LOG IN");
+        btnLogIn.setFont(new java.awt.Font("Dubai Light", 1, 30)); // NOI18N
+        btnLogIn.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogIn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnLogIn.setText("LOG IN");
+        btnLogIn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnLogInMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+            .addComponent(btnLogIn, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnLogIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, 270, 50));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 560, 270, 50));
+
+        txtMensaje.setText("---");
+        jPanel1.add(txtMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,14 +148,56 @@ public class frmLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUserActionPerformed
 
+    private void btnLogInMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogInMousePressed
+        // TODO add your handling code here:
+       
+        frmLogin login = new frmLogin();
+        String user = txtUser.getText();
+        String password = txtPassword.getText();
+        txtMensaje.setVisible(true);
+        System.out.println(user);
+        System.out.println(password);
+//        if(user.equals("") && password.equals("")){
+//            txtMensaje.setText("Campos Obligatorios");
+//        }
+//        else{
+            if(user.equals("pepe123") && password.equals("123")){
+                //EMPLEADO
+                 dispose();
+                 frmMenu menu= new frmMenu();
+                 menu.setVisible(true);
+                 frmMenu.labelNombreUser.setText(user);
+                 frmMenu.pp2.setVisible(false);
+            }if(user.equals("carlos123") && password.equals("456")){
+                //ADMINISTRADOR
+                 dispose();
+                 frmMenu menu= new frmMenu();
+                 menu.setVisible(true);
+                 frmMenu.labelNombreUser.setText(user);
+                 frmMenu.pp2.setVisible(true);
+            }else{
+                  txtMensaje.setText("Datos incorrectos");
+            }
+//        }  
+       
+      
+    }//GEN-LAST:event_btnLogInMousePressed
+//    for(int i=0;i<usuarios.length;i++){
+//            if(user.equals(usuarios[i-1].getUser()) &&
+//                    password.equals(usuarios[i-1].getPassword())){
+//                  txtMensaje.setText("Ingrese ssion");
+//             }else{
+//                txtMensaje.setText("Datos incorrectos");
+//            }
+//         }
     /**
      * @param args the command line arguments
      */
@@ -165,15 +235,16 @@ public class frmLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnLogIn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JLabel txtMensaje;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }

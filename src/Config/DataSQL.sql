@@ -6,15 +6,21 @@
 /**
  * Author:  josel
  * Created: 26/09/2020
- */
+ */ 
 create database javahotel
+
+create table tipo_documento( 
+  documentoId serial,
+  descripcion text not null,
+
 -- ready
  create table tipo_documento( 
   documentoId serial,
   descripcion varchar(50) not null,
+
  PRIMARY KEY(documentoId)
  );
--- 
+
  create table clientes(
   clienteCodigo varchar(15) not null PRIMARY KEY,
   nombre varchar(30) not null,
@@ -33,12 +39,12 @@ create table nivel(
 create table tipo_habitacion(
  nhabitacion serial PRIMARY KEY,
  descripcion text not null,
- costo numeric(4,2) not null
+ costo numeric(4,1) not null
 );
------------------------
+-----------------------DISPONIBLE
 create table habitacion(
  nhabitacion varchar(20) not null PRIMARY KEY,
- estado boolean not null,
+ estado varchar(20) not null,
  tipoHabitacionId int not null,
  nivelId int not null,
  FOREIGN KEY (nivelId) references nivel(pisoId),
@@ -55,4 +61,22 @@ create table reservahabitacion(
  costo_final numeric(7,2) not null,
  FOREIGN KEY (habitacionNum) references habitacion(nhabitacion),
  FOREIGN KEY (clienteCodigo) references clientes(clienteCodigo)
+
 );
+
+alter table tipo_habitacion alter column costo type numeric(4,1);
+
+--insert into habitacion
+ insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A001','DISPONIBLE',1,1);
+ insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A002','OCUPADO',2,2);
+insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A003','DISPONIBLE',1,1);
+ insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A004','OCUPADO',2,2);
+--insert into  tiphoabitacion
+insert into tipo_habitacion(nhabitacion,descripcion,costo) values(1,'presidencial',55);
+insert into tipo_habitacion(nhabitacion,descripcion,costo) values(2,'Individual',30);
+--insert into nivel
+insert into nivel(pisoId,cantidad) values(1,3);
+insert into nivel(pisoId,cantidad) values(2,5);
+
+);
+
