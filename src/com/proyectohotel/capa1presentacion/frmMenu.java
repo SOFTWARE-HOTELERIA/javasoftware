@@ -8,24 +8,42 @@ package com.proyectohotel.capa1presentacion;
 import java.awt.Font;
 import com.proyectohotel.capa1_presentacion.fonts.font;
 import com.proyectohotel.capa1_presentacion.util.Mensaje;
+import com.proyectohotel.capa2_aplicacion.RegistroHospedajeService;
+import com.proyectohotel.capa3dominio.Habitacion;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author josel
  */
 public class frmMenu extends javax.swing.JFrame {
-
+    RegistroHospedajeService registroHospedajeService = new RegistroHospedajeService();
+    DefaultTableModel model;
     font tipoFuente;
     public frmMenu() {
+//        labelNombreUser.setText(name);
+//        accesoPanel(cargo);
+        prueba();
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
         tipoFuente=new font();
         jLabel2.setFont(tipoFuente.fuente(tipoFuente.MONTSERRAT,1,18));
-        jLabel4.setFont(tipoFuente.fuente(tipoFuente.MONTSERRAT,1,18));
+        labelReporte.setFont(tipoFuente.fuente(tipoFuente.MONTSERRAT,1,18));
         jLabel5.setFont(tipoFuente.fuente(tipoFuente.MONTSERRAT,1,18));
-        jLabel9.setFont(tipoFuente.fuente(tipoFuente.MONTSERRAT, 1, 20));
+        labelNombreUser.setFont(tipoFuente.fuente(tipoFuente.MONTSERRAT, 1, 20));
        
     }
+//    public frmMenu(){}
+    public void accesoPanel(String cargo){
+        if(cargo.equals("Recepcionista")){
+            pp2.setEnabled(false);
+        }else{
+            pp2.setEnabled(true);
+        }
+    }
+    
      public void initialComponents(){
         showTable();
         showAnyos();
@@ -51,6 +69,18 @@ public class frmMenu extends javax.swing.JFrame {
         */
         // itembox variable año => itemBoxAño
     }
+    public void prueba(){
+       Habitacion habitacion=new Habitacion();
+        try {
+            //        model = new DefaultTableModel(encabezado,null);
+             for(int i=0;i<registroHospedajeService.mostrarHabitaciones().size();i++){
+                 System.out.println(habitacion.getNumeroHabitacion());
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(frmMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
 
 
     /**
@@ -66,11 +96,11 @@ public class frmMenu extends javax.swing.JFrame {
         pp1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         pp2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        labelReporte = new javax.swing.JLabel();
         pp3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        labelNombreUser = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         panel_centre = new javax.swing.JPanel();
         p2 = new javax.swing.JPanel();
@@ -180,9 +210,9 @@ public class frmMenu extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("REPORTES DE HOSPEDAJES");
+        labelReporte.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        labelReporte.setForeground(new java.awt.Color(255, 255, 255));
+        labelReporte.setText("REPORTES DE HOSPEDAJES");
 
         javax.swing.GroupLayout pp2Layout = new javax.swing.GroupLayout(pp2);
         pp2.setLayout(pp2Layout);
@@ -190,18 +220,18 @@ public class frmMenu extends javax.swing.JFrame {
             pp2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pp2Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addComponent(labelReporte)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         pp2Layout.setVerticalGroup(
             pp2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pp2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
+                .addComponent(labelReporte)
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        jPanel1.add(pp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, -1, -1));
+        jPanel1.add(pp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 300, -1));
 
         pp3.setBackground(new java.awt.Color(153, 95, 32));
         pp3.setMinimumSize(new java.awt.Dimension(300, 50));
@@ -233,15 +263,16 @@ public class frmMenu extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jPanel1.add(pp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, -1, -1));
+        jPanel1.add(pp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/proyectohotel/capa1_presentacion/icons/pruebita.gif"))); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(124, 117));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 160, 140));
 
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("LOREM IMPSUN");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 134, 190, 50));
+        labelNombreUser.setForeground(new java.awt.Color(255, 255, 255));
+        labelNombreUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelNombreUser.setText("LOREM IMPSUN");
+        jPanel1.add(labelNombreUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 190, 50));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/proyectohotel/capa1_presentacion/image/hotel.jpg"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 300, 650));
@@ -1030,7 +1061,6 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel45;
@@ -1038,7 +1068,6 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
@@ -1046,13 +1075,15 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelCostoHabitacion;
+    public static javax.swing.JLabel labelNombreUser;
+    private javax.swing.JLabel labelReporte;
     private javax.swing.JLabel labelTotalHabitacion;
     private javax.swing.JPanel p1;
     private javax.swing.JPanel p2;
     private javax.swing.JPanel p3;
     private javax.swing.JPanel panel_centre;
     private javax.swing.JPanel pp1;
-    private javax.swing.JPanel pp2;
+    public static javax.swing.JPanel pp2;
     private javax.swing.JPanel pp3;
     private javax.swing.JTable tableReservaHabitacion;
     private javax.swing.JLabel txtCostoFinal;

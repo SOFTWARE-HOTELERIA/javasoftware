@@ -20,6 +20,7 @@ public class Habitacion {
         this.estado=estado;
         this.numeroPiso=numeroPiso;
     }
+    public Habitacion(){}
     
     public int getNumeroHabitacion() {
         return numeroHabitacion;

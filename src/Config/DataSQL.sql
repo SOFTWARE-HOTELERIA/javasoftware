@@ -33,7 +33,7 @@ create table nivel(
 create table tipo_habitacion(
  nhabitacion serial PRIMARY KEY,
  descripcion text not null,
- costo numeric(4,2) not null
+ costo numeric(4,3) not null
 );
 -----------------------
 create table habitacion(
@@ -58,3 +58,16 @@ create table reservahabitacion(
 );
 
 
+
+
+--insert into habitacion
+ insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A001',true,1,1);
+ insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A002',false,2,2);
+insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A003',true,1,1);
+ insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A004',false,2,2);
+--insert into  tiphoabitacion
+insert into tipo_habitacion(nhabitacion,descripcion,costo) values(1,'presidencial',50);
+insert into tipo_habitacion(nhabitacion,descripcion,costo) values(2,'Individual',30);
+--insert into nivel
+insert into nivel(pisoId,cantidad) values(1,3);
+insert into nivel(pisoId,cantidad) values(2,5);

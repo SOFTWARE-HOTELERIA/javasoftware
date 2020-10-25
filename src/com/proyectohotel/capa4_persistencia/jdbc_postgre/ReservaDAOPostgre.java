@@ -32,10 +32,6 @@ public class ReservaDAOPostgre {
        Author : Marco
     */
     public Cliente buscarCliente(String documentoIdentidad){
-        String sql="SELECT c.nombre,c.apellido,c.telefono,td.descripcion,c.correo ,c.nacionalidad \n" +
-        "FROM clientes c left JOIN tipo_documento td on c.documentoId =td.documentoId\n" +
-        "where c.numeroIdentidad = '65821548'";
-        
         return null;
     }
      /* 
@@ -57,13 +53,13 @@ public class ReservaDAOPostgre {
         return reserva;
     }
      /* 
-       Author : Guillermo 
+       Author : Aldo 
     */
     public ReservaHabitacion cerrarEstadiaCliente(String documentoIdentidad){
         return null;
     }
     /* 
-       Author : Aldo 
+       Author : Guillermo 
     */
     public int registrarHabitacion(ReservaHabitacion reservaHabitacion){
         return 0;
