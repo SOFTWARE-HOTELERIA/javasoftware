@@ -8,12 +8,19 @@
  * Created: 26/09/2020
  */ 
 create database javahotel
+
 create table tipo_documento( 
   documentoId serial,
   descripcion text not null,
+
+-- ready
+ create table tipo_documento( 
+  documentoId serial,
+  descripcion varchar(50) not null,
+
  PRIMARY KEY(documentoId)
  );
--- 
+
  create table clientes(
   clienteCodigo varchar(15) not null PRIMARY KEY,
   nombre varchar(30) not null,
@@ -54,6 +61,7 @@ create table reservahabitacion(
  costo_final numeric(7,2) not null,
  FOREIGN KEY (habitacionNum) references habitacion(nhabitacion),
  FOREIGN KEY (clienteCodigo) references clientes(clienteCodigo)
+
 );
 
 alter table tipo_habitacion alter column costo type numeric(4,1);
@@ -69,3 +77,6 @@ insert into tipo_habitacion(nhabitacion,descripcion,costo) values(2,'Individual'
 --insert into nivel
 insert into nivel(pisoId,cantidad) values(1,3);
 insert into nivel(pisoId,cantidad) values(2,5);
+
+);
+
