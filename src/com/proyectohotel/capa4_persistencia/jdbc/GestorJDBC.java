@@ -15,39 +15,33 @@ import java.sql.Statement;
  * @author Bruno
  */
 public abstract class GestorJDBC {
-        
-    protected Connection conexion;
-    
+    protected Connection con;
     public abstract void abrirConexion() throws Exception;
-    
-    public void cerrarConexion() throws SQLException{
-        conexion.close();
+    public void cerrarConexion() throws Exception{
+        con.close();
+    }    
+    public void iniciarTransaccion() throws Exception{
+        con.setAutoCommit(false);
     }
-    
-    public void iniciarTransaccion() throws SQLException{
-        conexion.setAutoCommit(false);
+    public void terminarTransaccion() throws Exception{
+        con.commit();
+        con.setAutoCommit(true);
+        con.close();
     }
-    
-    public void terminarTransaccion() throws SQLException{
-        conexion.commit();
-        conexion.setAutoCommit(true);
-        conexion.close();
-    }
-    
-    public void cancelarTransaccion() throws SQLException{
-        conexion.rollback();
-        conexion.setAutoCommit(true);
-        conexion.close();
-    }
+    public void cancelarTransaccion() throws Exception{
+        con.rollback();
+        con.setAutoCommit(true);
+        con.close();
+    } 
     
     public PreparedStatement prepararSentencia(String sql) throws SQLException{
-        return conexion.prepareStatement(sql);
+        return con.prepareStatement(sql);
     }
     
     public ResultSet ejecutarConsulta(String sql) throws SQLException{
         Statement sentencia;
         ResultSet resultado;
-        sentencia = conexion.createStatement();
+        sentencia = con.createStatement();
         resultado = sentencia.executeQuery(sql);
         return resultado;
     }

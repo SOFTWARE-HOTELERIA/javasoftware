@@ -13,14 +13,15 @@ public class Habitacion {
      private int numeroHabitacion;
     private String estado;  
     private String tipoHabitacion;
-    private int numeroPiso;
+    private int pisoId;
 
     
-    public Habitacion(String estado,int numeroPiso){
-        this.estado=estado;
-        this.numeroPiso=numeroPiso;
+    public Habitacion(int numeroHabitacion, String estado, String tipoHabitacion, int pisoId) {
+        this.numeroHabitacion = numeroHabitacion;
+        this.estado = estado;
+        this.tipoHabitacion = tipoHabitacion;
+        this.pisoId = pisoId;
     }
-    public Habitacion(){}
     
     public int getNumeroHabitacion() {
         return numeroHabitacion;
@@ -45,12 +46,12 @@ public class Habitacion {
     public void setTipoHabitacion(String tipoHabitacion) {
         this.tipoHabitacion = tipoHabitacion;
     }
-    public int getNumeroPiso() {
-        return numeroPiso;
+
+    public int getPisoId() {
+        return pisoId;
     }
 
-    public void setNumeroPiso(int numeroPiso) {
-        this.numeroPiso = numeroPiso;
+    public void setPisoId(int pisoId) {
+        this.pisoId = pisoId;
     }
-  
 }
