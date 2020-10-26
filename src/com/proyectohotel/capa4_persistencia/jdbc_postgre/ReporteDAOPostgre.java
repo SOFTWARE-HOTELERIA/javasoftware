@@ -25,5 +25,5 @@ public class ReporteDAOPostgre {
     //    }
      public ReservaHabitacion reporteHospedaje(){
            return null;
-     }
+       }
 }
