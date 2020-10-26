@@ -33,6 +33,9 @@ public class ReservaHabitacion {
         this.codigoCliente = codigoCliente;
         this.numeroHabitacion = numeroHabitacion;
     }
+     public ReservaHabitacion(){
+        
+    }
     public String getCodigoReserva() {
         return codigoReserva;
     }

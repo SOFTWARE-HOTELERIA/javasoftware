@@ -16,11 +16,9 @@ public class Habitacion {
     private int pisoId;
 
     
-    public Habitacion(int numeroHabitacion, String estado, String tipoHabitacion, int pisoId) {
-        this.numeroHabitacion = numeroHabitacion;
-        this.estado = estado;
-        this.tipoHabitacion = tipoHabitacion;
-        this.pisoId = pisoId;
+     public Habitacion(String estado,int pisoId){
+        this.estado=estado;
+        this.pisoId=pisoId;
     }
     
     public int getNumeroHabitacion() {

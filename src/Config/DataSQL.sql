@@ -56,3 +56,4 @@ create table reservahabitacion(
  FOREIGN KEY (habitacionNum) references habitacion(nhabitacion),
  FOREIGN KEY (clienteCodigo) references clientes(clienteCodigo)
 );
+

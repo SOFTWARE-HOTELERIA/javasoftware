@@ -8,8 +8,16 @@ package com.proyectohotel.capa1presentacion;
 import java.awt.Font;
 import com.proyectohotel.capa1_presentacion.fonts.font;
 import com.proyectohotel.capa1_presentacion.util.Mensaje;
+import com.proyectohotel.capa1_presentacion.util.CellRenderTable;
 import com.proyectohotel.capa2_aplicacion.RegistroHospedajeService;
 import com.proyectohotel.capa3dominio.Cliente;
+import java.util.Map;
+
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumnModel;
 /**
  *
  * @author josel
@@ -20,6 +28,9 @@ public class frmMenu extends javax.swing.JFrame {
     font tipoFuente;
     public frmMenu() {
         initComponents();
+        mostrarAcumuladoresDeEstado();
+        getReservaHabitaciones(tableReservaHabitacion);
+        tamañoColumnas(tableReservaHabitacion);
         setVisible(true);
         setLocationRelativeTo(null);
         tipoFuente=new font();
@@ -54,7 +65,65 @@ public class frmMenu extends javax.swing.JFrame {
         */
         // itembox variable año => itemBoxAño
     }
+    
+    /* 
+     Author : Jose
+    */
+     public void getReservaHabitaciones(JTable table){
+        JButton btn1 = new JButton("Registrar Habitacion");
+          String[] encabezado={"Nro","Habitacion","Estado",
+                      "Piso","Accion"};
+        RegistroHospedajeService registroHospedajeService = new RegistroHospedajeService();
+        JTableHeader tableHeader = tableReservaHabitacion.getTableHeader();
+          tableHeader.setBackground(java.awt.Color.orange);
+       tableHeader.setForeground(java.awt.Color.white);
+        DefaultTableModel model = new DefaultTableModel(null,encabezado){
+          @Override
+          public boolean isCellEditable(int row,int column){
+             return false; 
+          }
+        };
+       table.setModel(model);
+       tableReservaHabitacion.setDefaultRenderer(Object.class, new CellRenderTable());
+        try {
+            Object[] datos = new Object[5];
+          for(int i=0;i<registroHospedajeService.mostrarHabitaciones().size();i++){
+              datos[0] = i+1;
+              datos[1] = registroHospedajeService.mostrarHabitaciones().get(i).getNumeroHabitacion();
+              datos[2] = registroHospedajeService.mostrarHabitaciones().get(i).getHabitacion().getEstado();
+              datos[3]=  registroHospedajeService.mostrarHabitaciones().get(i).getHabitacion().getPisoId();
+              datos[4] =btn1;
+              model.addRow(datos);
+          }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        
+    }
+    /* 
+            Author :  Jose
+        */
+   public void mostrarAcumuladoresDeEstado(){
+      try{
+          RegistroHospedajeService registroHospedajeService = new RegistroHospedajeService();
+           Map dataHabitaciones = registroHospedajeService.mostrarTotalDeHabitacionesDeEstado();
+          labelHabitacionesDisponibles.setText(dataHabitaciones.get("disponibles").toString());
+          labelHabitacionesOcupadas.setText(dataHabitaciones.get("ocupadas").toString());
+      }catch(Exception ex){
+           System.out.println(ex);
+      }
+    }
+   /* 
+            Author :  Jose
+        */
+   public void tamañoColumnas(JTable table){
+        TableColumnModel columnModel = table.getColumnModel();
+        columnModel.getColumn(0).setPreferredWidth(50);  
+        columnModel.getColumn(1).setPreferredWidth(100);
+        columnModel.getColumn(3).setPreferredWidth(50);  
+        columnModel.getColumn(4).setPreferredWidth(200);  
 
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -127,13 +196,13 @@ public class frmMenu extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        labelTotalHabitacion = new javax.swing.JLabel();
+        labelHabitacionesDisponibles = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableReservaHabitacion = new javax.swing.JTable();
         txtDocumentoIdentidad = new javax.swing.JTextField();
         itemTipoHabitacion = new javax.swing.JComboBox<>();
         jLabel43 = new javax.swing.JLabel();
-        labelCostoHabitacion = new javax.swing.JLabel();
+        labelHabitacionesOcupadas = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnBuscar = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -250,7 +319,7 @@ public class frmMenu extends javax.swing.JFrame {
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 134, 190, 50));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/proyectohotel/capa1_presentacion/image/hotel.jpg"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 300, 650));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 640));
 
         panel_centre.setLayout(new java.awt.CardLayout());
 
@@ -681,8 +750,7 @@ public class frmMenu extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(32, 32, 32)
-                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0))
+                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -747,24 +815,14 @@ public class frmMenu extends javax.swing.JFrame {
         jLabel23.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         jLabel23.setText("<html>\n<p>Total de Habitaciones</br> Disponibles</p>\n</html>");
 
-        labelTotalHabitacion.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        labelTotalHabitacion.setText("4");
+        labelHabitacionesDisponibles.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        labelHabitacionesDisponibles.setText("4");
 
         tableReservaHabitacion.setBackground(new java.awt.Color(204, 204, 204));
+        tableReservaHabitacion.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         tableReservaHabitacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "N°", "Habitacion", "Estado", "  "
@@ -797,7 +855,7 @@ public class frmMenu extends javax.swing.JFrame {
 
         jLabel43.setText("<html>\n<p>Total de Habitaciones</br> Ocupadas</p>\n</html>");
 
-        labelCostoHabitacion.setText("5");
+        labelHabitacionesOcupadas.setText("5");
 
         jPanel3.setBackground(new java.awt.Color(149, 95, 32));
 
@@ -857,9 +915,9 @@ public class frmMenu extends javax.swing.JFrame {
                             .addGroup(p1Layout.createSequentialGroup()
                                 .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(labelTotalHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelHabitacionesDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(214, 214, 214)
-                                .addComponent(labelCostoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(labelHabitacionesOcupadas, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
@@ -909,13 +967,13 @@ public class frmMenu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
-                        .addComponent(labelTotalHabitacion)
+                        .addComponent(labelHabitacionesDisponibles)
                         .addGap(37, 37, 37))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
                         .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(labelCostoHabitacion))
+                                .addComponent(labelHabitacionesOcupadas))
                             .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1128,8 +1186,8 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel labelCostoHabitacion;
-    private javax.swing.JLabel labelTotalHabitacion;
+    private javax.swing.JLabel labelHabitacionesDisponibles;
+    private javax.swing.JLabel labelHabitacionesOcupadas;
     private javax.swing.JPanel p1;
     private javax.swing.JPanel p2;
     private javax.swing.JPanel p3;
