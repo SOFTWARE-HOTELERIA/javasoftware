@@ -23,6 +23,7 @@ public class Cliente {
         this.telefono = telefono;
         this.tipoDocumento = tipoDocumento;
     }
+    public Cliente(){}
 
     public String getApellido() {
         return apellido;

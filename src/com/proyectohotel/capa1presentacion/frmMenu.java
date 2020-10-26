@@ -8,12 +8,15 @@ package com.proyectohotel.capa1presentacion;
 import java.awt.Font;
 import com.proyectohotel.capa1_presentacion.fonts.font;
 import com.proyectohotel.capa1_presentacion.util.Mensaje;
+import com.proyectohotel.capa2_aplicacion.RegistroHospedajeService;
+import com.proyectohotel.capa3dominio.Cliente;
 /**
  *
  * @author josel
  */
 public class frmMenu extends javax.swing.JFrame {
-
+    
+    private Cliente cliente;
     font tipoFuente;
     public frmMenu() {
         initComponents();
@@ -114,12 +117,12 @@ public class frmMenu extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        txtnombre = new javax.swing.JLabel();
+        txtfono = new javax.swing.JLabel();
+        txtcorreo = new javax.swing.JLabel();
+        txttipodocumento = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        txtnacionalidad = new javax.swing.JLabel();
         btnBuscarCliente = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
@@ -631,30 +634,30 @@ public class frmMenu extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         jLabel13.setText("TIPO_DOCUMENTO:");
 
-        jLabel14.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel14.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("------");
+        txtnombre.setBackground(new java.awt.Color(255, 255, 255));
+        txtnombre.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        txtnombre.setForeground(new java.awt.Color(255, 255, 255));
+        txtnombre.setText("------");
 
-        jLabel15.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel15.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("--------");
+        txtfono.setBackground(new java.awt.Color(255, 255, 255));
+        txtfono.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        txtfono.setForeground(new java.awt.Color(255, 255, 255));
+        txtfono.setText("--------");
 
-        jLabel16.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("------");
+        txtcorreo.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        txtcorreo.setForeground(new java.awt.Color(255, 255, 255));
+        txtcorreo.setText("------");
 
-        jLabel17.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("---");
+        txttipodocumento.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        txttipodocumento.setForeground(new java.awt.Color(255, 255, 255));
+        txttipodocumento.setText("---");
 
         jLabel18.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         jLabel18.setText("NACIONALIDAD:");
 
-        jLabel19.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setText("---");
+        txtnacionalidad.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        txtnacionalidad.setForeground(new java.awt.Color(255, 255, 255));
+        txtnacionalidad.setText("---");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -666,24 +669,28 @@ public class frmMenu extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
+                            .addComponent(txtcorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtfono, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                            .addComponent(txttipodocumento, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                            .addComponent(txtnacionalidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -691,19 +698,19 @@ public class frmMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtnombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(jLabel13)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel17))
+                    .addComponent(txtfono)
+                    .addComponent(txttipodocumento))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16)
+                    .addComponent(txtcorreo)
                     .addComponent(jLabel18)
-                    .addComponent(jLabel19))
+                    .addComponent(txtnacionalidad))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -722,7 +729,7 @@ public class frmMenu extends javax.swing.JFrame {
         btnBuscarClienteLayout.setHorizontalGroup(
             btnBuscarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnBuscarClienteLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
+                .addContainerGap(70, Short.MAX_VALUE)
                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -877,7 +884,7 @@ public class frmMenu extends javax.swing.JFrame {
                                     .addGap(58, 58, 58)
                                     .addComponent(txtDocumentoIdentidad, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         p1Layout.setVerticalGroup(
             p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -899,7 +906,7 @@ public class frmMenu extends javax.swing.JFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
                         .addComponent(labelTotalHabitacion)
@@ -969,7 +976,24 @@ public class frmMenu extends javax.swing.JFrame {
     private void btnBuscarClienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarClienteMousePressed
         // TODO add your handling code here:
         String documentoIdentidad = txtDocumentoIdentidad.getText();
-    System.out.println(documentoIdentidad);
+            try {
+            RegistroHospedajeService registroHospedajeService = new RegistroHospedajeService();
+            cliente= registroHospedajeService.buscarCliente(documentoIdentidad);
+            if(cliente != null){
+                txtnombre.setText(cliente.getNombre()+ " "+cliente.getApellido());
+                txtfono.setText(cliente.getTelefono());
+                txtcorreo.setText(cliente.getCorreo());
+                txttipodocumento.setText(cliente.getTipoDocumento());
+                txtnacionalidad.setText(cliente.getNacionalidad());
+            } else {
+                System.out.println("El documento de identidad no existe");
+            }
+        } catch (Exception e) {
+           System.out.println("Problem : " + e );
+        } 
+    
+    
+    
     }//GEN-LAST:event_btnBuscarClienteMousePressed
 
     private void btnReporteClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteClienteActionPerformed
@@ -1071,12 +1095,7 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -1128,5 +1147,10 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel txtPiso;
     private javax.swing.JLabel txtTipoHabitacion;
     private javax.swing.JLabel txtTotalDias;
+    private javax.swing.JLabel txtcorreo;
+    private javax.swing.JLabel txtfono;
+    private javax.swing.JLabel txtnacionalidad;
+    private javax.swing.JLabel txtnombre;
+    private javax.swing.JLabel txttipodocumento;
     // End of variables declaration//GEN-END:variables
 }

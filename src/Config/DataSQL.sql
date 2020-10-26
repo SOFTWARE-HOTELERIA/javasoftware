@@ -33,12 +33,12 @@ create table nivel(
 create table tipo_habitacion(
  nhabitacion serial PRIMARY KEY,
  descripcion text not null,
- costo numeric(4,2) not null
+ costo numeric(4,1) not null
 );
 -----------------------
 create table habitacion(
  nhabitacion varchar(20) not null PRIMARY KEY,
- estado boolean not null,
+ estado varchar(15) not null,
  tipoHabitacionId int not null,
  nivelId int not null,
  FOREIGN KEY (nivelId) references nivel(pisoId),

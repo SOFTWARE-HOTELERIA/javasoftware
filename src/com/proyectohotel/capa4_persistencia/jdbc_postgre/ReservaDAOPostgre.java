@@ -7,6 +7,8 @@ package com.proyectohotel.capa4_persistencia.jdbc_postgre;
 import com.proyectohotel.capa3dominio.Cliente;
 import com.proyectohotel.capa3dominio.ReservaHabitacion;
 import com.proyectohotel.capa4_persistencia.JDBC.GestorJDBC;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 /**
  *
@@ -26,8 +28,25 @@ public class ReservaDAOPostgre {
      /* 
        Author : Marco
     */
-    public Cliente buscarCliente(String documentoIdentidad){
-        return null;
+    public Cliente buscarCliente(String documentoIdentidad) throws SQLException{
+         Cliente cliente = null;
+        ResultSet resultado_cliente;
+        String sentenciaSQL;
+        sentenciaSQL ="SELECT c.nombre,c.apellido,c.telefono,td.descripcion,c.correo ,c.nacionalidad "
+                + "FROM clientes c left JOIN tipo_documento td on c.documentoId =td.documentoId "
+                + "where c.numeroIdentidad = '" + documentoIdentidad+"'";
+        resultado_cliente =gestorJDBC.ejecutarConsulta(sentenciaSQL);
+        if(resultado_cliente.next()){
+        cliente = new Cliente();
+        cliente.setNombre(resultado_cliente.getString("nombre"));
+        cliente.setApellido(resultado_cliente.getString("apellido"));
+        cliente.setTelefono(resultado_cliente.getString("telefono"));
+        cliente.setTipoDocumento(resultado_cliente.getString("Descripcion"));
+        cliente.setCorreo(resultado_cliente.getString("correo"));
+        cliente.setNacionalidad(resultado_cliente.getString("nacionalidad"));
+         }
+        resultado_cliente.close();
+        return cliente;
     }
      /* 
        Author : Wilmer

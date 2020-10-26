@@ -30,9 +30,11 @@ public class RegistroHospedajeService {
     /* 
     Author :  Marco
     */
-    public Cliente buscarCliente(String documentoIdentidad){
-        return null;
-        //cliente.validarDocumentoIdentidad()
+    public Cliente buscarCliente(String documentoIdentidad) throws Exception{
+         gestorJDBC.abrirConexion();
+         Cliente cliente = reservaDAO.buscarCliente(documentoIdentidad);
+         gestorJDBC.cerrarConexion(); 
+          return cliente;
     }
      /* 
      Author : Wilmer
