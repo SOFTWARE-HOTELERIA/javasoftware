@@ -57,3 +57,21 @@ create table reservahabitacion(
  FOREIGN KEY (clienteCodigo) references clientes(clienteCodigo)
 );
 
+--clientes:
+insert into clientes values('PO01','Scott','Mitchell','lidaniel@gmail.com','9898798',2,'545698','Peruano');
+insert into clientes values('PO02','Julie','Ellis','markschristian@mcdaniel-lamb.com','091339',1,'4549978','Veneco');
+insert into clientes values('PO03','William','Delacruz','sherry95@hayden.com','9877818',1,'56487','Veneco');
+INSERT INTO clientes values('PO04','Robert','Bolaños','robert@gmail.com','996524234','1','9568978','PERU');
+INSERT INTO clientes values('PO05','Carlos','Perez','carlos@gmail.com','996734','2','954568','PERU');
+
+--insert into habitacion
+ insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A001','DISPONIBLE',1,1);
+ insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A002','OCUPADO',2,2);
+insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A003','DISPONIBLE',1,1);
+ insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A004','OCUPADO',2,2);
+--insert into  tiphoabitacion
+insert into tipo_habitacion(nhabitacion,descripcion,costo) values(1,'presidencial',55);
+insert into tipo_habitacion(nhabitacion,descripcion,costo) values(2,'Individual',30);
+--insert into nivel
+insert into nivel(pisoId,cantidad) values(1,3);
+insert into nivel(pisoId,cantidad) values(2,5);
