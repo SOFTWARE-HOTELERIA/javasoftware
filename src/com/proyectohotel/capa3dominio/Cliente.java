@@ -4,14 +4,14 @@
  */
 package com.proyectohotel.capa3dominio;
 public class Cliente {
-    private String apellido ;
-    private String codigocliente ;
-    private String correo  ;
-    private String nacionalidad  ;
-    private String nombre  ;
-    private String numeroIdentidad  ;
-    private String telefono  ;
-    private String tipoDocumento ;
+    private String apellido;
+    private String codigocliente;
+    private String correo ;
+    private String nacionalidad;
+    private String nombre;
+    private String numeroIdentidad;
+    private String telefono;
+    private String tipoDocumento;
 
     public Cliente(String apellido, String codigocliente, String correo, String nacionalidad, String nombre, String numeroIdentidad, String telefono, String tipoDocumento) {
         this.apellido = apellido;

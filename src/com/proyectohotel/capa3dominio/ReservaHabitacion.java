@@ -6,6 +6,7 @@
 package com.proyectohotel.capa3dominio;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 
 /**
@@ -13,7 +14,7 @@ import java.sql.Date;
  * @author josel
  */
 public class ReservaHabitacion {
-      private String codigoReserva;
+    private String codigoReserva;
     private Date fechaIngreso;
     private Date fechaSalida;
     private int dias;
@@ -22,7 +23,9 @@ public class ReservaHabitacion {
     private String numeroHabitacion;
     private Cliente cliente;
     private Habitacion habitacion;
-  
+    
+   public static final String ESTADO_DISPONIBLE = "DISPONIBLE";
+    public static final String ESTADO_OCUPADO = "OCUPADO";
     //constructor solo con atributos de reserva , no tomo en cuenta las clases , definir si es necesario
     public ReservaHabitacion(String codigoReserva, Date fechaIngreso, Date fechaSalida, int dias, float pagoDeCliente, String codigoCliente, String numeroHabitacion) {
         this.codigoReserva = codigoReserva;
@@ -108,29 +111,19 @@ public class ReservaHabitacion {
     }
     //reglas de negocio
      public double calcularCostoFinal(){
-        //=> total_dias * costo_habitacion
-         return 0;
+       return  totalDeDiasHospedado()*habitacion.getTipoHabitacion().getCosto();
      }
      public int totalDeDiasHospedado(){
-         //=> fecha_inicial | fecha_final  => diferencia entre dias 
-         return 0;
+         return fechaIngreso.getDay() - fechaSalida.getDay();
      }
-      public void validadDocumentoIdentidad(String documentoIdentidad){
-          if(documentoIdentidad == null){
-              
-          }
-     }
-//     public List listarAño(int añonInicial,)
-      
-    public boolean validarEstadoHabitacion(String estado){
-        if(estado.equals("DISPONIBLE")){
-            return true;
+      public void establecerFechaDeReserva(){
+        if(habitacion.getEstado().equals("DISPONIBLE")){
+            fechaIngreso = Date.valueOf(LocalDate.now()); // estado disponible
         }else{
-            return false;
-        }
+            fechaSalida = Date.valueOf(LocalDate.now()); //estado ocupado
+        } 
     }
-    public boolean validadNumeroHabitacion(){
-//        return null;
-        return false;
-    }
+     
+  
+
 }

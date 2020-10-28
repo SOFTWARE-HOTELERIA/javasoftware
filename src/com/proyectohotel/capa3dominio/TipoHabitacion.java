@@ -10,22 +10,22 @@ package com.proyectohotel.capa3dominio;
  * @author josel
  */
 public class TipoHabitacion {
-      String numHabitacion;
-    String descripcion;
-    String costo;
+    private String idTipoHabitacion;
+    private String descripcion;
+    private double costo=5.00;
 
-    public TipoHabitacion(String numHabitacion, String descripcion, String costo) {
-        this.numHabitacion = numHabitacion;
+    public TipoHabitacion(String numHabitacion, String descripcion, double costo) {
+        this.idTipoHabitacion = numHabitacion;
         this.descripcion = descripcion;
         this.costo = costo;
     }
 
     public String getNumHabitacion() {
-        return numHabitacion;
+        return idTipoHabitacion;
     }
 
     public void setNumHabitacion(String numHabitacion) {
-        this.numHabitacion = numHabitacion;
+        this.idTipoHabitacion = numHabitacion;
     }
 
     public String getDescripcion() {
@@ -35,12 +35,12 @@ public class TipoHabitacion {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
-    public String getCosto() {
+    public double getCosto() {
         return costo;
     }
 
-    public void setCosto(String costo) {
+    public void setCosto(double costo) {
         this.costo = costo;
     }
+
 }

@@ -10,17 +10,25 @@ package com.proyectohotel.capa3dominio;
  * @author josel
  */
 public class Habitacion {
-     private int numeroHabitacion;
+    private int numeroHabitacion;
     private String estado;  
-    private String tipoHabitacion;
-    private int pisoId;
+    private int numeroDePiso;
+    private TipoHabitacion tipoHabitacion;
 
-    
+ 
+    //crear tabla piso
      public Habitacion(String estado,int pisoId){
         this.estado=estado;
-        this.pisoId=pisoId;
+        this.numeroDePiso=pisoId;
     }
-    
+     public Habitacion(){}
+    public int getNumeroDePiso() {
+        return numeroDePiso;
+    }
+
+    public void setNumeroDePiso(int numeroDePiso) {
+        this.numeroDePiso = numeroDePiso;
+    }
     public int getNumeroHabitacion() {
         return numeroHabitacion;
     }
@@ -36,20 +44,14 @@ public class Habitacion {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
-    public String getTipoHabitacion() {
+   public TipoHabitacion getTipoHabitacion() {
         return tipoHabitacion;
     }
 
-    public void setTipoHabitacion(String tipoHabitacion) {
+    public void setTipoHabitacion(TipoHabitacion tipoHabitacion) {
         this.tipoHabitacion = tipoHabitacion;
     }
+    
 
-    public int getPisoId() {
-        return pisoId;
-    }
-
-    public void setPisoId(int pisoId) {
-        this.pisoId = pisoId;
-    }
+   
 }

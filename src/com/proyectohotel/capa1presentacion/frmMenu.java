@@ -91,7 +91,7 @@ public class frmMenu extends javax.swing.JFrame {
               datos[0] = i+1;
               datos[1] = registroHospedajeService.mostrarHabitaciones().get(i).getNumeroHabitacion();
               datos[2] = registroHospedajeService.mostrarHabitaciones().get(i).getHabitacion().getEstado();
-              datos[3]=  registroHospedajeService.mostrarHabitaciones().get(i).getHabitacion().getPisoId();
+//              datos[3]=  registroHospedajeService.mostrarHabitaciones().get(i).getHabitacion().g;
               datos[4] =btn1;
               model.addRow(datos);
           }
