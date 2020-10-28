@@ -10,7 +10,7 @@ import com.proyectohotel.capa1_presentacion.fonts.font;
 import com.proyectohotel.capa1_presentacion.util.Mensaje;
 import com.proyectohotel.capa1_presentacion.util.CellRenderTable;
 import com.proyectohotel.capa2_aplicacion.RegistroHospedajeService;
-import com.proyectohotel.capa3dominio.Cliente;
+import com.proyectohotel.capa3_dominio.entidades.Cliente;
 import java.util.Map;
 
 import javax.swing.JButton;
@@ -90,8 +90,8 @@ public class frmMenu extends javax.swing.JFrame {
           for(int i=0;i<registroHospedajeService.mostrarHabitaciones().size();i++){
               datos[0] = i+1;
               datos[1] = registroHospedajeService.mostrarHabitaciones().get(i).getNumeroHabitacion();
-              datos[2] = registroHospedajeService.mostrarHabitaciones().get(i).getHabitacion().getEstado();
-//              datos[3]=  registroHospedajeService.mostrarHabitaciones().get(i).getHabitacion().g;
+              datos[2] = registroHospedajeService.mostrarHabitaciones().get(i).getEstado();
+              datos[3]=  registroHospedajeService.mostrarHabitaciones().get(i).getNumeroDePiso();
               datos[4] =btn1;
               model.addRow(datos);
           }

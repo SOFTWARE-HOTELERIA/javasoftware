@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package com.proyectohotel.capa2_aplicacion;
-import com.proyectohotel.capa3dominio.Cliente;
-import com.proyectohotel.capa3dominio.ReservaHabitacion;
+import com.proyectohotel.capa3_dominio.entidades.Cliente;
+import com.proyectohotel.capa3_dominio.entidades.Habitacion;
+import com.proyectohotel.capa3_dominio.entidades.ReservaHabitacion;
 import com.proyectohotel.capa4_persistencia.JDBC.GestorJDBC;
 import com.proyectohotel.capa4_persistencia.jdbc_postgre.GestorJDBCPostgre;
 import com.proyectohotel.capa4_persistencia.jdbc_postgre.ReservaDAOPostgre;
@@ -44,7 +45,7 @@ public class RegistroHospedajeService {
      /* 
      Author : Wilmer
     */
-    public List<ReservaHabitacion> mostrarHabitaciones() throws Exception{
+    public List<Habitacion> mostrarHabitaciones() throws Exception{
         gestorJDBC.abrirConexion();
         List reserva = reservaDAO.listarHabitaciones();
         gestorJDBC.cerrarConexion();

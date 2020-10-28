@@ -3,21 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.proyectohotel.capa3dominio;
+package com.proyectohotel.capa3_dominio.entidades;
 
 /**
  *
  * @author josel
  */
 public class Habitacion {
-    private int numeroHabitacion;
+    private String numeroHabitacion;
     private String estado;  
     private int numeroDePiso;
     private TipoHabitacion tipoHabitacion;
 
  
     //crear tabla piso
-     public Habitacion(String estado,int pisoId){
+     public Habitacion(String numeroHabitacion,String estado,int pisoId){
+        this.numeroHabitacion=numeroHabitacion;
         this.estado=estado;
         this.numeroDePiso=pisoId;
     }
@@ -29,11 +30,11 @@ public class Habitacion {
     public void setNumeroDePiso(int numeroDePiso) {
         this.numeroDePiso = numeroDePiso;
     }
-    public int getNumeroHabitacion() {
+    public String getNumeroHabitacion() {
         return numeroHabitacion;
     }
 
-    public void setNumeroHabitacion(int numeroHabitacion) {
+    public void setNumeroHabitacion(String numeroHabitacion) {
         this.numeroHabitacion = numeroHabitacion;
     }
 

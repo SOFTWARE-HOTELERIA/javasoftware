@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.proyectohotel.capa3dominio;
+package com.proyectohotel.capa3_dominio.entidades;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -17,22 +17,16 @@ public class ReservaHabitacion {
     private String codigoReserva;
     private Date fechaIngreso;
     private Date fechaSalida;
-    private int dias;
-    private float pagoDeCliente;
-    private String numeroHabitacion;
     private Cliente cliente;
     private Habitacion habitacion;
     
    public static final String ESTADO_DISPONIBLE = "DISPONIBLE";
     public static final String ESTADO_OCUPADO = "OCUPADO";
     //constructor solo con atributos de reserva , no tomo en cuenta las clases , definir si es necesario
-    public ReservaHabitacion(String codigoReserva, Date fechaIngreso, Date fechaSalida, int dias, float pagoDeCliente, String codigoCliente, String numeroHabitacion) {
+    public ReservaHabitacion(String codigoReserva, Date fechaIngreso, Date fechaSalida, int dias, float pagoDeCliente, String codigoCliente) {
         this.codigoReserva = codigoReserva;
         this.fechaIngreso = fechaIngreso;
         this.fechaSalida = fechaSalida;
-        this.dias = dias;
-        this.pagoDeCliente = pagoDeCliente;
-        this.numeroHabitacion = numeroHabitacion;
     }
      public ReservaHabitacion(){
         
@@ -60,30 +54,7 @@ public class ReservaHabitacion {
     public void setFechaSalida(Date fechaSalida) {
         this.fechaSalida = fechaSalida;
     }
-
-    public int getDias() {
-        return dias;
-    }
-
-    public void setDias(int dias) {
-        this.dias = dias;
-    }
-
-    public float getPagoDeCliente() {
-        return pagoDeCliente;
-    }
-
-    public void setPagoDeCliente(float pagoDeCliente) {
-        this.pagoDeCliente = pagoDeCliente;
-    }
-    public String getNumeroHabitacion() {
-        return numeroHabitacion;
-    }
-
-    public void setNumeroHabitacion(String numeroHabitacion) {
-        this.numeroHabitacion = numeroHabitacion;
-    }
-      public Cliente getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 

@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 package com.proyectohotel.capa4_persistencia.jdbc_postgre;
-import com.proyectohotel.capa3dominio.Cliente;
-import com.proyectohotel.capa3dominio.Habitacion;
-import com.proyectohotel.capa3dominio.ReservaHabitacion;
+import com.proyectohotel.capa3_dominio.entidades.Cliente;
+import com.proyectohotel.capa3_dominio.entidades.Habitacion;
+import com.proyectohotel.capa3_dominio.entidades.ReservaHabitacion;
 import com.proyectohotel.capa4_persistencia.JDBC.GestorJDBC;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -57,20 +57,20 @@ public class ReservaDAOPostgre {
        Author : Wilmer , Arreglado por :Jose
     */
      //solo listar
-    public List<ReservaHabitacion> listarHabitaciones() throws SQLException{
+    public List<Habitacion> listarHabitaciones() throws SQLException{
         //posible implementacion aqui mismo de logica de 2 querys 
-        ArrayList<ReservaHabitacion> reserva = new ArrayList();
+        ArrayList<Habitacion> registroHabitaciones = new ArrayList();
          ResultSet resultado_habitaciones;
         String sql ="select nhabitacion,estado,nivelId from habitacion";
          resultado_habitaciones = gestorJDBC.ejecutarConsulta(sql);
         while(resultado_habitaciones.next()){
-            ReservaHabitacion reservaHabitacion = new ReservaHabitacion();
-            Habitacion habitacion = new Habitacion(resultado_habitaciones.getString("estado"),resultado_habitaciones.getInt("nivelId"));
-            reservaHabitacion.setNumeroHabitacion(resultado_habitaciones.getString("nhabitacion"));
-            reservaHabitacion.setHabitacion(habitacion);
-            reserva.add(reservaHabitacion);
+            Habitacion habitacion = new Habitacion();
+            habitacion.setNumeroHabitacion(resultado_habitaciones.getString("nhabitacion"));
+            habitacion.setEstado(resultado_habitaciones.getString("estado"));
+            habitacion.setNumeroDePiso(resultado_habitaciones.getInt("nivelId"));
+            registroHabitaciones.add(habitacion);
         }
-        return reserva;
+        return registroHabitaciones;
     }
      /* 
        Author : Wilmer ,Arreglado por :Jose

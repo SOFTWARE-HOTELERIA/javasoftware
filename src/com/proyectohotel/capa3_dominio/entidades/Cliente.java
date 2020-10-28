@@ -2,7 +2,7 @@
  *
  * @author Marcos
  */
-package com.proyectohotel.capa3dominio;
+package com.proyectohotel.capa3_dominio.entidades;
 public class Cliente {
       private String codigocliente;
       private String nombre;
