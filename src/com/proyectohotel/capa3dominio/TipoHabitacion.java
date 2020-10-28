@@ -12,7 +12,7 @@ package com.proyectohotel.capa3dominio;
 public class TipoHabitacion {
     private String idTipoHabitacion;
     private String descripcion;
-    private double costo=5.00;
+    private double costo;
 
     public TipoHabitacion(String numHabitacion, String descripcion, double costo) {
         this.idTipoHabitacion = numHabitacion;

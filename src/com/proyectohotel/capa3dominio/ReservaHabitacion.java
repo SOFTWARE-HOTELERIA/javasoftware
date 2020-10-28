@@ -19,7 +19,6 @@ public class ReservaHabitacion {
     private Date fechaSalida;
     private int dias;
     private float pagoDeCliente;
-    private String codigoCliente;
     private String numeroHabitacion;
     private Cliente cliente;
     private Habitacion habitacion;
@@ -33,7 +32,6 @@ public class ReservaHabitacion {
         this.fechaSalida = fechaSalida;
         this.dias = dias;
         this.pagoDeCliente = pagoDeCliente;
-        this.codigoCliente = codigoCliente;
         this.numeroHabitacion = numeroHabitacion;
     }
      public ReservaHabitacion(){
@@ -78,15 +76,6 @@ public class ReservaHabitacion {
     public void setPagoDeCliente(float pagoDeCliente) {
         this.pagoDeCliente = pagoDeCliente;
     }
-
-    public String getCodigoCliente() {
-        return codigoCliente;
-    }
-
-    public void setCodigoCliente(String codigoCliente) {
-        this.codigoCliente = codigoCliente;
-    }
-
     public String getNumeroHabitacion() {
         return numeroHabitacion;
     }
