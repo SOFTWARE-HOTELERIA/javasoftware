@@ -48,6 +48,7 @@ public class RegistroHospedajeService {
     public List<Habitacion> mostrarHabitaciones() throws Exception{
         gestorJDBC.abrirConexion();
         List reserva = reservaDAO.listarHabitaciones();
+        System.out.println("mostrar");
         gestorJDBC.cerrarConexion();
         return reserva;
     }

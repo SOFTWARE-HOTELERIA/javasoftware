@@ -63,6 +63,7 @@ public class ReservaDAOPostgre {
          ResultSet resultado_habitaciones;
         String sql ="select nhabitacion,estado,nivelId from habitacion";
          resultado_habitaciones = gestorJDBC.ejecutarConsulta(sql);
+         System.out.println("persistencia here");
         while(resultado_habitaciones.next()){
             Habitacion habitacion = new Habitacion();
             habitacion.setNumeroHabitacion(resultado_habitaciones.getString("nhabitacion"));
@@ -70,6 +71,7 @@ public class ReservaDAOPostgre {
             habitacion.setNumeroDePiso(resultado_habitaciones.getInt("nivelId"));
             registroHabitaciones.add(habitacion);
         }
+        resultado_habitaciones.close();
         return registroHabitaciones;
     }
      /* 
@@ -95,16 +97,26 @@ public class ReservaDAOPostgre {
                   
         }
          return data;
+         //{totalAcumuladoCOsto=10,totalPersonas=20}
    }
     
-     /* 
-       Author : Guillermo 
-    */
-    public ReservaHabitacion cerrarEstadiaCliente(String documentoIdentidad){
+     
+     
+     //
+     public int cerrarEstadiaCliente(String documentoIdentidad){
+         // calcularCostoFinal()  => trabajar en capa aplicacion
+         // totalDeDiasHospedado() ==> trabjar en capa aplicacion
+         // establecerFechaDeReserva() ==>  trabjar en capa aplicacion
+         
+         //executeUpdate() => create , delete , update 
+        return 0;
+    }
+  
+    public ReservaHabitacion mostrarEstadiaCliente(String documentoIdentidad){
         return null;
     }
     /* 
-       Author : Aldo 
+       Author : Guillermo 
     */
     public int registrarHabitacion(ReservaHabitacion reservaHabitacion){
         return 0;
