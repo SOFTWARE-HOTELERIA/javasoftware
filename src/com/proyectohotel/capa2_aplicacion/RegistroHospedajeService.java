@@ -6,7 +6,7 @@
 package com.proyectohotel.capa2_aplicacion;
 import com.proyectohotel.capa3_dominio.entidades.Cliente;
 import com.proyectohotel.capa3_dominio.entidades.Habitacion;
-import com.proyectohotel.capa3_dominio.entidades.ReservaHabitacion;
+import com.proyectohotel.capa3_dominio.entidades.RegistroDeHabitacion;
 import com.proyectohotel.capa4_persistencia.JDBC.GestorJDBC;
 import com.proyectohotel.capa4_persistencia.jdbc_postgre.GestorJDBCPostgre;
 import com.proyectohotel.capa4_persistencia.jdbc_postgre.ReservaDAOPostgre;
@@ -63,13 +63,13 @@ public class RegistroHospedajeService {
     /* 
      Author : Guillermo
     */
-    public int registrarHabitacion(ReservaHabitacion reservaHabitacion){
+    public int registrarHabitacion(RegistroDeHabitacion reservaHabitacion){
         return 0;
     }
      /* 
      Author : Aldo
     */
-     public ReservaHabitacion cerrarEstadiaCliente(String documentoIdentidad){
+     public RegistroDeHabitacion cerrarEstadiaCliente(String documentoIdentidad){
         return null;
     }
   

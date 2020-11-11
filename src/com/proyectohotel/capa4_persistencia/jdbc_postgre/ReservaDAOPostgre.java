@@ -6,7 +6,7 @@
 package com.proyectohotel.capa4_persistencia.jdbc_postgre;
 import com.proyectohotel.capa3_dominio.entidades.Cliente;
 import com.proyectohotel.capa3_dominio.entidades.Habitacion;
-import com.proyectohotel.capa3_dominio.entidades.ReservaHabitacion;
+import com.proyectohotel.capa3_dominio.entidades.RegistroDeHabitacion;
 import com.proyectohotel.capa4_persistencia.JDBC.GestorJDBC;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -112,13 +112,13 @@ public class ReservaDAOPostgre {
         return 0;
     }
   
-    public ReservaHabitacion mostrarEstadiaCliente(String documentoIdentidad){
+    public RegistroDeHabitacion mostrarEstadiaCliente(String documentoIdentidad){
         return null;
     }
     /* 
        Author : Guillermo 
     */
-    public int registrarHabitacion(ReservaHabitacion reservaHabitacion){
+    public int registrarHabitacion(RegistroDeHabitacion reservaHabitacion){
         return 0;
     }
 }

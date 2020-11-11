@@ -13,7 +13,7 @@ import java.time.LocalDate;
  *
  * @author josel
  */
-public class ReservaHabitacion {
+public class RegistroDeHabitacion {
     private String codigoReserva;
     private Date fechaIngreso;
     private Date fechaSalida;
@@ -23,12 +23,12 @@ public class ReservaHabitacion {
    public static final String ESTADO_DISPONIBLE = "DISPONIBLE";
     public static final String ESTADO_OCUPADO = "OCUPADO";
     //constructor solo con atributos de reserva , no tomo en cuenta las clases , definir si es necesario
-    public ReservaHabitacion(String codigoReserva, Date fechaIngreso, Date fechaSalida, int dias, float pagoDeCliente, String codigoCliente) {
+    public RegistroDeHabitacion(String codigoReserva, Date fechaIngreso, Date fechaSalida, int dias, float pagoDeCliente, String codigoCliente) {
         this.codigoReserva = codigoReserva;
         this.fechaIngreso = fechaIngreso;
         this.fechaSalida = fechaSalida;
     }
-     public ReservaHabitacion(){
+     public RegistroDeHabitacion(){
         
     }
     public String getCodigoReserva() {

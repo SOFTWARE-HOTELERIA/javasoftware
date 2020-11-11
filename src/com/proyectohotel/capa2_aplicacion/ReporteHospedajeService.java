@@ -5,7 +5,7 @@
  */
 package com.proyectohotel.capa2_aplicacion;
 //import com.proyectohotel.capa3dominio
-import com.proyectohotel.capa3_dominio.entidades.ReservaHabitacion;
+import com.proyectohotel.capa3_dominio.entidades.RegistroDeHabitacion;
 import com.proyectohotel.capa4_persistencia.JDBC.GestorJDBC;
 import com.proyectohotel.capa4_persistencia.jdbc_postgre.GestorJDBCPostgre;
 import com.proyectohotel.capa4_persistencia.jdbc_postgre.ReservaDAOPostgre;
@@ -33,7 +33,7 @@ public class ReporteHospedajeService {
     /* 
          Author : Bruno
     */
-     public ReservaHabitacion reporteHospedaje(){
+     public RegistroDeHabitacion reporteHospedaje(){
            return null;
      }
     

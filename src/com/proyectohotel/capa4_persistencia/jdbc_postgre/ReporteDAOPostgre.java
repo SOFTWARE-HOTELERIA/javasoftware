@@ -6,7 +6,7 @@
 package com.proyectohotel.capa4_persistencia.jdbc_postgre;
 //import com.proyectohotel.capa4_persistencia.jdbc.
 
-import com.proyectohotel.capa3_dominio.entidades.ReservaHabitacion;
+import com.proyectohotel.capa3_dominio.entidades.RegistroDeHabitacion;
 import com.proyectohotel.capa4_persistencia.JDBC.GestorJDBC;
 
 
@@ -23,7 +23,7 @@ public class ReporteDAOPostgre {
     //    public reporteCliente(String anyo){
     //        
     //    }
-     public ReservaHabitacion reporteHospedaje(){
+     public RegistroDeHabitacion reporteHospedaje(){
            return null;
        }
 }
