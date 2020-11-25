@@ -14,6 +14,8 @@ public class TipoHabitacion {
     private String descripcion;
     private double costo;
 
+     public TipoHabitacion() {
+    }
     public TipoHabitacion(String numHabitacion, String descripcion, double costo) {
         this.idTipoHabitacion = numHabitacion;
         this.descripcion = descripcion;

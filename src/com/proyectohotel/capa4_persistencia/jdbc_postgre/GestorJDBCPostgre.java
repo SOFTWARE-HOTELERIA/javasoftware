@@ -7,6 +7,7 @@ package com.proyectohotel.capa4_persistencia.jdbc_postgre;
 
 import Config.Color;
 import com.proyectohotel.capa4_persistencia.JDBC.GestorJDBC;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -20,7 +21,7 @@ public class GestorJDBCPostgre extends GestorJDBC{
            try {
             Class.forName("org.postgresql.Driver");
             String url = "jdbc:postgresql://localhost:5432/javahotel";
-            con = DriverManager.getConnection(url, "postgres", "postgres");
+            con = DriverManager.getConnection(url, "postgres", "localhost");
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println(Color.RED + "ERROR DE CONEXION");
             throw new Exception("Error en la conexion con la base de datos, consulte con el administrador.");

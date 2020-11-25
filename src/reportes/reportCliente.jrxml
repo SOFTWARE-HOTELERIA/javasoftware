@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="conteoCliente" class="java.lang.String"/>
+	<parameter name="sumaCostoTotal" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select row_number() over(),cli.nombre,cli.apellido,cli.numeroidentidad,rh.fecha_entrada,rh.fecha_salida,rh.costo_final
+                                        from clientes cli inner join reservahabitacion rh
+                                        on cli.clientecodigo = rh.clientecodigo]]>
+	</queryString>
+	<field name="row_number" class="java.lang.Long"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="apellido" class="java.lang.String"/>
+	<field name="numeroidentidad" class="java.lang.String"/>
+	<field name="fecha_entrada" class="java.sql.Date"/>
+	<field name="fecha_salida" class="java.sql.Date"/>
+	<field name="costo_final" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="158" y="30" width="215" height="27"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE CLIENTES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="86" splitType="Stretch">
+			<textField>
+				<reportElement x="438" y="35" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{sumaCostoTotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="35" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{conteoCliente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="15" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Nº de clientes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="438" y="15" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[MontoTotal]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="79" height="20"/>
+				<textElement/>
+				<text><![CDATA[row_number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="79" y="0" width="79" height="20"/>
+				<textElement/>
+				<text><![CDATA[nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="158" y="0" width="79" height="20"/>
+				<textElement/>
+				<text><![CDATA[apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="237" y="0" width="79" height="20"/>
+				<textElement/>
+				<text><![CDATA[numeroidentidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="0" width="79" height="20"/>
+				<textElement/>
+				<text><![CDATA[fecha_entrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="395" y="0" width="79" height="20"/>
+				<textElement/>
+				<text><![CDATA[fecha_salida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="474" y="0" width="79" height="20"/>
+				<textElement/>
+				<text><![CDATA[costo_final]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="79" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{row_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="0" width="79" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="158" y="0" width="79" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="237" y="0" width="79" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{numeroidentidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="316" y="0" width="79" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fecha_entrada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="0" width="79" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fecha_salida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="0" width="79" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{costo_final}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
