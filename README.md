@@ -32,5 +32,10 @@ https://readthedocs.org/projects/hoteleria/
  * crear el codigo para el JasperReport. Para mas informacion: https://www.youtube.com/watch?v=AbawnPImW_g
  * crear el hashMap para el parametro del reporte. Para mas informacion: https://www.w3schools.com/java/java_hashmap.asp
  * crear dos variables para poder llamar a las funciones que seran utilizados como parametros del reporte
- * finalmente en la capa de presentacion creas dos variables para dar uso a las fechas
+ * en la capa de presentacion creas dos variables para dar uso a las fechas
  * llamas a tu funcion de la capa de aplicacion
+ * finalmente en la carpeta config entras a la clase "variablesGlobales" y cambias la ruta deacuerdo a tu ordenador:
+ * Pasos:
+ - click derecho en el reporte que se encuentra en el paquete "reportes"
+ - hacer click en propiedades
+ - donde dice all files copiar la ruta y pegar en la clase "variablesGloables" en la variable path
