@@ -21,25 +21,36 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="85" splitType="Stretch">
 			<staticText>
-				<reportElement x="158" y="30" width="215" height="27"/>
+				<reportElement x="158" y="28" width="237" height="27" forecolor="#333333"/>
 				<textElement>
-					<font size="18" isBold="true"/>
+					<font size="18" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[REPORTE DE CLIENTES]]></text>
 			</staticText>
+			<elementGroup/>
+			<image>
+				<reportElement x="11" y="0" width="89" height="67"/>
+				<imageExpression><![CDATA["C:\\Users\\USER\\Desktop\\nuevo\\javasoftware\\src\\com\\proyectohotel\\capa1_presentacion\\icons\\hotel-logo-template-58362974.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="86" splitType="Stretch">
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="35" width="48" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="438" y="35" width="88" height="20"/>
+			</rectangle>
 			<textField>
-				<reportElement x="438" y="35" width="100" height="20"/>
+				<reportElement x="455" y="35" width="60" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$P{sumaCostoTotal}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="35" width="100" height="20"/>
+				<reportElement x="11" y="35" width="27" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$P{conteoCliente}]]></textFieldExpression>
 			</textField>
@@ -58,46 +69,46 @@
 	<columnHeader>
 		<band height="61" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="79" height="20"/>
+				<reportElement mode="Opaque" x="0" y="0" width="79" height="33" forecolor="#FFFFFF" backcolor="#000066"/>
 				<textElement/>
-				<text><![CDATA[row_number]]></text>
+				<text><![CDATA[Nº]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="79" y="0" width="79" height="20"/>
+				<reportElement mode="Opaque" x="79" y="0" width="79" height="33" forecolor="#FFFFFF" backcolor="#000066"/>
 				<textElement/>
-				<text><![CDATA[nombre]]></text>
+				<text><![CDATA[Nombre ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="158" y="0" width="79" height="20"/>
+				<reportElement mode="Opaque" x="237" y="0" width="79" height="33" forecolor="#FFFFFF" backcolor="#000066"/>
 				<textElement/>
-				<text><![CDATA[apellido]]></text>
+				<text><![CDATA[Número de identidad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="237" y="0" width="79" height="20"/>
+				<reportElement mode="Opaque" x="316" y="0" width="79" height="33" forecolor="#FFFFFF" backcolor="#000066"/>
 				<textElement/>
-				<text><![CDATA[numeroidentidad]]></text>
+				<text><![CDATA[Fecha de hospedaje]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="316" y="0" width="79" height="20"/>
+				<reportElement mode="Opaque" x="395" y="0" width="103" height="33" forecolor="#FFFFFF" backcolor="#000066"/>
 				<textElement/>
-				<text><![CDATA[fecha_entrada]]></text>
+				<text><![CDATA[Fecha de salida]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="395" y="0" width="79" height="20"/>
+				<reportElement mode="Opaque" x="498" y="0" width="55" height="33" forecolor="#FFFFFF" backcolor="#000066"/>
 				<textElement/>
-				<text><![CDATA[fecha_salida]]></text>
+				<text><![CDATA[Costo ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="474" y="0" width="79" height="20"/>
+				<reportElement mode="Opaque" x="158" y="0" width="79" height="33" forecolor="#FFFFFF" backcolor="#000066"/>
 				<textElement/>
-				<text><![CDATA[costo_final]]></text>
+				<text><![CDATA[Apellido]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="52" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="79" height="20"/>
+				<reportElement x="0" y="0" width="48" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{row_number}]]></textFieldExpression>
 			</textField>
@@ -127,10 +138,13 @@
 				<textFieldExpression><![CDATA[$F{fecha_salida}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="474" y="0" width="79" height="20"/>
+				<reportElement x="498" y="0" width="55" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{costo_final}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="4" y="20" width="551" height="1" backcolor="#000000"/>
+			</line>
 		</band>
 	</detail>
 	<columnFooter>

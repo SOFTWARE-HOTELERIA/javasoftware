@@ -13,7 +13,7 @@ import com.proyectohotel.capa2_aplicacion.RegistroHospedajeService;
 import com.proyectohotel.capa2_aplicacion.ReporteHospedajeService;
 import com.proyectohotel.capa3_dominio.entidades.Cliente;
 import com.proyectohotel.capa3_dominio.entidades.RegistroDeHabitacion;
-import java.sql.Date;
+import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Map;
 
@@ -1074,16 +1074,15 @@ public String getFecha(java.util.Date fecha)
     }//GEN-LAST:event_btnBuscarClienteMousePressed
 
     private void btnReporteClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteClienteActionPerformed
-        SimpleDateFormat sdf= new SimpleDateFormat("dd-MM-yyyy");
-        Date fechaI=fechaInicial.getDate();
-        Date fechaF=fechaFinal.getDate();
-        System.out.println(fechaI);
-      //  try {
+        String fechaI=getFecha(fechaInicial.getDate());
+        String fechaF=getFecha(fechaFinal.getDate());
+       try {
             ReporteHospedajeService reporteHospedajeService=new ReporteHospedajeService();
-            registroDeHabitacion= new RegistroDeHabitacion(fechaI, fechaF);
+            reporteHospedajeService.reporteCliente(fechaI, fechaF);
             
-       //} catch (Exception e) {
-       // }
+       } catch (Exception e) {
+           System.out.println(e);
+       }
         
         /* 
          Author :  Bruno

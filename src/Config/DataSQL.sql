@@ -75,3 +75,7 @@ insert into tipo_habitacion(nhabitacion,descripcion,costo) values(2,'Individual'
 --insert into nivel
 insert into nivel(pisoId,cantidad) values(1,3);
 insert into nivel(pisoId,cantidad) values(2,5);
+---insert into reservahabitacion
+insert into reservahabitacion values (P0O1,AOO1,'2020-10-26','2020-10-31',5,400)
+insert into reservahabitacion values (P0O2,AOO2,'2020-10-22','2020-10-31',9,560)
+insert into reservahabitacion values (P0O3,AOO3,'2020-10-29','2020-10-30',1,400)
