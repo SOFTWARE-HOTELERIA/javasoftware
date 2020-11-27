@@ -17,4 +17,7 @@ https://readthedocs.org/projects/hoteleria/
  - clases => Habitacion , TipoHabitacion
  
  # Inicializacion de JasperReport:
- 
+  ruta de las librerias y plugins : https://drive.google.com/drive/folders/1Ef_LmvxmMfa5KUynqTor0GH-OW3m4z9q
+  * 1)Descargar los jar de la carpeta "LIBRERIA" y "PLUGINS" e implementarlos
+
+ ```
