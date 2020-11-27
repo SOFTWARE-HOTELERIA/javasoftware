@@ -45,4 +45,7 @@ public abstract class GestorJDBC {
         resultado = sentencia.executeQuery(sql);
         return resultado;
     }
+    public Connection conexionReport(){
+        return con;
+    }
 }

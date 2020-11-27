@@ -23,6 +23,11 @@ public class RegistroDeHabitacion {
    public static final String ESTADO_DISPONIBLE = "DISPONIBLE";
     public static final String ESTADO_OCUPADO = "OCUPADO";
     //constructor solo con atributos de reserva , no tomo en cuenta las clases , definir si es necesario
+    public RegistroDeHabitacion(Date fechaIngreso,Date fechaSalida){
+        this.fechaIngreso=fechaIngreso;
+        this.fechaSalida=fechaSalida;
+    }
+            
     public RegistroDeHabitacion(String codigoReserva, Date fechaIngreso, Date fechaSalida, int dias, float pagoDeCliente, String codigoCliente) {
         this.codigoReserva = codigoReserva;
         this.fechaIngreso = fechaIngreso;

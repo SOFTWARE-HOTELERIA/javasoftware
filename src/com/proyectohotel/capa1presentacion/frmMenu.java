@@ -10,7 +10,11 @@ import com.proyectohotel.capa1_presentacion.fonts.font;
 import com.proyectohotel.capa1_presentacion.util.Mensaje;
 import com.proyectohotel.capa1_presentacion.util.CellRenderTable;
 import com.proyectohotel.capa2_aplicacion.RegistroHospedajeService;
+import com.proyectohotel.capa2_aplicacion.ReporteHospedajeService;
 import com.proyectohotel.capa3_dominio.entidades.Cliente;
+import com.proyectohotel.capa3_dominio.entidades.RegistroDeHabitacion;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.Map;
 
 import javax.swing.JButton;
@@ -26,6 +30,7 @@ public class frmMenu extends javax.swing.JFrame {
     
     private Cliente cliente;
     font tipoFuente;
+    private RegistroDeHabitacion registroDeHabitacion;
     public frmMenu() {
         initComponents();
         mostrarAcumuladoresDeEstado();
@@ -38,7 +43,7 @@ public class frmMenu extends javax.swing.JFrame {
         jLabel4.setFont(tipoFuente.fuente(tipoFuente.MONTSERRAT,1,18));
         jLabel5.setFont(tipoFuente.fuente(tipoFuente.MONTSERRAT,1,18));
         labelUsuario.setFont(tipoFuente.fuente(tipoFuente.MONTSERRAT, 1, 20));
-       
+        
     }
      public void initialComponents(){
         showTable();
@@ -124,7 +129,11 @@ public class frmMenu extends javax.swing.JFrame {
         columnModel.getColumn(4).setPreferredWidth(200);  
 
     }
-
+public String getFecha(java.util.Date fecha)
+    {
+        SimpleDateFormat sdf= new SimpleDateFormat("dd-MM-yyyy");
+        return sdf.format(fecha);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1065,7 +1074,17 @@ public class frmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarClienteMousePressed
 
     private void btnReporteClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteClienteActionPerformed
-           /* 
+        String fechaI=getFecha(fechaInicial.getDate());
+        String fechaF=getFecha(fechaFinal.getDate());
+       try {
+            ReporteHospedajeService reporteHospedajeService=new ReporteHospedajeService();
+            reporteHospedajeService.reporteCliente(fechaI, fechaF);
+            
+       } catch (Exception e) {
+           System.out.println(e);
+       }
+        
+        /* 
          Author :  Bruno
         */
         //NOTA : RECUERDA QUE  POR SALIDA ES UN REPORTE => USANDO JASPER REPORTS

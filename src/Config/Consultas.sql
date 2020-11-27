@@ -42,16 +42,17 @@ where R.clienteCodigo='0001'
 
 --consulta #5 MOSTRAR REFERENTE A LAS DOS FECHAS MENCIONADAS 
 --a)Listar los siguientes datos nombre,apellido,telelono,tipo_documento,fecha entrada,fecha salida,costo final
-select cli.nombre,cli.apellido,cli.telefono,td.descripcion,rh.fecha_entrada,rh.fecha_salida,rh.costo_final
-from cliente cli inner join reservahabitacion rh
-on cli.ClienteCodigo=rh.ClienteCodigo inner join tipo_Documento td
-on cli.documentold=td.documentold
+select row_number() over(),cli.nombre,cli.apellido,cli.numeroidentidad,rh.fecha_entrada,rh.fecha_salida,rh.costo_final\n
+                                        from clientes cli inner join reservahabitacion rh\
+                                        on cli.clientecodigo = rh.clientecodigo\n
+                                        where rh.fecha_salida between '10/10/2020' and '10/11/2020'
 
 --b) Mostrar el Total acumulado del costo final
+select sum(rh.costo_final)as 'Costo Total' from reservahabitacion rh
+where rh.fecha_salida between '10/10/2020' and '10/11/2020'
 --c ) Mostrar el total de registros que existen.
-select sum(rh.costo_final)as 'Costo Total',count(rh.ClienteCodigo)as 'Cantidad de Clientes' from reservahabitacion rh
-
-
+select count(rh.ClienteCodigo)as 'Cantidad de Clientes' from reserbahabitacion rh
+where rh.fecha_salida between '10/10/2020' and '10/11/2020'
 --consulta #6:
 --a)Mostrar los siguientes datos: fecha hospedaje,numero habitacion,tipo habitacion,piso habitacion,costo de habitacion
 -- referente al documento de identidad.
