@@ -16,18 +16,12 @@ public class TipoHabitacion {
 
      public TipoHabitacion() {
     }
-    public TipoHabitacion(String numHabitacion, String descripcion, double costo) {
-        this.idTipoHabitacion = numHabitacion;
-        this.descripcion = descripcion;
-        this.costo = costo;
-    }
-
     public String getNumHabitacion() {
         return idTipoHabitacion;
     }
 
-    public void setNumHabitacion(String numHabitacion) {
-        this.idTipoHabitacion = numHabitacion;
+    public void setNumHabitacion(String idTipoHabitacion) {
+        this.idTipoHabitacion = idTipoHabitacion;
     }
 
     public String getDescripcion() {

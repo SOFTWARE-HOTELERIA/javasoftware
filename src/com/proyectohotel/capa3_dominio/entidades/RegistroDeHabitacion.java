@@ -7,7 +7,8 @@ package com.proyectohotel.capa3_dominio.entidades;
 
 import java.sql.Date;
 import java.time.LocalDate;
-
+import java.util.Calendar;
+import java.lang.Math;
 
 /**
  *
@@ -19,7 +20,7 @@ public class RegistroDeHabitacion {
     private Date fechaSalida;
     private Cliente cliente;
     private Habitacion habitacion;
-    
+    Calendar cal = Calendar.getInstance();
    public static final String ESTADO_DISPONIBLE = "DISPONIBLE";
     public static final String ESTADO_OCUPADO = "OCUPADO";
     //constructor solo con atributos de reserva , no tomo en cuenta las clases , definir si es necesario
@@ -78,17 +79,24 @@ public class RegistroDeHabitacion {
      public double calcularCostoFinal(){
        return  totalDeDiasHospedado()*habitacion.getTipoHabitacion().getCosto();
      }
+//     fechaIngreso.getDay()
      public int totalDeDiasHospedado(){
-         return fechaIngreso.getDay() - fechaSalida.getDay();
+         //only work with dias , no trabaja meses ni años :/
+        return Math.abs(getDayNumberOld(getFechaIngreso()) - getDayNumberOld(getFechaSalida()));
      }
-      public void establecerFechaDeReserva(){
-        if(habitacion.getEstado().equals("DISPONIBLE")){
-            fechaIngreso = Date.valueOf(LocalDate.now()); // estado disponible
-        }else{
-            fechaSalida = Date.valueOf(LocalDate.now()); //estado ocupado
-        } 
-    }
-     
+     public void registrarHabitacion(){
+          setFechaIngreso(Date.valueOf(LocalDate.now()));
+          habitacion.setEstado(ESTADO_OCUPADO);
+     }
+     public void finalizarEstadia(){
+        habitacion.setEstado(ESTADO_DISPONIBLE);
+        setFechaSalida(Date.valueOf(LocalDate.now()));
+     }
+     public static int getDayNumberOld(Date date) {
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(date);
+            return cal.get(Calendar.DAY_OF_MONTH);
+      }
   
 
 }

@@ -10,5 +10,5 @@ package Config;
  * @author USER
  */
 public class variablesGlobales {
-    public static final String  path="C:\\Users\\USER\\Desktop\\nuevo";
+    public static final String  path="C:\\Users\\josel\\Desktop\\aislado";
 }

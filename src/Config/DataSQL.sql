@@ -52,7 +52,7 @@ create table reservahabitacion(
  fecha_entrada date not null,
  fecha_salida date null,
  dias int null,
- costo_final numeric(7,2) not null,
+ costo_final numeric(7,2) null,
  FOREIGN KEY (habitacionNum) references habitacion(nhabitacion),
  FOREIGN KEY (clienteCodigo) references clientes(clienteCodigo)
 );
@@ -79,3 +79,10 @@ insert into nivel(pisoId,cantidad) values(2,5);
 insert into reservahabitacion values (P0O1,AOO1,'2020-10-26','2020-10-31',5,400)
 insert into reservahabitacion values (P0O2,AOO2,'2020-10-22','2020-10-31',9,560)
 insert into reservahabitacion values (P0O3,AOO3,'2020-10-29','2020-10-30',1,400)
+---
+create view estadiaFinalizada as
+select h.nhabitacion,dias,fecha_entrada,fecha_salida,costo,costo_final,nombre,apellido from habitacion h
+inner join reservahabitacion r on h.nhabitacion=r.habitacionnum 
+left join clientes c on c.clientecodigo=r.clientecodigo
+inner join nivel n on h.nivelid=n.pisoid
+inner join tipo_habitacion t on h.tipohabitacionid=t.nhabitacion

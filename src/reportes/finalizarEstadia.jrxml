@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="542" orientation="Landscape" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f7d1ae5f-918e-4580-b9d1-9f76963504a1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="48"/>
+	<queryString>
+		<![CDATA[select dias,fecha_entrada,fecha_salida,costo,costo_final,descripcion,nombre,apellido,pisoId,numeroidentidad from estadiafinalizada;]]>
+	</queryString>
+	<field name="dias" class="java.lang.Integer"/>
+	<field name="fecha_entrada" class="java.sql.Date"/>
+	<field name="fecha_salida" class="java.sql.Date"/>
+	<field name="costo" class="java.math.BigDecimal"/>
+	<field name="costo_final" class="java.math.BigDecimal"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="apellido" class="java.lang.String"/>
+	<field name="pisoid" class="java.lang.Integer"/>
+	<field name="numeroidentidad" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="199" y="24" width="209" height="29" forecolor="#3333FF" uuid="036108c1-9750-4739-81ed-8c905b293f42"/>
+				<textElement textAlignment="Center">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[ROYAL HOTEL]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="58" splitType="Stretch">
+			<staticText>
+				<reportElement x="15" y="12" width="100" height="20" uuid="025194c2-cc45-46f3-82f9-b4b97241cc79"/>
+				<textElement>
+					<font fontName="Segoe UI Light" size="11"/>
+				</textElement>
+				<text><![CDATA[Fecha de Estadia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="12" width="100" height="20" uuid="67e6f5d8-0475-400c-aaad-51b2d1090044"/>
+				<textElement>
+					<font fontName="Segoe UI Light" size="11"/>
+				</textElement>
+				<text><![CDATA[Fecha de Salida]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="143" y="12" width="100" height="20" forecolor="#6600FF" uuid="4629710f-b0f8-40b0-900c-9b5ec7cc89af"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_entrada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="437" y="12" width="100" height="20" forecolor="#9933FF" uuid="0a679ad4-7333-4b94-9d10-08f5c567b8bf"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_salida}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="76" splitType="Stretch">
+			<staticText>
+				<reportElement x="15" y="14" width="157" height="20" uuid="4bce564f-21b3-493e-96dd-2a075ffe400d"/>
+				<textElement>
+					<font fontName="Segoe UI Light" size="11"/>
+				</textElement>
+				<text><![CDATA[Nombre y Apellido del Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="44" width="157" height="20" uuid="b6a2f817-3319-483f-aa05-3e8d6fcf3fee"/>
+				<textElement>
+					<font fontName="Segoe UI Light" size="11"/>
+				</textElement>
+				<text><![CDATA[Numero de Identidad: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="199" y="14" width="185" height="20" uuid="8b04187d-2a01-4b71-8648-361dd5b72a13"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}+ " " + $F{apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="199" y="44" width="100" height="20" uuid="c9694555-4c29-45d1-b891-d0815ee79880"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroidentidad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement x="437" y="10" width="100" height="20" uuid="4e70374d-707d-40b3-b25b-c479d2a0ee75"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dias}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="143" y="10" width="100" height="20" uuid="a3e38245-d5f7-4c0c-ad3f-cda1c25c3e9f"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="143" y="44" width="100" height="20" uuid="ae4dd364-3c67-4225-a12a-dec6ed18eb95"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{costo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="15" y="10" width="100" height="20" uuid="7a2ea30b-53bb-48bd-ad10-26fc8e66bd60"/>
+				<textElement>
+					<font fontName="Segoe UI Light" size="11"/>
+				</textElement>
+				<text><![CDATA[Tipo Habitacion:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="44" width="100" height="20" uuid="b56dd8d3-65de-4241-836a-bb00bc434ae4"/>
+				<textElement>
+					<font fontName="Segoe UI Light" size="11"/>
+				</textElement>
+				<text><![CDATA[Costo Habitacion:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="284" y="10" width="100" height="20" uuid="a471986f-6328-40f5-82f3-93f110a7081b"/>
+				<textElement>
+					<font fontName="Segoe UI Light" size="11"/>
+				</textElement>
+				<text><![CDATA[Dias Hospedado:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="284" y="44" width="132" height="20" uuid="70e304a1-76f2-48a4-be44-4bb82750ce56"/>
+				<textElement>
+					<font fontName="Segoe UI Light" size="11"/>
+				</textElement>
+				<text><![CDATA[Numero de Piso Hospedado]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="437" y="44" width="100" height="20" uuid="6aeb6ae0-352d-4c9a-92f3-c13f39bf1cb2"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pisoid}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="56" splitType="Stretch">
+			<staticText>
+				<reportElement x="316" y="12" width="100" height="20" uuid="6fa70e86-797c-402f-8efb-856584bf41e2"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Costo a Pagar:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="437" y="12" width="100" height="20" forecolor="#FF0000" uuid="a80bae68-2ecc-4508-b6e1-a93647754b93"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA["S./"+$F{costo_final}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="30" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="18" splitType="Stretch"/>
+	</summary>
+</jasperReport>

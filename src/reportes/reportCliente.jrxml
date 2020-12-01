@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c0f3e83a-2eaf-4d8c-b0d2-a7dd79b169ad">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -23,45 +23,37 @@
 	<title>
 		<band height="85" splitType="Stretch">
 			<staticText>
-				<reportElement x="158" y="28" width="237" height="27" forecolor="#333333"/>
+				<reportElement x="158" y="28" width="237" height="27" forecolor="#333333" uuid="bd117326-2e27-4146-b6ed-08fb8490ff89"/>
 				<textElement>
 					<font size="18" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[REPORTE DE CLIENTES]]></text>
 			</staticText>
 			<elementGroup/>
-			<image>
-				<reportElement x="11" y="0" width="89" height="67"/>
-				<imageExpression><![CDATA["C:\\Users\\USER\\Desktop\\nuevo\\javasoftware\\src\\com\\proyectohotel\\capa1_presentacion\\icons\\hotel-logo-template-58362974.jpg"]]></imageExpression>
-			</image>
 		</band>
 	</title>
 	<pageHeader>
 		<band height="61" splitType="Stretch">
 			<rectangle>
-				<reportElement x="0" y="35" width="48" height="20"/>
+				<reportElement x="0" y="35" width="48" height="20" uuid="2f1fe603-430b-45c7-88ef-e2cef1c2412a"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="438" y="35" width="88" height="20"/>
+				<reportElement x="438" y="35" width="88" height="20" uuid="2852b73a-31a6-4b25-9d7f-92c2dce86ba4"/>
 			</rectangle>
 			<textField>
-				<reportElement x="455" y="35" width="60" height="20"/>
-				<textElement/>
+				<reportElement x="455" y="35" width="60" height="20" uuid="368f5096-1a19-4bee-a367-0d073d12775a"/>
 				<textFieldExpression><![CDATA[$P{sumaCostoTotal}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="11" y="35" width="27" height="20"/>
-				<textElement/>
+				<reportElement x="11" y="35" width="27" height="20" uuid="5842dbf5-2384-4f0f-8f6e-bac068cb0b55"/>
 				<textFieldExpression><![CDATA[$P{conteoCliente}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="15" width="100" height="20"/>
-				<textElement/>
+				<reportElement x="0" y="15" width="100" height="20" uuid="3c00a75e-e42a-4d27-b73a-46e497d2c2a2"/>
 				<text><![CDATA[Nº de clientes]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="438" y="15" width="100" height="20"/>
-				<textElement/>
+				<reportElement x="438" y="15" width="100" height="20" uuid="32afeef4-ac9e-4f81-a1f4-dba97e8b94db"/>
 				<text><![CDATA[MontoTotal]]></text>
 			</staticText>
 		</band>
@@ -69,38 +61,31 @@
 	<columnHeader>
 		<band height="61" splitType="Stretch">
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="79" height="33" forecolor="#FFFFFF" backcolor="#000066"/>
-				<textElement/>
+				<reportElement mode="Opaque" x="0" y="0" width="79" height="33" forecolor="#FFFFFF" backcolor="#000066" uuid="48b5ed0b-0929-4aeb-9a25-69dc6ce3373a"/>
 				<text><![CDATA[Nº]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="79" y="0" width="79" height="33" forecolor="#FFFFFF" backcolor="#000066"/>
-				<textElement/>
+				<reportElement mode="Opaque" x="79" y="0" width="79" height="33" forecolor="#FFFFFF" backcolor="#000066" uuid="f24fc95b-e11b-4b77-bce2-efdb00c80fe8"/>
 				<text><![CDATA[Nombre ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="237" y="0" width="79" height="33" forecolor="#FFFFFF" backcolor="#000066"/>
-				<textElement/>
+				<reportElement mode="Opaque" x="237" y="0" width="79" height="33" forecolor="#FFFFFF" backcolor="#000066" uuid="7a0872bf-9395-4d18-ae98-f983f0bcc7f0"/>
 				<text><![CDATA[Número de identidad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="316" y="0" width="79" height="33" forecolor="#FFFFFF" backcolor="#000066"/>
-				<textElement/>
+				<reportElement mode="Opaque" x="316" y="0" width="79" height="33" forecolor="#FFFFFF" backcolor="#000066" uuid="db76b1a7-4253-4202-92ad-37704e9a8b55"/>
 				<text><![CDATA[Fecha de hospedaje]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="395" y="0" width="103" height="33" forecolor="#FFFFFF" backcolor="#000066"/>
-				<textElement/>
+				<reportElement mode="Opaque" x="395" y="0" width="103" height="33" forecolor="#FFFFFF" backcolor="#000066" uuid="0cfbd14b-c5b6-4fee-9b5d-9ba1babb6b33"/>
 				<text><![CDATA[Fecha de salida]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="498" y="0" width="55" height="33" forecolor="#FFFFFF" backcolor="#000066"/>
-				<textElement/>
+				<reportElement mode="Opaque" x="498" y="0" width="55" height="33" forecolor="#FFFFFF" backcolor="#000066" uuid="7c3b6a6c-bb4d-4282-b406-1377330b31d8"/>
 				<text><![CDATA[Costo ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="158" y="0" width="79" height="33" forecolor="#FFFFFF" backcolor="#000066"/>
-				<textElement/>
+				<reportElement mode="Opaque" x="158" y="0" width="79" height="33" forecolor="#FFFFFF" backcolor="#000066" uuid="cc8ec290-c2d3-485a-b3b9-c08d7ff62abf"/>
 				<text><![CDATA[Apellido]]></text>
 			</staticText>
 		</band>
@@ -108,42 +93,35 @@
 	<detail>
 		<band height="52" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="48" height="20"/>
-				<textElement/>
+				<reportElement x="0" y="0" width="48" height="20" uuid="cc913d4b-85bc-4713-870d-50c6c49ee1aa"/>
 				<textFieldExpression><![CDATA[$F{row_number}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="79" y="0" width="79" height="20"/>
-				<textElement/>
+				<reportElement x="79" y="0" width="79" height="20" uuid="035f9810-3118-466c-a4d2-4fb9fdcecdd4"/>
 				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="158" y="0" width="79" height="20"/>
-				<textElement/>
+				<reportElement x="158" y="0" width="79" height="20" uuid="5ce648d0-f6bd-484c-99bc-723f4bf76c75"/>
 				<textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="237" y="0" width="79" height="20"/>
-				<textElement/>
+				<reportElement x="237" y="0" width="79" height="20" uuid="c35f3b91-f0e5-4a33-8512-3592273ac102"/>
 				<textFieldExpression><![CDATA[$F{numeroidentidad}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="316" y="0" width="79" height="20"/>
-				<textElement/>
+				<reportElement x="316" y="0" width="79" height="20" uuid="4da39648-0c04-4f18-baca-610270646ceb"/>
 				<textFieldExpression><![CDATA[$F{fecha_entrada}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="395" y="0" width="79" height="20"/>
-				<textElement/>
+				<reportElement x="395" y="0" width="79" height="20" uuid="968ad416-d537-45f8-a293-bc9078b7ee7f"/>
 				<textFieldExpression><![CDATA[$F{fecha_salida}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="498" y="0" width="55" height="20"/>
-				<textElement/>
+				<reportElement x="498" y="0" width="55" height="20" uuid="8f075dbb-3e65-4a67-adff-b2b4def7eacf"/>
 				<textFieldExpression><![CDATA[$F{costo_final}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="4" y="20" width="551" height="1" backcolor="#000000"/>
+				<reportElement x="4" y="20" width="551" height="1" backcolor="#000000" uuid="9a13c406-77fc-4e24-91ca-b04f5259df06"/>
 			</line>
 		</band>
 	</detail>

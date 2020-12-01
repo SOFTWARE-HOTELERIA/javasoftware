@@ -12,12 +12,17 @@ import com.proyectohotel.capa1_presentacion.util.CellRenderTable;
 import com.proyectohotel.capa2_aplicacion.RegistroHospedajeService;
 import com.proyectohotel.capa2_aplicacion.ReporteHospedajeService;
 import com.proyectohotel.capa3_dominio.entidades.Cliente;
+import com.proyectohotel.capa3_dominio.entidades.Habitacion;
+
 import com.proyectohotel.capa3_dominio.entidades.RegistroDeHabitacion;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Map;
-
+import javax.swing.DefaultComboBoxModel;
+import java.util.List;
+import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -34,8 +39,10 @@ public class frmMenu extends javax.swing.JFrame {
     public frmMenu() {
         initComponents();
         mostrarAcumuladoresDeEstado();
-        getReservaHabitaciones(tableReservaHabitacion);
+        itemTipoHabitacion.setModel(mostrarTipoHabitaciones());
+        listarHabitaciones(tableReservaHabitacion,null);
         tamañoColumnas(tableReservaHabitacion);
+        
         setVisible(true);
         setLocationRelativeTo(null);
         tipoFuente=new font();
@@ -70,17 +77,13 @@ public class frmMenu extends javax.swing.JFrame {
         */
         // itembox variable año => itemBoxAño
     }
-    
-    /* 
-     Author : Jose
-    */
-     public void getReservaHabitaciones(JTable table){
-        JButton btn1 = new JButton("Registrar Habitacion");
+     public void listarHabitaciones(JTable table,String tipoHabitacion){
+          JButton btn1 = new JButton("Registrar Habitacion");
           String[] encabezado={"Nro","Habitacion","Estado",
                       "Piso","Accion"};
-        RegistroHospedajeService registroHospedajeService = new RegistroHospedajeService();
+         RegistroHospedajeService registroHospedajeService = new RegistroHospedajeService();
         JTableHeader tableHeader = tableReservaHabitacion.getTableHeader();
-          tableHeader.setBackground(java.awt.Color.orange);
+        tableHeader.setBackground(java.awt.Color.orange);
        tableHeader.setForeground(java.awt.Color.white);
         DefaultTableModel model = new DefaultTableModel(null,encabezado){
           @Override
@@ -90,24 +93,52 @@ public class frmMenu extends javax.swing.JFrame {
         };
        table.setModel(model);
        tableReservaHabitacion.setDefaultRenderer(Object.class, new CellRenderTable());
-        try {
+       List<Habitacion> listadoHabitaciones=null;
+     try {
+       if(tipoHabitacion == null){
+           System.out.println("is null");
+           listadoHabitaciones = registroHospedajeService.mostrarHabitaciones(null);
+       }else{
+          listadoHabitaciones = registroHospedajeService.mostrarHabitaciones(tipoHabitacion);
+       }
             Object[] datos = new Object[5];
-          for(int i=0;i<registroHospedajeService.mostrarHabitaciones().size();i++){
+          for(int i=0;i<listadoHabitaciones.size();i++){
               datos[0] = i+1;
-              datos[1] = registroHospedajeService.mostrarHabitaciones().get(i).getNumeroHabitacion();
-              datos[2] = registroHospedajeService.mostrarHabitaciones().get(i).getEstado();
-              datos[3]=  registroHospedajeService.mostrarHabitaciones().get(i).getNumeroDePiso();
+              datos[1] = listadoHabitaciones.get(i).getNumeroHabitacion();
+              datos[2] = listadoHabitaciones.get(i).getEstado();
+              datos[3]=  listadoHabitaciones.get(i).getNumeroDePiso();
               datos[4] =btn1;
               model.addRow(datos);
           }
         } catch (Exception ex) {
             System.out.println(ex);
         }
-        
-    }
+     }
+     
+     /* 
+       Author :  Jose
+     */
+    
+     public DefaultComboBoxModel mostrarTipoHabitaciones(){
+            DefaultComboBoxModel comboBox = new DefaultComboBoxModel();
+         try{
+              RegistroHospedajeService registroHospedajeService = new RegistroHospedajeService();
+          
+             comboBox.addElement("Seleccione Habitacion:");
+             for(int i=0;i<registroHospedajeService.mostrarTiposHabitaciones().size();i++){
+                 //requiere uppercase
+                 comboBox.addElement(registroHospedajeService.mostrarTiposHabitaciones().get(i).getDescripcion());
+             }
+         }catch(Exception ex){
+             System.out.println(ex);
+         }
+         return comboBox;
+     }
+     
+     
     /* 
-            Author :  Jose
-        */
+        Author :  Jose
+    */
    public void mostrarAcumuladoresDeEstado(){
       try{
           RegistroHospedajeService registroHospedajeService = new RegistroHospedajeService();
@@ -199,24 +230,22 @@ public String getFecha(java.util.Date fecha)
         btnCierreEstadia = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
+        labelPisoHabitacion = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        txtTotalDias = new javax.swing.JLabel();
         txtFechaHospedaje = new javax.swing.JLabel();
-        txtFechaFinal = new javax.swing.JLabel();
-        txtPiso = new javax.swing.JLabel();
+        txtPisoHabitacion = new javax.swing.JLabel();
+        labelTipoHabitacion = new javax.swing.JLabel();
         txtNumeroHabitacion = new javax.swing.JLabel();
-        txtTipoHabitacion = new javax.swing.JLabel();
-        txtCostoHabitacion = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel41 = new javax.swing.JLabel();
-        txtCostoFinal = new javax.swing.JLabel();
+        labelCostoHabitacion = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        labelNombreApellido = new javax.swing.JLabel();
+        jlabelidentidad = new javax.swing.JLabel();
+        labelNumeroIdentidad = new javax.swing.JLabel();
         btnClean = new javax.swing.JButton();
+        btnGenerarBoleta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -461,7 +490,7 @@ public String getFecha(java.util.Date fecha)
         btnBuscarClienteLayout.setHorizontalGroup(
             btnBuscarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnBuscarClienteLayout.createSequentialGroup()
-                .addContainerGap(70, Short.MAX_VALUE)
+                .addContainerGap(72, Short.MAX_VALUE)
                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -549,7 +578,7 @@ public String getFecha(java.util.Date fecha)
         btnLimpiar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpiar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setText("Refrescar");
         btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnLimpiarMousePressed(evt);
@@ -583,24 +612,21 @@ public String getFecha(java.util.Date fecha)
                                 .addGap(214, 214, 214)
                                 .addComponent(labelHabitacionesOcupadas, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
-                            .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(p1Layout.createSequentialGroup()
-                                    .addContainerGap(108, Short.MAX_VALUE)
-                                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(45, 45, 45)
-                                    .addComponent(itemTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
-                                    .addContainerGap(342, Short.MAX_VALUE)
-                                    .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(p1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
+                                .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
+                                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(45, 45, 45)
+                                        .addComponent(itemTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel43, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(p1Layout.createSequentialGroup()
                                     .addComponent(btnBuscarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGap(58, 58, 58)
@@ -734,7 +760,7 @@ public String getFecha(java.util.Date fecha)
         p2Layout.setHorizontalGroup(
             p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p2Layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addGroup(p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p2Layout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -802,68 +828,76 @@ public String getFecha(java.util.Date fecha)
         btnCierreEstadiaLayout.setHorizontalGroup(
             btnCierreEstadiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCierreEstadiaLayout.createSequentialGroup()
-                .addContainerGap(72, Short.MAX_VALUE)
+                .addContainerGap(73, Short.MAX_VALUE)
                 .addComponent(jLabel27)
-                .addGap(57, 57, 57))
+                .addGap(56, 56, 56))
         );
         btnCierreEstadiaLayout.setVerticalGroup(
             btnCierreEstadiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnCierreEstadiaLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(17, 17, 17)
                 .addComponent(jLabel27)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jPanel6.setBackground(new java.awt.Color(196, 196, 196));
 
-        jLabel8.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Total de Dias Hospedado");
-
-        jLabel28.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("Fecha de Hospedaje");
 
-        jLabel29.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel29.setText("Fecha Final de Estadia");
+        labelPisoHabitacion.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
+        labelPisoHabitacion.setForeground(new java.awt.Color(255, 255, 255));
+        labelPisoHabitacion.setText("Piso de Habitacion");
 
-        jLabel30.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel30.setText("Piso de Habitacion");
-
-        jLabel31.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        jLabel31.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(255, 255, 255));
         jLabel31.setText("Numero Habitacion");
 
-        jLabel32.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        jLabel32.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(255, 255, 255));
         jLabel32.setText("Tipo de Habitacion");
 
-        jLabel33.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        jLabel33.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
         jLabel33.setText("Costo");
 
-        txtTotalDias.setForeground(new java.awt.Color(51, 0, 204));
-        txtTotalDias.setText("----");
-
         txtFechaHospedaje.setForeground(new java.awt.Color(51, 0, 204));
+        txtFechaHospedaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtFechaHospedaje.setText("----");
 
-        txtFechaFinal.setForeground(new java.awt.Color(51, 0, 204));
-        txtFechaFinal.setText("----");
+        txtPisoHabitacion.setForeground(new java.awt.Color(51, 0, 204));
+        txtPisoHabitacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtPisoHabitacion.setText("----");
 
-        txtPiso.setForeground(new java.awt.Color(51, 0, 204));
-        txtPiso.setText("---");
+        labelTipoHabitacion.setForeground(new java.awt.Color(51, 0, 204));
+        labelTipoHabitacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTipoHabitacion.setText("---");
 
         txtNumeroHabitacion.setForeground(new java.awt.Color(51, 0, 204));
+        txtNumeroHabitacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtNumeroHabitacion.setText("---");
 
-        txtTipoHabitacion.setForeground(new java.awt.Color(51, 0, 204));
-        txtTipoHabitacion.setText("---");
+        labelCostoHabitacion.setForeground(new java.awt.Color(51, 0, 204));
+        labelCostoHabitacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelCostoHabitacion.setText("---");
 
-        txtCostoHabitacion.setForeground(new java.awt.Color(51, 0, 204));
-        txtCostoHabitacion.setText("----");
+        jLabel14.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Nombre y Apellido:");
+
+        labelNombreApellido.setForeground(new java.awt.Color(0, 51, 255));
+        labelNombreApellido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelNombreApellido.setText("----");
+
+        jlabelidentidad.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
+        jlabelidentidad.setForeground(new java.awt.Color(255, 255, 255));
+        jlabelidentidad.setText("Numero de Identidad:");
+
+        labelNumeroIdentidad.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        labelNumeroIdentidad.setForeground(new java.awt.Color(255, 0, 0));
+        labelNumeroIdentidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelNumeroIdentidad.setText("--");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -871,89 +905,67 @@ public String getFecha(java.util.Date fecha)
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtFechaHospedaje, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
-                    .addComponent(txtTotalDias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtFechaFinal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtPiso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel31)
-                        .addGap(44, 44, 44)
-                        .addComponent(txtNumeroHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel32)
+                        .addGap(32, 32, 32)
+                        .addComponent(labelTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelCostoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(41, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel33, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel32, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(47, 47, 47)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTipoHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtCostoHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(26, Short.MAX_VALUE))
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(labelPisoHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
+                            .addComponent(jLabel14))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelNombreApellido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtPisoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtFechaHospedaje, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(jlabelidentidad)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(labelNumeroIdentidad, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel31)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtNumeroHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel31)
-                    .addComponent(txtTotalDias)
-                    .addComponent(txtNumeroHabitacion))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel28)
-                    .addComponent(jLabel32)
-                    .addComponent(txtFechaHospedaje)
-                    .addComponent(txtTipoHabitacion))
-                .addGap(36, 36, 36)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel29)
-                    .addComponent(jLabel33)
-                    .addComponent(txtFechaFinal)
-                    .addComponent(txtCostoHabitacion))
+                    .addComponent(jLabel14)
+                    .addComponent(labelNombreApellido))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel30)
-                    .addComponent(txtPiso))
-                .addContainerGap(42, Short.MAX_VALUE))
-        );
-
-        jPanel7.setBackground(new java.awt.Color(137, 66, 66));
-
-        jLabel41.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel41.setText("Costo a Pagar: ");
-
-        txtCostoFinal.setForeground(new java.awt.Color(51, 51, 255));
-        txtCostoFinal.setText("----");
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(jLabel41)
-                .addGap(29, 29, 29)
-                .addComponent(txtCostoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel41)
-                    .addComponent(txtCostoFinal))
-                .addGap(15, 15, 15))
+                    .addComponent(jlabelidentidad)
+                    .addComponent(labelNumeroIdentidad, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel28)
+                    .addComponent(txtFechaHospedaje))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPisoHabitacion)
+                    .addComponent(txtPisoHabitacion)
+                    .addComponent(jLabel31)
+                    .addComponent(txtNumeroHabitacion))
+                .addGap(38, 38, 38)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32)
+                    .addComponent(labelTipoHabitacion)
+                    .addComponent(jLabel33)
+                    .addComponent(labelCostoHabitacion))
+                .addGap(51, 51, 51))
         );
 
         btnClean.setText("Clean ");
@@ -963,41 +975,47 @@ public String getFecha(java.util.Date fecha)
             }
         });
 
+        btnGenerarBoleta.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnGenerarBoleta.setForeground(new java.awt.Color(255, 255, 255));
+        btnGenerarBoleta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/proyectohotel/capa1_presentacion/icons/portapapeles.png"))); // NOI18N
+        btnGenerarBoleta.setText("Generar Boleta");
+        btnGenerarBoleta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnGenerarBoletaMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout p3Layout = new javax.swing.GroupLayout(p3);
         p3.setLayout(p3Layout);
         p3Layout.setHorizontalGroup(
             p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p3Layout.createSequentialGroup()
-                        .addComponent(btnCierreEstadia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(149, 149, 149))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p3Layout.createSequentialGroup()
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(167, 167, 167))))
             .addGroup(p3Layout.createSequentialGroup()
                 .addGroup(p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(p3Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(p3Layout.createSequentialGroup()
+                                .addGap(195, 195, 195)
+                                .addComponent(btnGenerarBoleta, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(p3Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                        .addGap(130, 130, 130)
+                        .addComponent(btnCierreEstadia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         p3Layout.setVerticalGroup(
             p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p3Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(62, 62, 62)
                 .addComponent(btnCierreEstadia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
+                .addGap(46, 46, 46)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnGenerarBoleta)
+                .addGap(17, 17, 17)
                 .addComponent(btnClean)
-                .addGap(56, 56, 56))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         panel_centre.add(p3, "card4");
@@ -1096,19 +1114,48 @@ public String getFecha(java.util.Date fecha)
         */
          //limpiar jpanel
     }//GEN-LAST:event_btnCleanActionPerformed
-
+    public void actualizarEstadia(){
+         RegistroHospedajeService registroHospedaje = new RegistroHospedajeService();
+        try{
+            System.out.println(registroDeHabitacion.getCliente().getCodigocliente());
+            int resultado =  registroHospedaje.actualizarDatosEstadia(registroDeHabitacion);
+            if(resultado == 1){
+                System.out.println("actualizando");
+            }else{
+                System.out.println("probelmas al actualizar");
+            }
+        }catch(Exception ex){
+            System.out.println("problema" + ex);
+        }
+    }
     private void btnCierreEstadiaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCierreEstadiaMousePressed
         // TODO add your handling code here:
-          String mensaje = Mensaje.ingresarDatos("Ingresar documento de identidad");
-        System.out.println(mensaje);
-           //txtTotalDias
-        //txtFechaHospedaje
-        //txtFechaFinal
-        //txtPiso
-        //txtNumeroHabitacion
-        //txtTipoHabitacion
-        //txtCostoHabitacion
-        //txtCostoFinal
+        int documentoIdentidad = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el documento de identidad"));
+        try{
+                 try{
+                     System.out.println(documentoIdentidad);
+                     RegistroHospedajeService registroHospedaje = new RegistroHospedajeService();
+                     registroDeHabitacion =  registroHospedaje.listadoEstadiaCliente(documentoIdentidad);
+                     if(registroDeHabitacion != null){
+                        System.out.println(registroDeHabitacion.getCliente().getNombre());
+                      txtFechaHospedaje.setText(getFecha(registroDeHabitacion.getFechaIngreso()));
+                      txtPisoHabitacion.setText(String.valueOf(registroDeHabitacion.getHabitacion().getNumeroDePiso()));
+                       labelNombreApellido.setText(registroDeHabitacion.getCliente().getNombre()+ 
+                               " " + registroDeHabitacion.getCliente().getApellido());
+                       labelTipoHabitacion.setText(registroDeHabitacion.getHabitacion().getTipoHabitacion().getDescripcion());
+                       labelNumeroIdentidad.setText(String.valueOf(documentoIdentidad));
+                       txtNumeroHabitacion.setText(registroDeHabitacion.getHabitacion().getNumeroHabitacion());
+                       labelCostoHabitacion.setText(String.valueOf(registroDeHabitacion.getHabitacion().getTipoHabitacion().getCosto()));
+                       actualizarEstadia();
+                     }else{
+                         System.out.println("no existe el documento de identidad");
+                     }
+                 }catch(Exception ex){
+                       System.out.println("problema");
+                 }
+        }catch(NumberFormatException ex){
+            System.out.println("ingresar entero" + ex);
+        }
     }//GEN-LAST:event_btnCierreEstadiaMousePressed
 
     private void itemTipoHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemTipoHabitacionMouseClicked
@@ -1120,12 +1167,13 @@ public String getFecha(java.util.Date fecha)
          Author :  Wilmer
         */
         String tipoHabitacion = itemTipoHabitacion.getSelectedItem().toString();
-        String mensaje = Mensaje.ingresarDatos(tipoHabitacion);
+         listarHabitaciones(tableReservaHabitacion,tipoHabitacion);
     }//GEN-LAST:event_btnBuscarMousePressed
 
     private void btnLimpiarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMousePressed
+         listarHabitaciones(tableReservaHabitacion,null);
         /* 
-         Author :  Wilmer
+         Author :  Jose
         */
     }//GEN-LAST:event_btnLimpiarMousePressed
 
@@ -1133,6 +1181,21 @@ public String getFecha(java.util.Date fecha)
         // TODO add your handling code here:
        System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnGenerarBoletaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarBoletaMousePressed
+        // TODO add your handling code here:
+       if(labelNumeroIdentidad.getText().equals("--")){
+           System.out.println("debe cerrar estadia para generar boleta");
+       }else{
+           try{
+               String documentoIdentidad = labelNumeroIdentidad.getText();
+                RegistroHospedajeService registroHospedaje = new RegistroHospedajeService();
+                registroHospedaje.boletaDeCierreEstadia(documentoIdentidad);
+           }catch(Exception ex){
+               System.out.println("problema " + ex);
+           }
+       }
+    }//GEN-LAST:event_btnGenerarBoletaMousePressed
 
     /**
      * @param args the command line arguments
@@ -1175,6 +1238,7 @@ public String getFecha(java.util.Date fecha)
     private javax.swing.JPanel btnBuscarCliente;
     private javax.swing.JPanel btnCierreEstadia;
     private javax.swing.JButton btnClean;
+    private javax.swing.JLabel btnGenerarBoleta;
     private javax.swing.JLabel btnLimpiar;
     private javax.swing.JButton btnReporteCliente;
     private javax.swing.JButton btnReporteHospedaje;
@@ -1188,6 +1252,7 @@ public String getFecha(java.util.Date fecha)
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -1198,30 +1263,31 @@ public String getFecha(java.util.Date fecha)
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jlabelidentidad;
+    private javax.swing.JLabel labelCostoHabitacion;
     private javax.swing.JLabel labelHabitacionesDisponibles;
     private javax.swing.JLabel labelHabitacionesOcupadas;
+    private javax.swing.JLabel labelNombreApellido;
+    private javax.swing.JLabel labelNumeroIdentidad;
+    private javax.swing.JLabel labelPisoHabitacion;
+    private javax.swing.JLabel labelTipoHabitacion;
     public static javax.swing.JLabel labelUsuario;
     private javax.swing.JPanel p1;
     private javax.swing.JPanel p2;
@@ -1231,15 +1297,10 @@ public String getFecha(java.util.Date fecha)
     public static javax.swing.JPanel pp2;
     private javax.swing.JPanel pp3;
     private javax.swing.JTable tableReservaHabitacion;
-    private javax.swing.JLabel txtCostoFinal;
-    private javax.swing.JLabel txtCostoHabitacion;
     private javax.swing.JTextField txtDocumentoIdentidad;
-    private javax.swing.JLabel txtFechaFinal;
     private javax.swing.JLabel txtFechaHospedaje;
     private javax.swing.JLabel txtNumeroHabitacion;
-    private javax.swing.JLabel txtPiso;
-    private javax.swing.JLabel txtTipoHabitacion;
-    private javax.swing.JLabel txtTotalDias;
+    private javax.swing.JLabel txtPisoHabitacion;
     private javax.swing.JLabel txtcorreo;
     private javax.swing.JLabel txtfono;
     private javax.swing.JLabel txtnacionalidad;
