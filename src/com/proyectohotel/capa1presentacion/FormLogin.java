@@ -11,12 +11,12 @@ import javax.swing.JOptionPane;
  *
  * @author Administrador
  */
-public class frmLogin extends javax.swing.JFrame {
+public class FormLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form LOGIN
      */
-    public frmLogin() {
+    public FormLogin() {
         initComponents();
         
     }
@@ -143,13 +143,13 @@ public class frmLogin extends javax.swing.JFrame {
         String user=txtUser.getText();
         String password=txtPassword.getText();
         if(user.equals("admin") && password.equals("123")){
-               frmMenu menu = new frmMenu();
+               FormDashboard menu = new FormDashboard();
                 dispose();
                menu.pp2.setVisible(true);
                menu.labelUsuario.setText(user);
         }else if(user.equals("carlos") && password.equals("456")){
              
-               frmMenu menu = new frmMenu();
+               FormDashboard menu = new FormDashboard();
                 dispose();
                menu.pp2.setVisible(false);
                 menu.labelUsuario.setText(user);
@@ -175,21 +175,23 @@ public class frmLogin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmLogin().setVisible(true);
+                new FormLogin().setVisible(true);
             }
         });
     }

@@ -64,11 +64,15 @@ insert into clientes values('PO03','William','Delacruz','sherry95@hayden.com','9
 INSERT INTO clientes values('PO04','Robert','Bolaños','robert@gmail.com','996524234','1','9568978','PERU');
 INSERT INTO clientes values('PO05','Carlos','Perez','carlos@gmail.com','996734','2','954568','PERU');
 
+
 --insert into habitacion
  insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A001','DISPONIBLE',1,1);
  insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A002','OCUPADO',2,2);
 insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A003','DISPONIBLE',1,1);
  insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A004','OCUPADO',2,2);
+
+
+
 --insert into  tiphoabitacion
 insert into tipo_habitacion(nhabitacion,descripcion,costo) values(1,'presidencial',55);
 insert into tipo_habitacion(nhabitacion,descripcion,costo) values(2,'Individual',30);
@@ -79,6 +83,7 @@ insert into nivel(pisoId,cantidad) values(2,5);
 insert into reservahabitacion values (P0O1,AOO1,'2020-10-26','2020-10-31',5,400)
 insert into reservahabitacion values (P0O2,AOO2,'2020-10-22','2020-10-31',9,560)
 insert into reservahabitacion values (P0O3,AOO3,'2020-10-29','2020-10-30',1,400)
+
 ---
 create view estadiaFinalizada as
 select h.nhabitacion,dias,fecha_entrada,fecha_salida,costo,costo_final,nombre,apellido from habitacion h

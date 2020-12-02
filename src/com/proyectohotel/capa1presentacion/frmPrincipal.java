@@ -11,7 +11,7 @@ package com.proyectohotel.capa1presentacion;
  */
 public class frmPrincipal {
     public static void main(String args[]){
-        frmLogin login = new frmLogin();
+        FormLogin login = new FormLogin();
         login.setVisible(true);
     }
 }

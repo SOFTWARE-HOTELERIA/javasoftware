@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.proyectohotel.capa2_aplicacion;
+package com.proyectohotel.capa2_aplicacion.servicios;
 //import com.proyectohotel.capa3dominio
 
 import Config.variablesGlobales;
@@ -28,14 +28,14 @@ import net.sf.jasperreports.engine.JRException;
  *
  * @author josel
  */
-public class ReporteHospedajeService {
+public class ReporteHospedajeServicio {
      /* 
     Author : Jose
     */
     GestorJDBC gestorJDBC;
     ReservaDAOPostgre reservaDAO;
     ReporteDAOPostgre reporteDAO;
-    public ReporteHospedajeService(){
+    public ReporteHospedajeServicio(){
         gestorJDBC = new GestorJDBCPostgre();
         //reservaDAO = new ReservaDAOPostgre(gestorJDBC);
         reporteDAO=new ReporteDAOPostgre(gestorJDBC);

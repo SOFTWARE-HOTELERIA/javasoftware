@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.proyectohotel.capa2_aplicacion;
+package com.proyectohotel.capa2_aplicacion.servicios;
 import Config.variablesGlobales;
 import com.proyectohotel.capa3_dominio.entidades.Cliente;
 import com.proyectohotel.capa3_dominio.entidades.TipoHabitacion;
@@ -30,13 +30,13 @@ import net.sf.jasperreports.engine.JRException;
  *
  * @author josel
  */
-public class RegistroHospedajeService {
+public class RegistroHospedajeServicio {
     /* 
     Author : Jose
     */
     GestorJDBC gestorJDBC;
     ReservaDAOPostgre reservaDAO;
-    public RegistroHospedajeService(){
+    public RegistroHospedajeServicio(){
         gestorJDBC = new GestorJDBCPostgre();
         reservaDAO = new ReservaDAOPostgre(gestorJDBC);
     }
@@ -62,10 +62,10 @@ public class RegistroHospedajeService {
      /* 
      Author : Jose
     */
-    public Map mostrarTotalDeHabitacionesDeEstado() throws Exception{
+    public Map mostrarTotalDeHabitacionesDeEstado(String tipoHabitacion) throws Exception{
         gestorJDBC.abrirConexion();
         Map datos = new HashMap();
-        datos  = reservaDAO.mostrarTotalDeHabitacionesDeEstado();
+        datos  = reservaDAO.mostrarTotalDeHabitacionesDeEstado(tipoHabitacion);
         gestorJDBC.cerrarConexion();
         return datos;
     }

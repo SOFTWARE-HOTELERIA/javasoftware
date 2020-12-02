@@ -79,8 +79,8 @@ public class ReservaDAOPostgre {
          if(tipoHabitacion == null){
            sentenciaListado ="select nhabitacion,estado,nivelId from habitacion";
          }else{
-               sentenciaListado  ="select h.nhabitacion,estado,h.nivelId from habitacion h " 
-                  + "inner join tipo_habitacion t on h.tipohabitacionid=t.nhabitacion "
+               sentenciaListado  ="select h.nhabitacion,estado,h.nivelId from habitacion as h " 
+                  + "inner join tipo_habitacion as t on h.tipohabitacionid=t.nhabitacion "
                   + "where descripcion='"+tipoHabitacion+"'";
          }
          resultado_habitaciones = gestorJDBC.ejecutarConsulta(sentenciaListado);
@@ -97,14 +97,30 @@ public class ReservaDAOPostgre {
      /* 
        Author : Wilmer ,Arreglado por :Jose
     */
-     public Map mostrarTotalDeHabitacionesDeEstado() throws SQLException{
+     public Map mostrarTotalDeHabitacionesDeEstado(String tipoHabitacion) throws SQLException{
         PreparedStatement q1 = null;
         PreparedStatement q2 = null;
         ResultSet re1=null;
         ResultSet re2=null;
        Map data = new HashMap();
-        String ocupadas= "select count(*) as ocupadas from habitacion where estado='OCUPADO'";
-        String disponibles = "select count(*) as disponibles from habitacion where estado='DISPONIBLE'";
+        String ocupadas="";
+        String disponibles="";
+       if(tipoHabitacion==null){
+              disponibles= "select count(*) as ocupadas from habitacion h" +
+                "inner join tipo_habitacion t on h.tipohabitacionid=t.nhabitacion " +
+                "where estado='DISPONIBLE'";
+               ocupadas= "select count(*) as disponibles from habitacion h" +
+                "inner join tipo_habitacion t on h.tipohabitacionid=t.nhabitacion " +
+                "where estado='OCUPADO'";
+       }else{
+           System.out.println("tipo habitacion " + tipoHabitacion);
+            disponibles= "select count(*) as ocupadas from habitacion h" +
+                "inner join tipo_habitacion t on h.tipohabitacionid=t.nhabitacion " +
+                "where estado='DISPONIBLE' and descripcion='"+tipoHabitacion+"'";
+            ocupadas= "select count(*) as disponibles from habitacion h" +
+                "inner join tipo_habitacion t on h.tipohabitacionid=t.nhabitacion " +
+                "where estado='OCUPADO' and descripcion='"+tipoHabitacion+"'";
+       }
          String [] output = {"ocupadas","disponibles"};
           PreparedStatement[] pres ={q1,q2};
           ResultSet [] res = {re1,re2};
