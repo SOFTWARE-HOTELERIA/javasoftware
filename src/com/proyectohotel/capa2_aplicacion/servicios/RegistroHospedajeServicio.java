@@ -64,8 +64,7 @@ public class RegistroHospedajeServicio {
     */
     public Map mostrarTotalDeHabitacionesDeEstado(String tipoHabitacion) throws Exception{
         gestorJDBC.abrirConexion();
-        Map datos = new HashMap();
-        datos  = reservaDAO.mostrarTotalDeHabitacionesDeEstado(tipoHabitacion);
+        Map datos  = reservaDAO.mostrarTotalDeHabitacionesDeEstado(tipoHabitacion);
         gestorJDBC.cerrarConexion();
         return datos;
     }
