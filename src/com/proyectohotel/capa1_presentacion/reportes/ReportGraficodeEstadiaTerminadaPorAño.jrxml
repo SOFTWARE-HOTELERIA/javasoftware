@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="53955553-5534-406d-8ed1-1db39396bc5f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="anyo" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from ReporteporAño;]]>
+	</queryString>
+	<field name="hospedados" class="java.lang.Long"/>
+	<field name="mestexto" class="java.lang.String"/>
+	<field name="fecha_salida" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="64" splitType="Stretch">
+			<staticText>
+				<reportElement x="134" y="16" width="231" height="39" uuid="b66feb37-250c-4a14-94ff-caaccd8076d9"/>
+				<textElement textAlignment="Center">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[REPORTE DEL AÑO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="364" y="16" width="100" height="39" uuid="1bf3b10a-ba31-468d-9cdd-cc608d7fa932"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{anyo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="11" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="9" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="19" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="29" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="156" splitType="Stretch">
+			<barChart>
+				<chart>
+					<reportElement x="109" y="14" width="355" height="130" uuid="42257f2d-ed6c-4755-b54c-0b332177c30b"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Reporte de Hospedaje por meses"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{mestexto}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{hospedados}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</summary>
+</jasperReport>

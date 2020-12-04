@@ -86,7 +86,7 @@ insert into reservahabitacion values (P0O3,AOO3,'2020-10-29','2020-10-30',1,400)
 
 ---
 create view estadiaFinalizada as
-select h.nhabitacion,dias,fecha_entrada,fecha_salida,costo,costo_final,nombre,apellido from habitacion h
+select c.clientecodigo,h.nhabitacion,dias,fecha_entrada,fecha_salida,t.descripcion,costo,costo_final,nombre,apellido,n.pisoid,numeroIdentidad from habitacion h
 inner join reservahabitacion r on h.nhabitacion=r.habitacionnum 
 left join clientes c on c.clientecodigo=r.clientecodigo
 inner join nivel n on h.nivelid=n.pisoid

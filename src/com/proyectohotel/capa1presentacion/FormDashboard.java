@@ -21,6 +21,8 @@ import java.util.Map;
 import javax.swing.DefaultComboBoxModel;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -492,7 +494,7 @@ public String getFecha(java.util.Date fecha)
         btnBuscarClienteLayout.setHorizontalGroup(
             btnBuscarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnBuscarClienteLayout.createSequentialGroup()
-                .addContainerGap(72, Short.MAX_VALUE)
+                .addContainerGap(76, Short.MAX_VALUE)
                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -655,7 +657,7 @@ public String getFecha(java.util.Date fecha)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
                         .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -753,7 +755,7 @@ public String getFecha(java.util.Date fecha)
 
         jLabel45.setText("Seleccione Año de Reporte");
 
-        itemAnyo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        itemAnyo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCION DE AÑO", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010" }));
 
         javax.swing.GroupLayout p2Layout = new javax.swing.GroupLayout(p2);
         p2.setLayout(p2Layout);
@@ -781,7 +783,7 @@ public String getFecha(java.util.Date fecha)
                             .addGap(58, 58, 58)
                             .addComponent(jLabel45)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(itemAnyo, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(itemAnyo, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, p2Layout.createSequentialGroup()
                             .addGap(192, 192, 192)
                             .addComponent(btnReporteHospedaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -804,7 +806,7 @@ public String getFecha(java.util.Date fecha)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(95, 95, 95)
                 .addComponent(btnReporteCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
 
         panel_centre.add(p2, "card3");
@@ -1002,7 +1004,7 @@ public String getFecha(java.util.Date fecha)
                     .addGroup(p3Layout.createSequentialGroup()
                         .addGap(130, 130, 130)
                         .addComponent(btnCierreEstadia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         p3Layout.setVerticalGroup(
             p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1065,7 +1067,16 @@ public String getFecha(java.util.Date fecha)
     }//GEN-LAST:event_txtDocumentoIdentidadActionPerformed
 
     private void btnReporteHospedajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteHospedajeActionPerformed
-        // TODO add your handling code here:
+        int anio = Integer.parseInt(itemAnyo.getSelectedItem().toString());
+        try {
+            ReporteHospedajeServicio rhs = new ReporteHospedajeServicio();
+            rhs.reporteHospedaje(anio);
+        } catch (Exception ex) {
+           System.out.println(ex);
+        }
+        
+                
+        
     }//GEN-LAST:event_btnReporteHospedajeActionPerformed
 
     private void btnBuscarClienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarClienteMousePressed
@@ -1151,7 +1162,7 @@ public String getFecha(java.util.Date fecha)
                          System.out.println("no existe el documento de identidad");
                      }
                  }catch(Exception ex){
-                       System.out.println("problema");
+                       System.out.println("problema" + ex);
                  }
         }catch(NumberFormatException ex){
             System.out.println("ingresar entero" + ex);

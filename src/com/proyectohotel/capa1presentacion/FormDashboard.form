@@ -374,7 +374,7 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -602,7 +602,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="72" max="32767" attributes="0"/>
+                          <EmptySpace pref="76" max="32767" attributes="0"/>
                           <Component id="jLabel20" min="-2" pref="131" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       </Group>
@@ -868,7 +868,7 @@
                                   <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                                   <Component id="jLabel45" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="itemAnyo" min="-2" pref="171" max="-2" attributes="0"/>
+                                  <Component id="itemAnyo" min="-2" pref="189" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
@@ -898,7 +898,7 @@
                       <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                       <Component id="btnReporteCliente" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="113" max="32767" attributes="0"/>
+                      <EmptySpace pref="122" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1060,11 +1060,19 @@
             <Component class="javax.swing.JComboBox" name="itemAnyo">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                  <StringArray count="12">
+                    <StringItem index="0" value="SELECCION DE A&#xd1;O"/>
+                    <StringItem index="1" value="2020"/>
+                    <StringItem index="2" value="2019"/>
+                    <StringItem index="3" value="2018"/>
+                    <StringItem index="4" value="2017"/>
+                    <StringItem index="5" value="2016"/>
+                    <StringItem index="6" value="2015"/>
+                    <StringItem index="7" value="2014"/>
+                    <StringItem index="8" value="2013"/>
+                    <StringItem index="9" value="2012"/>
+                    <StringItem index="10" value="2011"/>
+                    <StringItem index="11" value="2010"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -1110,7 +1118,7 @@
                               <Component id="btnCierreEstadia" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="64" max="32767" attributes="0"/>
+                      <EmptySpace pref="27" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

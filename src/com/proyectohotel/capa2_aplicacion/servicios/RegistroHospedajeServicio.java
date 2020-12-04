@@ -95,7 +95,7 @@ public class RegistroHospedajeServicio {
     */
     public void boletaDeCierreEstadia(String documentoIdentidad) throws Exception{
          gestorJDBC.abrirConexion();
-        String ruta2=variablesGlobales.path+"\\javasoftware\\src\\reportes\\finalizarEstadia.jrxml";
+        String ruta2=variablesGlobales.path+"\\javasoftware\\src\\com\\proyectohotel\\capa1_presentacion\\reportes\\finalizarEstadia.jrxml";
         JasperDesign jdesign= JRXmlLoader.load(ruta2);
         String query_boletaCliente=reservaDAO.cerrarEstadiaCliente(documentoIdentidad); //query
         JRDesignQuery updaQuery_reporteCliente=new JRDesignQuery();
