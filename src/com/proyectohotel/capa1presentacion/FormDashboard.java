@@ -40,11 +40,13 @@ public class FormDashboard extends javax.swing.JFrame {
     public FormDashboard() {
         initComponents();
          
-        mostrarAcumuladoresDeEstado(null);
-        itemTipoHabitacion.setModel(mostrarTipoHabitaciones());
-        listarHabitaciones(tableReservaHabitacion,null);
-        tamañoColumnas(tableReservaHabitacion);
-        
+       
+       itemTipoHabitacion.setModel(mostrarTipoHabitaciones());
+       //DESCOMENTAR ESTA PARTE BRUNO CUANDO SOLUCIONAS EL POSTGRE
+       listarHabitaciones(tableReservaHabitacion,null);
+       tamañoColumnas(tableReservaHabitacion);
+       //-----------------------------------
+         mostrarAcumuladoresDeEstado(null);
         setVisible(true);
         setLocationRelativeTo(null);
         fontsFamily();
@@ -97,7 +99,6 @@ public class FormDashboard extends javax.swing.JFrame {
        List<Habitacion> listadoHabitaciones;
      try {
        if(tipoHabitacion == null){
-           System.out.println("is null");
            listadoHabitaciones = registroHospedajeService.mostrarHabitaciones(null);
        }else{
           listadoHabitaciones = registroHospedajeService.mostrarHabitaciones(tipoHabitacion);
@@ -144,9 +145,8 @@ public class FormDashboard extends javax.swing.JFrame {
       try{
           RegistroHospedajeServicio registroHospedajeService = new RegistroHospedajeServicio();
            Map dataHabitaciones = registroHospedajeService.mostrarTotalDeHabitacionesDeEstado(tipoHabitacion);
-           System.out.println(dataHabitaciones);
-           labelHabitacionesDisponibles.setText("--");
-          labelHabitacionesOcupadas.setText("--");
+           labelHabitacionesDisponibles.setText(dataHabitaciones.get("disponibles").toString());
+          labelHabitacionesOcupadas.setText(dataHabitaciones.get("ocupadas").toString());
       }catch(Exception ex){
            System.out.println(ex);
       }
