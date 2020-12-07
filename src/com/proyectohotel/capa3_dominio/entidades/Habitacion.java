@@ -23,6 +23,9 @@ public class Habitacion {
         this.numeroDePiso=pisoId;
     }
      public Habitacion(){}
+     public Habitacion(String numeroHabitacion){
+         this.numeroHabitacion=numeroHabitacion;
+     }
     public int getNumeroDePiso() {
         return numeroDePiso;
     }

@@ -37,12 +37,13 @@ public class ReservaDAOPostgre {
          Cliente cliente = null;
         ResultSet resultado_cliente;
         String sentenciaSQL;
-        sentenciaSQL ="SELECT c.nombre,c.apellido,c.telefono,td.descripcion,c.correo ,c.nacionalidad "
+        sentenciaSQL ="SELECT c.clientecodigo,c.nombre,c.apellido,c.telefono,td.descripcion,c.correo ,c.nacionalidad "
                 + "FROM clientes c left JOIN tipo_documento td on c.documentoId =td.documentoId "
                 + "where c.numeroIdentidad = '" + documentoIdentidad+"'";
         resultado_cliente =gestorJDBC.ejecutarConsulta(sentenciaSQL);
         if(resultado_cliente.next()){
         cliente = new Cliente();
+        cliente.setCodigocliente(resultado_cliente.getString("clientecodigo"));
         cliente.setNombre(resultado_cliente.getString("nombre"));
         cliente.setApellido(resultado_cliente.getString("apellido"));
         cliente.setTelefono(resultado_cliente.getString("telefono"));
@@ -52,6 +53,44 @@ public class ReservaDAOPostgre {
          }
         resultado_cliente.close();
         return cliente;
+    }
+    //REGISTRAR RESERVHABITACION
+    public int registrarHabitacionCliente(RegistroDeHabitacion registroHabitacion) throws SQLException{
+       String sql="insert into reservahabitacion(clientecodigo,habitacionnum,fecha_entrada) values(?,?,?)";
+       PreparedStatement prestatement_registro=gestorJDBC.prepararSentencia(sql);
+       prestatement_registro.setString(1,registroHabitacion.getCliente().getCodigocliente());
+       prestatement_registro.setString(2,registroHabitacion.getHabitacion().getNumeroHabitacion());
+       prestatement_registro.setDate(3,registroHabitacion.getFechaIngreso());
+       int resultado=prestatement_registro.executeUpdate();
+       if(resultado == 1){
+           actualizarEstadoHabitacion(registroHabitacion.getHabitacion());
+       }
+       return resultado;
+    }
+    //READ RESERVAHABITACION CLIENTE
+    public RegistroDeHabitacion readRegistroHabitacion(String codigoCliente) throws SQLException{
+        RegistroDeHabitacion registroHabitacion=null;
+        ResultSet resultado_registro;
+        String sql="select * from estadiafinalizada where clientecodigo='"+codigoCliente+"'";
+        resultado_registro = gestorJDBC.ejecutarConsulta(sql);
+        while(resultado_registro.next()){
+            registroHabitacion = new RegistroDeHabitacion();
+            registroHabitacion.setFechaIngreso(resultado_registro.getDate("fecha_entrada"));
+            Cliente cliente = new Cliente();
+            cliente.setNombre(resultado_registro.getString("nombre"));
+            cliente.setApellido(resultado_registro.getString("apellido"));
+            Habitacion habitacion = new Habitacion();
+            habitacion.setNumeroHabitacion(resultado_registro.getString("nhabitacion"));
+            habitacion.setNumeroDePiso(resultado_registro.getInt("pisoid"));
+            TipoHabitacion tipoHabitacion = new TipoHabitacion();
+            tipoHabitacion.setDescripcion(resultado_registro.getString("descripcion"));
+            tipoHabitacion.setCosto(resultado_registro.getDouble("costo"));
+            habitacion.setTipoHabitacion(tipoHabitacion);
+            registroHabitacion.setCliente(cliente);
+            registroHabitacion.setHabitacion(habitacion);
+        }
+        resultado_registro.close();
+        return registroHabitacion;
     }
     public List<TipoHabitacion> listarTipoHabitaciones() throws SQLException{
          ArrayList<TipoHabitacion> registroHabitaciones = new ArrayList();
@@ -105,6 +144,7 @@ public class ReservaDAOPostgre {
        Map data = new HashMap();
          String ocupadas="";
         String disponibles="";
+        String costo="";
        if(tipoHabitacion==null){
               disponibles= "select count(*) as disponibles from habitacion h " +
                 "inner join tipo_habitacion t on h.tipohabitacionid=t.nhabitacion " +
@@ -112,6 +152,7 @@ public class ReservaDAOPostgre {
                ocupadas= "select count(*) as ocupadas from habitacion h " +
                 "inner join tipo_habitacion t on h.tipohabitacionid=t.nhabitacion " +
                 "where estado='OCUPADO'";
+               
        }else{
             disponibles= "select count(*) as disponibles from habitacion h " +
                 "inner join tipo_habitacion t on h.tipohabitacionid=t.nhabitacion " +
@@ -133,6 +174,16 @@ public class ReservaDAOPostgre {
          return data;
          //{totalAcumuladoCOsto=10,totalPersonas=20}
    }
+     public double costoTipoDeHabitacion(String tipoDeHabitacion) throws SQLException{
+         ResultSet resultado_tipo;
+         double costoHabitacion=0;
+         String sql="SELECT costo from tipo_habitacion where descripcion='"+tipoDeHabitacion+"'";
+         resultado_tipo = gestorJDBC.ejecutarConsulta(sql);
+         if(resultado_tipo.next()){
+             costoHabitacion = resultado_tipo.getDouble("costo");
+         }
+         return costoHabitacion;
+     }
      //
       /* 
        Author : Jose

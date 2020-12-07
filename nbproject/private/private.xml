@@ -3,17 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa2_aplicacion/ReporteHospedajeService.java</file>
-            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa1presentacion/frmMenu.java</file>
-            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/ReporteDAOPostgre.java</file>
-            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa3_dominio/entidades/RegistroDeHabitacion.java</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa2_aplicacion/ReporteHospedajeService.java</file>
-            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa1presentacion/frmMenu.java</file>
-            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/ReporteDAOPostgre.java</file>
-        </group>
-        <group>
             <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc/GestorJDBC.java</file>
             <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/reportes/reportCliente.jrxml</file>
             <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa2_aplicacion/ReporteHospedajeService.java</file>
@@ -227,6 +216,22 @@
             <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/com/proyectohotel/capa1_presentacion/util/Mensaje.java</file>
             <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/com/proyectohotel/capa3_dominio/entidades/TipoHabitacion.java</file>
             <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/com/proyectohotel/capa2_aplicacion/servicios/ReporteHospedajeServicio.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc/GestorJDBC.java</file>
+            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/GestorJDBCPostgre.java</file>
+            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/Config/DataSQL.sql</file>
+            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa1presentacion/FormDashboard.java</file>
+            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/Config/Consultas.sql</file>
+            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/ReservaDAOPostgre.java</file>
+            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/ReporteDAOPostgre.java</file>
+            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa2_aplicacion/servicios/RegistroHospedajeServicio.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa2_aplicacion/servicios/ReporteHospedajeServicio.java</file>
+            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa1presentacion/FormDashboard.java</file>
+            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa1_presentacion/util/JReport.java</file>
+            <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa2_aplicacion/servicios/RegistroHospedajeServicio.java</file>
         </group>
     </open-files>
 </project-private>

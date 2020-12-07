@@ -15,34 +15,29 @@ import java.lang.Math;
  * @author josel
  */
 public class RegistroDeHabitacion {
-    private String codigoReserva;
     private Date fechaIngreso;
     private Date fechaSalida;
     private Cliente cliente;
     private Habitacion habitacion;
+
+    @Override
+    public String toString() {
+        return "RegistroDeHabitacion{" + "fechaIngreso=" + fechaIngreso + ", cliente=" + cliente.getCodigocliente() + ", habitacion=" + habitacion.getNumeroHabitacion()
+                + '}';
+    }
     Calendar cal = Calendar.getInstance();
    public static final String ESTADO_DISPONIBLE = "DISPONIBLE";
     public static final String ESTADO_OCUPADO = "OCUPADO";
     //constructor solo con atributos de reserva , no tomo en cuenta las clases , definir si es necesario
-    public RegistroDeHabitacion(Date fechaIngreso,Date fechaSalida){
-        this.fechaIngreso=fechaIngreso;
-        this.fechaSalida=fechaSalida;
-    }
+ 
             
-    public RegistroDeHabitacion(String codigoReserva, Date fechaIngreso, Date fechaSalida, int dias, float pagoDeCliente, String codigoCliente) {
-        this.codigoReserva = codigoReserva;
-        this.fechaIngreso = fechaIngreso;
-        this.fechaSalida = fechaSalida;
+    
+    public RegistroDeHabitacion(Cliente cliente,Habitacion habitacion){
+        this.cliente=cliente;
+        this.habitacion=habitacion;
     }
      public RegistroDeHabitacion(){
         
-    }
-    public String getCodigoReserva() {
-        return codigoReserva;
-    }
-
-    public void setCodigoReserva(String codigoReserva) {
-        this.codigoReserva = codigoReserva;
     }
 
     public Date getFechaIngreso() {

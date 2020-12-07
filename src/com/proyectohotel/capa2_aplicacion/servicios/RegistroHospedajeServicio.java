@@ -44,11 +44,28 @@ public class RegistroHospedajeServicio {
     /* 
     Author :  Marco
     */
+    //buscar cliente
     public Cliente buscarCliente(String documentoIdentidad) throws Exception{
          gestorJDBC.abrirConexion();
          Cliente cliente = reservaDAO.buscarCliente(documentoIdentidad);
          gestorJDBC.cerrarConexion(); 
           return cliente;
+    }
+     //registrar habitacion
+    public int registrarHabitacion(RegistroDeHabitacion registroDeHabitacion) throws Exception{
+          gestorJDBC.abrirConexion();
+          registroDeHabitacion.registrarHabitacion();
+          int resultado_registro = reservaDAO.registrarHabitacionCliente(registroDeHabitacion);
+          gestorJDBC.cerrarConexion(); 
+          return resultado_registro;
+    }
+    
+    //mostrar detalle de habitacion
+     public RegistroDeHabitacion detalleReservaHabitacion(String codigoCliente) throws Exception{
+        gestorJDBC.abrirConexion();
+        RegistroDeHabitacion registroHabitacion = reservaDAO.readRegistroHabitacion(codigoCliente);
+        gestorJDBC.cerrarConexion(); 
+          return registroHabitacion;
     }
      /* 
      Author : Jose
@@ -62,11 +79,18 @@ public class RegistroHospedajeServicio {
      /* 
      Author : Jose
     */
+    //mostrar acumuladores de total de habitaciones disponibles y no disponibles
     public Map mostrarTotalDeHabitacionesDeEstado(String tipoHabitacion) throws Exception{
         gestorJDBC.abrirConexion();
         Map datos  = reservaDAO.mostrarTotalDeHabitacionesDeEstado(tipoHabitacion);
         gestorJDBC.cerrarConexion();
         return datos;
+    }
+    public double mostrarCostoHabitacion(String tipoHabitacion) throws Exception{
+        gestorJDBC.abrirConexion();
+        double costo = reservaDAO.costoTipoDeHabitacion(tipoHabitacion);
+         gestorJDBC.cerrarConexion();
+        return costo;
     }
      /* 
      Author : Jose
@@ -88,23 +112,6 @@ public class RegistroHospedajeServicio {
        int resultado = reservaDAO.actualizarEstadiaCliente(registroDeHabitacion, diasHospedados, totalPago);
              gestorJDBC.cerrarConexion();
           return resultado;
-    }
-     /* 
-     Author : Jose
-    */
-    public void boletaDeCierreEstadia(String documentoIdentidad) throws Exception{
-         gestorJDBC.abrirConexion();
-        String ruta2=variablesGlobales.path+"\\javasoftware\\src\\reportes\\finalizarEstadia.jrxml";
-        JasperDesign jdesign= JRXmlLoader.load(ruta2);
-        String query_boletaCliente=reservaDAO.cerrarEstadiaCliente(documentoIdentidad); //query
-        JRDesignQuery updaQuery_reporteCliente=new JRDesignQuery();
-        updaQuery_reporteCliente.setText(query_boletaCliente);
-        jdesign.setQuery(updaQuery_reporteCliente);
-        //
-        JasperReport jreport=JasperCompileManager.compileReport(jdesign);
-         JasperPrint jprint=JasperFillManager.fillReport(jreport,null,gestorJDBC.conexionReport());
-         JasperViewer.viewReport(jprint);
-         gestorJDBC.cerrarConexion();
     }
      /* 
      Author : Jose
