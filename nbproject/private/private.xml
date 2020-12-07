@@ -218,6 +218,21 @@
             <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/com/proyectohotel/capa2_aplicacion/servicios/ReporteHospedajeServicio.java</file>
         </group>
         <group>
+
+            <file>file:/C:/Users/JHONATAN/Desktop/trabajoIS/javasoftware/src/Config/variablesGlobales.java</file>
+            <file>file:/C:/Users/JHONATAN/Desktop/trabajoIS/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/ReporteDAOPostgre.java</file>
+            <file>file:/C:/Users/JHONATAN/Desktop/trabajoIS/javasoftware/src/com/proyectohotel/capa2_aplicacion/servicios/ReporteHospedajeServicio.java</file>
+            <file>file:/C:/Users/JHONATAN/Desktop/trabajoIS/javasoftware/src/com/proyectohotel/capa1_presentacion/reportes/ReportGraficodeEstadiaTerminadaPorAño.jrxml</file>
+            <file>file:/C:/Users/JHONATAN/Desktop/trabajoIS/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/GestorJDBCPostgre.java</file>
+            <file>file:/C:/Users/JHONATAN/Desktop/trabajoIS/javasoftware/src/com/proyectohotel/capa1presentacion/FormDashboard.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/JHONATAN/Desktop/trabajoIS/javasoftware/src/Config/variablesGlobales.java</file>
+            <file>file:/C:/Users/JHONATAN/Desktop/trabajoIS/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/ReporteDAOPostgre.java</file>
+            <file>file:/C:/Users/JHONATAN/Desktop/trabajoIS/javasoftware/src/com/proyectohotel/capa2_aplicacion/servicios/ReporteHospedajeServicio.java</file>
+            <file>file:/C:/Users/JHONATAN/Desktop/trabajoIS/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/GestorJDBCPostgre.java</file>
+            <file>file:/C:/Users/JHONATAN/Desktop/trabajoIS/javasoftware/src/com/proyectohotel/capa1presentacion/FormDashboard.java</file>
+
             <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc/GestorJDBC.java</file>
             <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/GestorJDBCPostgre.java</file>
             <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/Config/DataSQL.sql</file>
@@ -232,6 +247,7 @@
             <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa1presentacion/FormDashboard.java</file>
             <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa1_presentacion/util/JReport.java</file>
             <file>file:/C:/Users/USER/Desktop/nuevo/javasoftware/src/com/proyectohotel/capa2_aplicacion/servicios/RegistroHospedajeServicio.java</file>
+
         </group>
     </open-files>
 </project-private>

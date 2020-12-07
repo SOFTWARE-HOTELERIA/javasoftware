@@ -116,6 +116,26 @@ public class RegistroHospedajeServicio {
      /* 
      Author : Jose
     */
+
+    public void boletaDeCierreEstadia(String documentoIdentidad) throws Exception{
+         gestorJDBC.abrirConexion();
+        String ruta2=variablesGlobales.path+"\\javasoftware\\src\\com\\proyectohotel\\capa1_presentacion\\reportes\\finalizarEstadia.jrxml";
+        JasperDesign jdesign= JRXmlLoader.load(ruta2);
+        String query_boletaCliente=reservaDAO.cerrarEstadiaCliente(documentoIdentidad); //query
+        JRDesignQuery updaQuery_reporteCliente=new JRDesignQuery();
+        updaQuery_reporteCliente.setText(query_boletaCliente);
+        jdesign.setQuery(updaQuery_reporteCliente);
+        //
+        JasperReport jreport=JasperCompileManager.compileReport(jdesign);
+         JasperPrint jprint=JasperFillManager.fillReport(jreport,null,gestorJDBC.conexionReport());
+         JasperViewer.viewReport(jprint);
+         gestorJDBC.cerrarConexion();
+    }
+     /* 
+     Author : Jose
+    */
+
+
      public RegistroDeHabitacion listadoEstadiaCliente(int documentoIdentidad) throws Exception{
          gestorJDBC.abrirConexion();
          RegistroDeHabitacion registroHabitacion = reservaDAO.listadoDeEstadia(documentoIdentidad);

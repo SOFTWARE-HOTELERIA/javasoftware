@@ -30,8 +30,9 @@ public class ReporteDAOPostgre {
     //    public reporteCliente(String anyo){
     //        
     //    }
-     public RegistroDeHabitacion reporteHospedaje(){
-           return null;
+     public String reporteHospedaje(int anyoReporte){
+         String query_reporteHospedaje="select * from ReporteporAño where extract (year from fecha_salida)='"+anyoReporte+"'";
+           return query_reporteHospedaje;
        }
      
      public String reporteCliente(String Fecha1,String Fecha2){

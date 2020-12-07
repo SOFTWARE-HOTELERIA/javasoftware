@@ -50,7 +50,7 @@ public class ReporteHospedajeServicio {
        //path and sentence
         gestorJDBC.abrirConexion();
         String query_reporteCliente= reporteDAO.reporteCliente(Fecha1, Fecha2);
-        String ruta2=variablesGlobales.path+"\\javasoftware\\src\\reportes\\reportCliente.jrxml";
+        String ruta2=variablesGlobales.path+"\\javasoftware\\src\\com\\proyectohotel\\capa1_presentacion\\reportes\\reportCliente.jrxml";
         JasperDesign jdesign= JRXmlLoader.load(ruta2);
         JRDesignQuery updaQuery_reporteCliente=new JRDesignQuery();
         updaQuery_reporteCliente.setText(query_reporteCliente);
@@ -68,8 +68,20 @@ public class ReporteHospedajeServicio {
     /* 
          Author : Bruno
     */
-     public RegistroDeHabitacion reporteHospedaje(){
-           return null;
+     public void reporteHospedaje(int anyoReporte)throws Exception{
+             gestorJDBC.abrirConexion();
+        String query_reporteCliente= reporteDAO.reporteHospedaje(anyoReporte);
+        String ruta2=variablesGlobales.path+"\\javasoftware\\src\\com\\proyectohotel\\capa1_presentacion\\reportes\\ReportGraficodeEstadiaTerminadaPorAño.jrxml";
+        JasperDesign jdesign= JRXmlLoader.load(ruta2);
+        JRDesignQuery updaQuery_reporteCliente=new JRDesignQuery();
+        updaQuery_reporteCliente.setText(query_reporteCliente);
+        jdesign.setQuery(updaQuery_reporteCliente);
+        JasperReport jreport=JasperCompileManager.compileReport(jdesign);
+        HashMap hm=new HashMap();
+        hm.put("anyo",String.valueOf(anyoReporte));
+         JasperPrint jprint=JasperFillManager.fillReport(jreport,hm,gestorJDBC.conexionReport());
+         JasperViewer.viewReport(jprint);
+         gestorJDBC.cerrarConexion();
      }
     
 }
