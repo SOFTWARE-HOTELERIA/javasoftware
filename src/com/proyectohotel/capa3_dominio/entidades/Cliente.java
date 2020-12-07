@@ -25,7 +25,9 @@ public class Cliente {
         this.tipoDocumento = tipoDocumento;
     }
     public Cliente(){}
-
+    public Cliente(String codigocliente){
+        this.codigocliente=codigocliente;
+    }
     public String getApellido() {
         return apellido;
     }

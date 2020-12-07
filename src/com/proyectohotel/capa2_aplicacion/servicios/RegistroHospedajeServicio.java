@@ -44,11 +44,28 @@ public class RegistroHospedajeServicio {
     /* 
     Author :  Marco
     */
+    //buscar cliente
     public Cliente buscarCliente(String documentoIdentidad) throws Exception{
          gestorJDBC.abrirConexion();
          Cliente cliente = reservaDAO.buscarCliente(documentoIdentidad);
          gestorJDBC.cerrarConexion(); 
           return cliente;
+    }
+     //registrar habitacion
+    public int registrarHabitacion(RegistroDeHabitacion registroDeHabitacion) throws Exception{
+          gestorJDBC.abrirConexion();
+          registroDeHabitacion.registrarHabitacion();
+          int resultado_registro = reservaDAO.registrarHabitacionCliente(registroDeHabitacion);
+          gestorJDBC.cerrarConexion(); 
+          return resultado_registro;
+    }
+    
+    //mostrar detalle de habitacion
+     public RegistroDeHabitacion detalleReservaHabitacion(String codigoCliente) throws Exception{
+        gestorJDBC.abrirConexion();
+        RegistroDeHabitacion registroHabitacion = reservaDAO.readRegistroHabitacion(codigoCliente);
+        gestorJDBC.cerrarConexion(); 
+          return registroHabitacion;
     }
      /* 
      Author : Jose
@@ -62,11 +79,18 @@ public class RegistroHospedajeServicio {
      /* 
      Author : Jose
     */
+    //mostrar acumuladores de total de habitaciones disponibles y no disponibles
     public Map mostrarTotalDeHabitacionesDeEstado(String tipoHabitacion) throws Exception{
         gestorJDBC.abrirConexion();
         Map datos  = reservaDAO.mostrarTotalDeHabitacionesDeEstado(tipoHabitacion);
         gestorJDBC.cerrarConexion();
         return datos;
+    }
+    public double mostrarCostoHabitacion(String tipoHabitacion) throws Exception{
+        gestorJDBC.abrirConexion();
+        double costo = reservaDAO.costoTipoDeHabitacion(tipoHabitacion);
+         gestorJDBC.cerrarConexion();
+        return costo;
     }
      /* 
      Author : Jose
@@ -92,6 +116,7 @@ public class RegistroHospedajeServicio {
      /* 
      Author : Jose
     */
+
     public void boletaDeCierreEstadia(String documentoIdentidad) throws Exception{
          gestorJDBC.abrirConexion();
         String ruta2=variablesGlobales.path+"\\javasoftware\\src\\com\\proyectohotel\\capa1_presentacion\\reportes\\finalizarEstadia.jrxml";
@@ -109,6 +134,8 @@ public class RegistroHospedajeServicio {
      /* 
      Author : Jose
     */
+
+
      public RegistroDeHabitacion listadoEstadiaCliente(int documentoIdentidad) throws Exception{
          gestorJDBC.abrirConexion();
          RegistroDeHabitacion registroHabitacion = reservaDAO.listadoDeEstadia(documentoIdentidad);
