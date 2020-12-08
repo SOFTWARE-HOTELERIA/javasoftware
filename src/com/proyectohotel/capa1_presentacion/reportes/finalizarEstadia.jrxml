@@ -2,10 +2,12 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="542" orientation="Landscape" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f7d1ae5f-918e-4580-b9d1-9f76963504a1">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="26"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="numeroReserva" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select dias,fecha_entrada,fecha_salida,costo,costo_final,descripcion,nombre,apellido,pisoId,numeroidentidad from estadiafinalizada;]]>
+		<![CDATA[select numeroreserva,dias,fecha_entrada,fecha_salida,costo,costo_final,descripcion,nombre,apellido,pisoId,numeroidentidad from estadiafinalizada where numeroreserva=$P{numeroReserva};]]>
 	</queryString>
+	<field name="numeroreserva" class="java.lang.String"/>
 	<field name="dias" class="java.lang.Integer"/>
 	<field name="fecha_entrada" class="java.sql.Date"/>
 	<field name="fecha_salida" class="java.sql.Date"/>
@@ -22,12 +24,16 @@
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="199" y="24" width="209" height="29" forecolor="#3333FF" uuid="036108c1-9750-4739-81ed-8c905b293f42"/>
+				<reportElement x="131" y="16" width="209" height="29" forecolor="#3333FF" uuid="036108c1-9750-4739-81ed-8c905b293f42"/>
 				<textElement textAlignment="Center">
 					<font size="20"/>
 				</textElement>
 				<text><![CDATA[ROYAL HOTEL]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="354" y="25" width="100" height="20" uuid="21c65f17-f49e-426b-9899-aaaa576e16db"/>
+				<textFieldExpression><![CDATA[$P{numeroReserva}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>
@@ -63,7 +69,7 @@
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="76" splitType="Stretch">
+		<band height="149" splitType="Stretch">
 			<staticText>
 				<reportElement x="15" y="14" width="157" height="20" uuid="4bce564f-21b3-493e-96dd-2a075ffe400d"/>
 				<textElement>
@@ -92,67 +98,63 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{numeroidentidad}]]></textFieldExpression>
 			</textField>
-		</band>
-	</columnHeader>
-	<detail>
-		<band height="79" splitType="Stretch">
-			<textField>
-				<reportElement x="437" y="10" width="100" height="20" uuid="4e70374d-707d-40b3-b25b-c479d2a0ee75"/>
+			<staticText>
+				<reportElement x="15" y="76" width="100" height="20" uuid="7a2ea30b-53bb-48bd-ad10-26fc8e66bd60"/>
 				<textElement>
-					<font fontName="Serif"/>
+					<font fontName="Segoe UI Light" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{dias}]]></textFieldExpression>
-			</textField>
+				<text><![CDATA[Tipo Habitacion:]]></text>
+			</staticText>
 			<textField>
-				<reportElement x="143" y="10" width="100" height="20" uuid="a3e38245-d5f7-4c0c-ad3f-cda1c25c3e9f"/>
+				<reportElement x="143" y="76" width="100" height="20" uuid="a3e38245-d5f7-4c0c-ad3f-cda1c25c3e9f"/>
 				<textElement>
 					<font fontName="Serif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="15" y="119" width="100" height="20" uuid="b56dd8d3-65de-4241-836a-bb00bc434ae4"/>
+				<textElement>
+					<font fontName="Segoe UI Light" size="11"/>
+				</textElement>
+				<text><![CDATA[Costo Habitacion:]]></text>
+			</staticText>
 			<textField>
-				<reportElement x="143" y="44" width="100" height="20" uuid="ae4dd364-3c67-4225-a12a-dec6ed18eb95"/>
+				<reportElement x="143" y="119" width="100" height="20" uuid="ae4dd364-3c67-4225-a12a-dec6ed18eb95"/>
 				<textElement>
 					<font fontName="Serif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{costo}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="15" y="10" width="100" height="20" uuid="7a2ea30b-53bb-48bd-ad10-26fc8e66bd60"/>
-				<textElement>
-					<font fontName="Segoe UI Light" size="11"/>
-				</textElement>
-				<text><![CDATA[Tipo Habitacion:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="15" y="44" width="100" height="20" uuid="b56dd8d3-65de-4241-836a-bb00bc434ae4"/>
-				<textElement>
-					<font fontName="Segoe UI Light" size="11"/>
-				</textElement>
-				<text><![CDATA[Costo Habitacion:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="284" y="10" width="100" height="20" uuid="a471986f-6328-40f5-82f3-93f110a7081b"/>
+				<reportElement x="299" y="76" width="100" height="20" uuid="a471986f-6328-40f5-82f3-93f110a7081b"/>
 				<textElement>
 					<font fontName="Segoe UI Light" size="11"/>
 				</textElement>
 				<text><![CDATA[Dias Hospedado:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="284" y="44" width="132" height="20" uuid="70e304a1-76f2-48a4-be44-4bb82750ce56"/>
+				<reportElement x="276" y="109" width="132" height="20" uuid="70e304a1-76f2-48a4-be44-4bb82750ce56"/>
 				<textElement>
 					<font fontName="Segoe UI Light" size="11"/>
 				</textElement>
 				<text><![CDATA[Numero de Piso Hospedado]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="437" y="44" width="100" height="20" uuid="6aeb6ae0-352d-4c9a-92f3-c13f39bf1cb2"/>
+				<reportElement x="437" y="109" width="100" height="20" uuid="6aeb6ae0-352d-4c9a-92f3-c13f39bf1cb2"/>
 				<textElement>
 					<font fontName="Serif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pisoid}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="416" y="76" width="100" height="20" uuid="0c6c2737-e1c8-4979-a105-30f76e18ec9a"/>
+				<textFieldExpression><![CDATA[$F{dias}]]></textFieldExpression>
+			</textField>
 		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch"/>
 	</detail>
 	<columnFooter>
 		<band height="56" splitType="Stretch">

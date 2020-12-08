@@ -5,17 +5,14 @@
  */
 package com.proyectohotel.capa2_aplicacion.servicios;
 
-import Config.variablesGlobales;
+import com.proyectohotel.capa1_presentacion.util.JReport;
+import com.proyectohotel.capa3_dominio.entidades.RegistroDeHabitacion;
 import com.proyectohotel.capa4_persistencia.JDBC.GestorJDBC;
+import com.proyectohotel.capa4_persistencia.jdbc_postgre.CierreDeEstadiaDAOPostgre;
+import com.proyectohotel.capa4_persistencia.jdbc_postgre.GestorJDBCPostgre;
 import com.proyectohotel.capa4_persistencia.jdbc_postgre.ReservaDAOPostgre;
-import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.design.JRDesignQuery;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import net.sf.jasperreports.view.JasperViewer;
+import java.util.HashMap;
+
 
 /**
  *
@@ -24,20 +21,36 @@ import net.sf.jasperreports.view.JasperViewer;
 public class CierreDeEstadiaServicio {
     GestorJDBC gestorJDBC;
     ReservaDAOPostgre reservaDAO;
-    
-    public void boletaDeCierreEstadia(String documentoIdentidad) throws Exception {
+    private JReport reporte;
+    CierreDeEstadiaDAOPostgre cierreDAO;
+      public CierreDeEstadiaServicio(){
+        gestorJDBC = new GestorJDBCPostgre();
+        cierreDAO = new CierreDeEstadiaDAOPostgre(gestorJDBC);
+    }
+    public void boletaDeCierreEstadia(String numeroReserva) throws Exception {
         gestorJDBC.abrirConexion();
-        String ruta2 = variablesGlobales.path + "\\javasoftware\\src\\reportes\\finalizarEstadia.jrxml";
-        JasperDesign jdesign = JRXmlLoader.load(ruta2);
-        String query_boletaCliente = reservaDAO.cerrarEstadiaCliente(documentoIdentidad); //query
-        JRDesignQuery updaQuery_reporteCliente = new JRDesignQuery();
-        updaQuery_reporteCliente.setText(query_boletaCliente);
-        jdesign.setQuery(updaQuery_reporteCliente);
-        //
-        JasperReport jreport = JasperCompileManager.compileReport(jdesign);
-        JasperPrint jprint = JasperFillManager.fillReport(jreport, null,gestorJDBC.conexionReport());
-        JasperViewer.viewReport(jprint);
+        String path_reporte = "\\javasoftware\\src\\com\\proyectohotel\\capa1_presentacion\\reportes\\finalizarEstadia.jrxml";
+         HashMap hm=new HashMap();
+        hm.put("numeroReserva",numeroReserva);
+        reporte = new JReport(path_reporte);
+         reporte.loadFile();
+         reporte.managerReportParameter(hm,gestorJDBC.conexionReport());
         gestorJDBC.cerrarConexion();
+    }
+     public RegistroDeHabitacion listadoEstadiaCliente(int documentoIdentidad) throws Exception{
+         gestorJDBC.abrirConexion();
+         RegistroDeHabitacion registroHabitacion = cierreDAO.listadoDeEstadia(documentoIdentidad);
+         gestorJDBC.cerrarConexion();
+        return registroHabitacion;
+    }
+      public int actualizarDatosEstadia(RegistroDeHabitacion registroDeHabitacion) throws Exception{
+         gestorJDBC.abrirConexion();
+          registroDeHabitacion.finalizarEstadia();
+          int diasHospedados = registroDeHabitacion.totalDeDiasHospedado();
+          double totalPago = registroDeHabitacion.calcularCostoFinal();
+           int resultado = cierreDAO.actualizarEstadiaCliente(registroDeHabitacion, diasHospedados, totalPago);
+           gestorJDBC.cerrarConexion();
+          return resultado;
     }
     
 }

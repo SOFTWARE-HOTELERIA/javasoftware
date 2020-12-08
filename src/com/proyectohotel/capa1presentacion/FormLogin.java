@@ -18,7 +18,7 @@ public class FormLogin extends javax.swing.JFrame {
      */
     public FormLogin() {
         initComponents();
-        
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -39,7 +39,7 @@ public class FormLogin extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        btnInicioSesion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,13 +88,13 @@ public class FormLogin extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(218, 165, 32));
 
-        jLabel6.setFont(new java.awt.Font("Dubai Light", 1, 30)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("LOG IN");
-        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnInicioSesion.setFont(new java.awt.Font("Dubai Light", 1, 30)); // NOI18N
+        btnInicioSesion.setForeground(new java.awt.Color(255, 255, 255));
+        btnInicioSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnInicioSesion.setText("LOG IN");
+        btnInicioSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel6MouseClicked(evt);
+                btnInicioSesionMouseClicked(evt);
             }
         });
 
@@ -102,11 +102,11 @@ public class FormLogin extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+            .addComponent(btnInicioSesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnInicioSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, 270, 50));
@@ -138,7 +138,7 @@ public class FormLogin extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,mensaje);
     }
     
-    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+    private void btnInicioSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInicioSesionMouseClicked
         // TODO add your handling code here:
         String user=txtUser.getText();
         String password=txtPassword.getText();
@@ -156,7 +156,7 @@ public class FormLogin extends javax.swing.JFrame {
         }else{
             mensaje("Datos Incorrectos");
         }
-    }//GEN-LAST:event_jLabel6MouseClicked
+    }//GEN-LAST:event_btnInicioSesionMouseClicked
 
     /**
      * @param args the command line arguments
@@ -197,12 +197,12 @@ public class FormLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnInicioSesion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField txtPassword;

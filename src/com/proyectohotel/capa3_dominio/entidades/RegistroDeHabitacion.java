@@ -8,13 +8,12 @@ package com.proyectohotel.capa3_dominio.entidades;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Calendar;
-import java.lang.Math;
-
 /**
  *
  * @author josel
  */
 public class RegistroDeHabitacion {
+    private String numeroReserva;
     private Date fechaIngreso;
     private Date fechaSalida;
     private Cliente cliente;
@@ -30,7 +29,14 @@ public class RegistroDeHabitacion {
     public static final String ESTADO_OCUPADO = "OCUPADO";
     //constructor solo con atributos de reserva , no tomo en cuenta las clases , definir si es necesario
  
-            
+        
+    public String getNumeroReserva() {
+        return numeroReserva;
+    }
+
+    public void setNumeroReserva(String numeroReserva) {
+        this.numeroReserva = numeroReserva;
+    }
     
     public RegistroDeHabitacion(Cliente cliente,Habitacion habitacion){
         this.cliente=cliente;
@@ -77,7 +83,11 @@ public class RegistroDeHabitacion {
 //     fechaIngreso.getDay()
      public int totalDeDiasHospedado(){
          //only work with dias , no trabaja meses ni años :/
-        return Math.abs(getDayNumberOld(getFechaIngreso()) - getDayNumberOld(getFechaSalida()));
+         int dias = Math.abs(obterDiaDeLaFecha(getFechaIngreso()) - obterDiaDeLaFecha(getFechaSalida()));
+         if(dias == 0){
+             return dias =1;
+         }
+         return dias;
      }
      public void registrarHabitacion(){
           setFechaIngreso(Date.valueOf(LocalDate.now()));
@@ -87,7 +97,7 @@ public class RegistroDeHabitacion {
         habitacion.setEstado(ESTADO_DISPONIBLE);
         setFechaSalida(Date.valueOf(LocalDate.now()));
      }
-     public static int getDayNumberOld(Date date) {
+     public static int obterDiaDeLaFecha(Date date) {
             Calendar cal = Calendar.getInstance();
             cal.setTime(date);
             return cal.get(Calendar.DAY_OF_MONTH);

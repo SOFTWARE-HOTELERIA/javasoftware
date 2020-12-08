@@ -8,13 +8,21 @@ public class Cliente {
       private String nombre;
       private String apellido;
       private String telefono;
-      private String tipoDocumento;
+      private TipoDocumento tipoDocumento;
       private String correo ;
       private String nacionalidad;
       private String numeroIdentidad;
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "codigocliente=" + codigocliente + ", nombre=" + nombre + ", apellido=" + apellido 
+                + ", telefono=" + telefono + ", tipoDocumento=" + tipoDocumento.getDocumentoId()
+                + ", correo=" + correo + ", nacionalidad=" + nacionalidad 
+                + ", numeroIdentidad=" + numeroIdentidad + '}';
+    }
     
 
-    public Cliente(String apellido, String codigocliente, String correo, String nacionalidad, String nombre, String numeroIdentidad, String telefono, String tipoDocumento) {
+    public Cliente(String apellido, String codigocliente, String correo, String nacionalidad, String nombre, String numeroIdentidad, String telefono, TipoDocumento tipoDocumento) {
         this.apellido = apellido;
         this.codigocliente = codigocliente;
         this.correo = correo;
@@ -84,12 +92,14 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public String getTipoDocumento() {
+    public TipoDocumento getTipoDocumento() {
         return tipoDocumento;
     }
 
-    public void setTipoDocumento(String tipoDocumento) {
+    public void setTipoDocumento(TipoDocumento tipoDocumento) {
         this.tipoDocumento = tipoDocumento;
     }
+
+
     
 }

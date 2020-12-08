@@ -5,10 +5,19 @@
 	<property name="ireport.y" value="0"/>
 	<parameter name="conteoCliente" class="java.lang.String"/>
 	<parameter name="sumaCostoTotal" class="java.lang.String"/>
-	<queryString language="SQL">
+	<parameter name="fechaEntrada" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaFinal" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
 		<![CDATA[select row_number() over(),cli.nombre,cli.apellido,cli.numeroidentidad,rh.fecha_entrada,rh.fecha_salida,rh.costo_final
                                         from clientes cli inner join reservahabitacion rh
-                                        on cli.clientecodigo = rh.clientecodigo]]>
+                                        on cli.clientecodigo = rh.clientecodigo
+ WHERE fecha_salida between $P{fechaEntrada} and $P{fechaFinal}
+                                       
+       ]]>
 	</queryString>
 	<field name="row_number" class="java.lang.Long"/>
 	<field name="nombre" class="java.lang.String"/>

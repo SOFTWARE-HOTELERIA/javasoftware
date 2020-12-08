@@ -6,23 +6,14 @@
 package com.proyectohotel.capa2_aplicacion.servicios;
 //import com.proyectohotel.capa3dominio
 
-import Config.variablesGlobales;
-import com.proyectohotel.capa3_dominio.entidades.RegistroDeHabitacion;
+import com.proyectohotel.capa1_presentacion.util.JReport;
 import com.proyectohotel.capa4_persistencia.JDBC.GestorJDBC;
 import com.proyectohotel.capa4_persistencia.jdbc_postgre.GestorJDBCPostgre;
 import com.proyectohotel.capa4_persistencia.jdbc_postgre.ReporteDAOPostgre;
-import com.proyectohotel.capa4_persistencia.jdbc_postgre.ReservaDAOPostgre;
+import java.util.Date;
 import java.util.HashMap;
-import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.design.JRDesignQuery;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import net.sf.jasperreports.view.JasperViewer;
-import java.util.Map;
-import net.sf.jasperreports.engine.JRException;
+
+
 
 /**
  *
@@ -33,11 +24,9 @@ public class ReporteHospedajeServicio {
     Author : Jose
     */
     GestorJDBC gestorJDBC;
-    ReservaDAOPostgre reservaDAO;
     ReporteDAOPostgre reporteDAO;
     public ReporteHospedajeServicio(){
         gestorJDBC = new GestorJDBCPostgre();
-        //reservaDAO = new ReservaDAOPostgre(gestorJDBC);
         reporteDAO=new ReporteDAOPostgre(gestorJDBC);
         
         
@@ -46,41 +35,32 @@ public class ReporteHospedajeServicio {
          Author : Jhonatan 
     */
     //falta funcion
-    public void reporteCliente(String Fecha1,String Fecha2)throws Exception{
-       //path and sentence
+    public void reporteCliente(Date fechaEntrada,Date fechaSalida)throws Exception{
         gestorJDBC.abrirConexion();
-        String query_reporteCliente= reporteDAO.reporteCliente(Fecha1, Fecha2);
-        String ruta2=variablesGlobales.path+"\\javasoftware\\src\\com\\proyectohotel\\capa1_presentacion\\reportes\\reportCliente.jrxml";
-        JasperDesign jdesign= JRXmlLoader.load(ruta2);
-        JRDesignQuery updaQuery_reporteCliente=new JRDesignQuery();
-        updaQuery_reporteCliente.setText(query_reporteCliente);
-        jdesign.setQuery(updaQuery_reporteCliente);
-        JasperReport jreport=JasperCompileManager.compileReport(jdesign);
+        String path_reporte="\\javasoftware\\src\\com\\proyectohotel\\capa1_presentacion\\reportes\\reportCliente.jrxml";
         HashMap hm=new HashMap();
-        int totalClientes= reporteDAO.reporteTotalClientes(Fecha1, Fecha2);
-        double SumaCostoTotal= reporteDAO.reporteSumaCostoTotal(Fecha1, Fecha2);
+        int totalClientes= reporteDAO.reporteTotalClientes(fechaEntrada, fechaSalida);
+        double SumaCostoTotal= reporteDAO.reporteSumaCostoTotal(fechaEntrada, fechaSalida);
         hm.put("conteoCliente", String.valueOf(totalClientes));
         hm.put("sumaCostoTotal",String.valueOf(SumaCostoTotal)); 
-         JasperPrint jprint=JasperFillManager.fillReport(jreport,hm,gestorJDBC.conexionReport());
-         JasperViewer.viewReport(jprint);
-         gestorJDBC.cerrarConexion();
+        hm.put("fechaEntrada",fechaEntrada);
+        hm.put("fechaFinal",fechaSalida);
+        JReport reporte = new JReport(path_reporte);
+        reporte.loadFile();
+        reporte.managerReportParameter(hm,gestorJDBC.conexionReport());
+        gestorJDBC.cerrarConexion();
     }
     /* 
          Author : Bruno
     */
      public void reporteHospedaje(int anyoReporte)throws Exception{
-             gestorJDBC.abrirConexion();
-        String query_reporteCliente= reporteDAO.reporteHospedaje(anyoReporte);
-        String ruta2=variablesGlobales.path+"\\javasoftware\\src\\com\\proyectohotel\\capa1_presentacion\\reportes\\ReportGraficodeEstadiaTerminadaPorAño.jrxml";
-        JasperDesign jdesign= JRXmlLoader.load(ruta2);
-        JRDesignQuery updaQuery_reporteCliente=new JRDesignQuery();
-        updaQuery_reporteCliente.setText(query_reporteCliente);
-        jdesign.setQuery(updaQuery_reporteCliente);
-        JasperReport jreport=JasperCompileManager.compileReport(jdesign);
+        gestorJDBC.abrirConexion();
+        String path_reporte="\\javasoftware\\src\\com\\proyectohotel\\capa1_presentacion\\reportes\\ReportGraficodeEstadiaTerminadaPorAño.jrxml";
         HashMap hm=new HashMap();
-        hm.put("anyo",String.valueOf(anyoReporte));
-         JasperPrint jprint=JasperFillManager.fillReport(jreport,hm,gestorJDBC.conexionReport());
-         JasperViewer.viewReport(jprint);
+        hm.put("anyo",anyoReporte);
+        JReport reporte = new JReport(path_reporte);
+        reporte.loadFile();
+        reporte.managerReportParameter(hm,gestorJDBC.conexionReport());
          gestorJDBC.cerrarConexion();
      }
     

@@ -7,8 +7,8 @@ package com.proyectohotel.capa4_persistencia.jdbc_postgre;
 import com.proyectohotel.capa3_dominio.entidades.Cliente;
 import com.proyectohotel.capa3_dominio.entidades.Habitacion;
 import com.proyectohotel.capa3_dominio.entidades.RegistroDeHabitacion;
+import com.proyectohotel.capa3_dominio.entidades.TipoDocumento;
 import com.proyectohotel.capa3_dominio.entidades.TipoHabitacion;
-
 import com.proyectohotel.capa4_persistencia.JDBC.GestorJDBC;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.sql.Date;
+
 /**
  *
  * @author josel
@@ -37,9 +37,10 @@ public class ReservaDAOPostgre {
          Cliente cliente = null;
         ResultSet resultado_cliente;
         String sentenciaSQL;
-        sentenciaSQL ="SELECT c.clientecodigo,c.nombre,c.apellido,c.telefono,td.descripcion,c.correo ,c.nacionalidad "
+        sentenciaSQL ="SELECT c.clientecodigo,c.nombre,c.apellido,c.telefono,td.descripcion,c.correo,c.nacionalidad "
                 + "FROM clientes c left JOIN tipo_documento td on c.documentoId =td.documentoId "
                 + "where c.numeroIdentidad = '" + documentoIdentidad+"'";
+        System.out.println(cliente);
         resultado_cliente =gestorJDBC.ejecutarConsulta(sentenciaSQL);
         if(resultado_cliente.next()){
         cliente = new Cliente();
@@ -47,20 +48,38 @@ public class ReservaDAOPostgre {
         cliente.setNombre(resultado_cliente.getString("nombre"));
         cliente.setApellido(resultado_cliente.getString("apellido"));
         cliente.setTelefono(resultado_cliente.getString("telefono"));
-        cliente.setTipoDocumento(resultado_cliente.getString("Descripcion"));
+        TipoDocumento tipoDocumento = new TipoDocumento();
+        tipoDocumento.setDescripcion(resultado_cliente.getString("descripcion"));
         cliente.setCorreo(resultado_cliente.getString("correo"));
         cliente.setNacionalidad(resultado_cliente.getString("nacionalidad"));
-         }
+         cliente.setTipoDocumento(tipoDocumento);
+     }
         resultado_cliente.close();
         return cliente;
     }
+    //tomar el codigo anterior de los registros
+    public String obtenerCodigoAnterior() throws SQLException{
+    String codigoReal=null;
+    String sql="select max(numeroreserva) as codigo from reservahabitacion";
+    ResultSet resultado_verificar= gestorJDBC.ejecutarConsulta(sql);
+    if(resultado_verificar.next()){
+      String codigo=resultado_verificar.getString("codigo");
+      long id=Long.parseLong(codigo.substring(3,codigo.length()));
+      id++;
+      codigoReal = "TZ-"+id; //TZ-2
+    }
+    return codigoReal;
+}
+    
     //REGISTRAR RESERVHABITACION
     public int registrarHabitacionCliente(RegistroDeHabitacion registroHabitacion) throws SQLException{
-       String sql="insert into reservahabitacion(clientecodigo,habitacionnum,fecha_entrada) values(?,?,?)";
+       String sql="insert into reservahabitacion(numeroreserva,clientecodigo,habitacionnum,fecha_entrada) "
+               + "values(?,?,?,?)";
        PreparedStatement prestatement_registro=gestorJDBC.prepararSentencia(sql);
-       prestatement_registro.setString(1,registroHabitacion.getCliente().getCodigocliente());
-       prestatement_registro.setString(2,registroHabitacion.getHabitacion().getNumeroHabitacion());
-       prestatement_registro.setDate(3,registroHabitacion.getFechaIngreso());
+         prestatement_registro.setString(1,registroHabitacion.getNumeroReserva());
+       prestatement_registro.setString(2,registroHabitacion.getCliente().getCodigocliente());
+       prestatement_registro.setString(3,registroHabitacion.getHabitacion().getNumeroHabitacion());
+       prestatement_registro.setDate(4,registroHabitacion.getFechaIngreso());
        int resultado=prestatement_registro.executeUpdate();
        if(resultado == 1){
            actualizarEstadoHabitacion(registroHabitacion.getHabitacion());
@@ -184,36 +203,6 @@ public class ReservaDAOPostgre {
          }
          return costoHabitacion;
      }
-     //
-      /* 
-       Author : Jose
-    */
-     public int actualizarEstadiaCliente(RegistroDeHabitacion registroHabitacion,int dias,double costo_final) throws SQLException{ 
-         String sql="update reservahabitacion set costo_final=?,dias=?,fecha_salida=? where clientecodigo=?";
-         PreparedStatement sentencia = gestorJDBC.prepararSentencia(sql);
-         sentencia.setDouble(1,costo_final);
-         sentencia.setInt(2,dias);
-         sentencia.setDate(3,registroHabitacion.getFechaSalida());
-         sentencia.setString(4,registroHabitacion.getCliente().getCodigocliente());
-         int resultado = sentencia.executeUpdate();
-         if(resultado == 1){
-             actualizarEstadoHabitacion(registroHabitacion.getHabitacion());
-         }
-         return resultado;
-    }
-       /* 
-       Author por :Jose
-    */
-      public String cerrarEstadiaCliente(String documentoIdentidad) throws SQLException{
-          String sql="select dias,fecha_entrada,fecha_salida,"
-                  + "costo,costo_final,descripcion,nombre,apellido,pisoId,numeroidentidad "
-                  + "from estadiafinalizada where numeroidentidad='"+documentoIdentidad+"'";
-          return sql;
-      }
-     
-      /* 
-       Author por :Jose
-    */
      public int actualizarEstadoHabitacion(Habitacion habitacion) throws SQLException{
          String sql="UPDATE HABITACION SET estado=? WHERE nhabitacion=?";
          PreparedStatement prestatement = gestorJDBC.prepararSentencia(sql);
@@ -222,39 +211,5 @@ public class ReservaDAOPostgre {
           return prestatement.executeUpdate();
      }
 
-     
-     
-    public RegistroDeHabitacion listadoDeEstadia(int documentoIdentidad) throws SQLException{
-        RegistroDeHabitacion registroHabitacion=null; 
-        ResultSet resultado_habitaciones;
-        String sentenciaEstadia="select * from estadiaFinalizada where numeroIdentidad='"+documentoIdentidad+"'";
-        resultado_habitaciones = gestorJDBC.ejecutarConsulta(sentenciaEstadia);
-          while(resultado_habitaciones.next()){
-              TipoHabitacion tipoHabitacion = new TipoHabitacion();
-              tipoHabitacion.setDescripcion(resultado_habitaciones.getString("descripcion"));
-              tipoHabitacion.setCosto(resultado_habitaciones.getDouble("costo"));
-              Habitacion habitacion = new Habitacion();
-              habitacion.setNumeroHabitacion(resultado_habitaciones.getString("nhabitacion"));
-              habitacion.setNumeroDePiso(resultado_habitaciones.getInt("pisoid")); 
-              habitacion.setNumeroHabitacion(resultado_habitaciones.getString("nhabitacion"));
-              habitacion.setTipoHabitacion(tipoHabitacion);
-              Cliente cliente = new Cliente();
-              cliente.setCodigocliente(resultado_habitaciones.getString("clientecodigo"));
-              cliente.setNombre(resultado_habitaciones.getString("nombre"));
-              cliente.setApellido(resultado_habitaciones.getString("apellido"));
-              cliente.setNumeroIdentidad(resultado_habitaciones.getString("numeroidentidad"));
-              registroHabitacion= new RegistroDeHabitacion();
-              registroHabitacion.setFechaIngreso(resultado_habitaciones.getDate("fecha_entrada"));
-              registroHabitacion.setCliente(cliente);
-              registroHabitacion.setHabitacion(habitacion);
-          }
-         resultado_habitaciones.close();
-        return registroHabitacion;
-    }
-    /* 
-       Author : Guillermo 
-    */
-    public int registrarHabitacion(RegistroDeHabitacion reservaHabitacion){
-        return 0;
-    }
+  
 }

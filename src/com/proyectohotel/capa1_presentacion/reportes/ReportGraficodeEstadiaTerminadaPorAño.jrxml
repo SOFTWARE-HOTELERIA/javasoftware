@@ -3,9 +3,11 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="anyo" class="java.lang.String"/>
+	<parameter name="anyo" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
-		<![CDATA[select * from ReporteporAño;]]>
+		<![CDATA[select * from reporteanyo where extract (year from fecha_salida)=$P{anyo};]]>
 	</queryString>
 	<field name="hospedados" class="java.lang.Long"/>
 	<field name="mestexto" class="java.lang.String"/>
