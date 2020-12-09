@@ -68,8 +68,8 @@ INSERT INTO clientes values('PO06','Richard','Jimenez','richard@gmail.com','9965
 INSERT INTO clientes values('PO07','Marina','Perez','marina@gmail.com','986312','2','013486','PERU');
 INSERT INTO clientes values('PO08','Daniel','Castro','Daniel@gmail.com','985482','2','751426','PERU');
 INSERT INTO clientes values('PO09','Peter','Hale','Peter@gmail.com','994214','2','953458','PERU');
-INSERT INTO clientes values('PO010','Lydia','Garcia','lydia@gmail.com','458624','2','421685','PERU');
-INSERT INTO clientes values('PO011','Stiles','Ramirez','Stiles@gmail.com','789541','2','631586','PERU');
+INSERT INTO clientes values('PO10','Lydia','Garcia','lydia@gmail.com','458624','2','421685','PERU');
+INSERT INTO clientes values('PO11','Stiles','Ramirez','Stiles@gmail.com','789541','2','631586','PERU');
 
 --insert into habitacion
  insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A001','DISPONIBLE',1,1);
@@ -78,17 +78,25 @@ insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A003
  insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A004','DISPONIBLE',2,2);
 insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A005','DISPONIBLE',4,3);
 insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A006','DISPONIBLE',3,2);
-insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A007','DISPONIBLE',1,4);
+insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A007','DISPONIBLE',1,1);
+insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A008','DISPONIBLE',3,4);
+insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A009','DISPONIBLE',2,4);
+insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A0010','DISPONIBLE',3,3);
+insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A0011','DISPONIBLE',3,4);
+insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A0012','DISPONIBLE',2,4);
+insert into habitacion(nhabitacion,estado,tipoHabitacionId,nivelId) values('A0013','DISPONIBLE',1,2);
 
-insert into reservahabitacion values ('PO01','A001','2020-10-26','2020-10-31',5,400);
-insert into reservahabitacion values ('PO02','A002','2020-10-22','2020-10-31',9,560);	
-insert into reservahabitacion values ('PO03','A003','2020-10-29','2020-10-30',1,400);
 
-insert into reservahabitacion values ('PO12','A010','2020-10-29','2020-10-30',1,30)
-insert into reservahabitacion values ('PO13','A012','2020-11-15','2020-11-17',2,110)
-insert into reservahabitacion values ('PO14','A010','2020-11-22','2020-11-25',3,90)
-insert into reservahabitacion values ('PO15','A012','2020-11-26','2020-11-29',3,165)
-insert into reservahabitacion values ('PO16','A012','2020-11-30','2020-12-04',5,275)
+insert into reservahabitacion values ('TZ-01','PO01','A001','2020-10-26','2020-10-31',5,400);
+insert into reservahabitacion values ('TZ-02','PO02','A002','2020-10-22','2020-10-31',9,560);	
+insert into reservahabitacion values ('TZ-03','PO03','A003','2020-10-29','2020-10-30',1,400);
+insert into reservahabitacion values ('TZ-04','PO04','A004','2020-10-29','2020-10-30',1,30);
+insert into reservahabitacion values ('TZ-05','PO05','A002','2020-11-15','2020-11-17',2,110);
+insert into reservahabitacion values ('TZ-06','PO06','A004','2020-11-22','2020-11-25',3,90);
+insert into reservahabitacion values ('TZ-07','PO07','A008','2020-11-26','2020-11-29',3,165);
+insert into reservahabitacion values ('TZ-08','PO08','A007','2020-11-30','2020-12-04',5,275);
+insert into reservahabitacion values ('TZ-09','PO09','A006','2020-11-30','2020-12-04',5,275);
+insert into reservahabitacion values ('TZ-10','PO06','A005','2020-11-30','2020-12-04',5,275);
 ---
 
 --insert into  tiphoabitacion

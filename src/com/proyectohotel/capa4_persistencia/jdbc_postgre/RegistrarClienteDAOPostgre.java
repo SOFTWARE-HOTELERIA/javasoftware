@@ -58,7 +58,7 @@ public String obtenerCodigoAnterior() throws SQLException{
       String codigo=resultado_verificar.getString("codigo");
       long id=Long.parseLong(codigo.substring(3,codigo.length()));
       id++;
-      codigoReal = "PO0"+id; //PO7
+      codigoReal = "PO"+id; //PO7
     }
     return codigoReal;
 }

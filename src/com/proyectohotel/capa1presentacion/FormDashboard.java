@@ -1662,18 +1662,17 @@ public int validarNumeroIdentidad(String numeroIdentidad){
         if(validarNumeroIdentidad(numeroIdentidad) == 1){
                 Mensaje.mostrarAdvertencia(null, "el numero de identidad existe");
         }else{
-            Mensaje.mostrarAdvertencia(null, "dale");
             try {
                 RegistroClienteServicio registroCliente=new RegistroClienteServicio();
                 int registro=registroCliente.registrarCliente(cliente);
                 if(registro==1){
-                    Mensaje.mostrarAfirmacion(null,"yee");
+                    Mensaje.mostrarAfirmacion(null,"Resgistrado correctamente");
                     limpiarRegistroCliente();
                 }else{
                      Mensaje.mostrarError(null,"problema al registrar");
                 }
             } catch (Exception e) {
-                 Mensaje.mostrarError(null,"ERROR " + e);
+                 Mensaje.mostrarError(null,"Llene todos los campos correctamente");
             }
 //        }
         }
