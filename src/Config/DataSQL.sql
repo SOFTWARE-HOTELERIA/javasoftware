@@ -97,6 +97,10 @@ insert into reservahabitacion values ('TZ-07','PO07','A008','2020-11-26','2020-1
 insert into reservahabitacion values ('TZ-08','PO08','A007','2020-11-30','2020-12-04',5,275);
 insert into reservahabitacion values ('TZ-09','PO09','A006','2020-11-30','2020-12-04',5,275);
 insert into reservahabitacion values ('TZ-10','PO06','A005','2020-11-30','2020-12-04',5,275);
+insert into reservahabitacion values ('TZ-12','PO07','A008','2020-11-26',null,null,null);
+insert into reservahabitacion values ('TZ-13','PO05','A007','2020-11-24',null,null,null);
+insert into reservahabitacion values ('TZ-14','PO03','A006','2020-11-14',null,null,null);
+insert into reservahabitacion values ('TZ-15','PO02','A005','2020-11-14',null,null,null);
 ---
 
 --insert into  tiphoabitacion

@@ -9,19 +9,6 @@
             <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/Config/Consultas.sql</file>
             <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/ReservaDAOPostgre.java</file>
             <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/Config/DataSQL.sql</file>
-            <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/com/proyectohotel/capa2_aplicacion/ReporteHospedajeService.java</file>
-            <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/GestorJDBCPostgre.java</file>
-            <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/com/proyectohotel/capa1presentacion/frmMenu.java</file>
-            <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/com/proyectohotel/capa3_dominio/entidades/TipoHabitacion.java</file>
-            <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/ReporteDAOPostgre.java</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/Config/variablesGlobales.java</file>
-            <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/Config/Color.java</file>
-            <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/com/proyectohotel/capa3_dominio/entidades/RegistroDeHabitacion.java</file>
-            <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/Config/Consultas.sql</file>
-            <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/ReservaDAOPostgre.java</file>
-            <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/Config/DataSQL.sql</file>
             <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/com/proyectohotel/capa2_aplicacion/RegistroHospedajeService.java</file>
             <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/com/proyectohotel/capa2_aplicacion/ReporteHospedajeService.java</file>
             <file>file:/C:/Users/josel/Desktop/aislado/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/GestorJDBCPostgre.java</file>
@@ -252,5 +239,8 @@
             <file>file:/C:/Users/USER/Desktop/practica/javasoftware/src/com/proyectohotel/capa4_persistencia/jdbc_postgre/ReservaDAOPostgre.java</file>
         </group>
         <group/>
+        <group>
+            <file>file:/C:/Users/USER/Desktop/practica/javasoftware/src/com/proyectohotel/capa1presentacion/frmPrincipal.java</file>
+        </group>
     </open-files>
 </project-private>
