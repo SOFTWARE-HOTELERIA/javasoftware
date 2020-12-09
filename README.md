@@ -7,6 +7,9 @@
 
 Para instalar el proyecto , clone el repositorio
 
+# Base de datos del Proyecto ubicacion:
+==> Config/DATASQL.sql
+
 # good practices : 
 https://www.codejava.net/coding/10-java-core-best-practices-every-java-programmer-should-know
 
